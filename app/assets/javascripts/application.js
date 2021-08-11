@@ -14,3 +14,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+// 追記
+//= require jquery_ujs
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
