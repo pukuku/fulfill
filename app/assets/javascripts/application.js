@@ -13,7 +13,6 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
 
 
 // 追記
@@ -21,3 +20,4 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require_tree .

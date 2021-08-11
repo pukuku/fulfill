@@ -12,17 +12,17 @@
   <div class="row">
     <div class="col-8 mx-auto">
       <h2>ヘルプ</h2>
-        <ul class="accordion-area">
-          <% @helps.each do |help| %>
-            <li>
-              <section>
-                <h3 class="title"><%= help.title %></h3>
-                <div class="box">
-                  <p><%= help.body %></p>
-                </div>
-              </section>
-           </li>
-         <% end %>
-       </ul>
-    </div>
+      <ul class="accordion-area">
+        <% @helps.each do |help| %>
+          <li>
+            <section>
+              <h3 class="title"><%= help.title %></h3>
+              <div class="box">
+                <p><%= help.body %></p>
+              </div>
+            </section>
+         </li>
+       <% end %>
+     </ul>
   </div>
+</div>
