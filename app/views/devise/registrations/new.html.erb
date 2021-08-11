@@ -1,0 +1,66 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-xs-6 mx-auto"><h4>Sign Up</h4></div>
+  </div>
+
+  <!--< form_with model: @customer, url: customer_registration_path, class:"contact-form", local: true do |f| %>-->
+  <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+
+    <div class="row mt-5 d-flex justify-content-center">
+      <div class="form-field col- col-lg-3">
+        <%= f.label :アイコン %>
+        <%= f.attachment_field :user_image, autofocus: true %>
+      </div>
+    </div>
+
+    <div class="row mt-3 d-flex justify-content-center">
+      <div class="form-field col-7 col-lg-3">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+    </div>
+
+    <div class="row mt-3 d-flex justify-content-center">
+      <div class="form-field col-7 col-lg-3">
+    <%= f.label :email %><br>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+    </div>
+
+    <div class="row mt-3 d-flex justify-content-center">
+      <div class="form-field col-7 col-lg-3">
+        <%= f.label :password, "パスワード(6文字以上)", class:"label" %>
+        <%= f.password_field :password, autocomplete: "new-password", class:"input-text form-js-input" %>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="form-field col-7 col-lg-3">
+        <%= f.label :password_confirmation, "パスワード(確認用)", class:"label" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input-text form-js-input" %>
+      </div>
+    </div>
+
+
+
+
+    <div class="row mt-5 mb-5 form-field">
+      <%= f.submit "Signup", class:"col-3 mx-auto col-lg-2 submit-btn" %>
+    </div>
+
+
+<% end %>
+
+
+  <div class="row mt-3">
+    <div class="col-xs-6 mx-auto"><h4>＜ 既に登録済みの方 ＞</h4></div>
+  </div>
+
+  <div class="row mt-2 mb-5">
+    <div class="col-12 text-center"><%= render "devise/shared/links" %></div>
+  </div>
+
+
+</div>
