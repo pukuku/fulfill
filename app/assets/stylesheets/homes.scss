@@ -1,3 +1,16 @@
-// Place all the styles related to the homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.home-content{
+  text-align: center;
+  margin-top: 10%;
+}
+
+.home-content p {
+  font-size: 1.125rem;
+  margin: 10px 0 42px;
+}
+
+.page-title{
+  font-size: 5rem;
+  font-family: 'Philosopher', selif;
+  text-transform: uppercase;
+  font-weight: normal;
+}

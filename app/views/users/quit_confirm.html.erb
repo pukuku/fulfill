@@ -1,2 +1,18 @@
-<h1>Users#quit_confirm</h1>
-<p>Find me in app/views/users/quit_confirm.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-6 text-center font-weight-bold message_underline">本当に削除しますか？</div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col text-center">
+      削除されたアカウントは復元できません。</br>
+      登録した目標やタスクも削除されます。</br>
+      削除する場合は、「アカウントを削除」をクリックしてください。
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center mt-5 mb-5">
+    <%= link_to "利用を続ける", goals_path, class:"btn-flat-primary mr-5" %>
+    <%= link_to "アカウントを削除", quit_users_path, method: :PATCH, class:"ml- btn-flat-danger" %>
+  </div>
+</div>

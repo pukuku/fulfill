@@ -1,2 +1,15 @@
-<h1>Goals#index</h1>
-<p>Find me in app/views/goals/index.html.erb</p>
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-12">
+      <%= link_to "", helps_path,class:"far fa-question-circle d-flex justify-content-end" %>
+    </div>
+  </div>
+  <div class="row">
+　  <!--ユーザー情報-->
+    <div class="col-6">
+      <%= attachment_image_tag @user, :user_image, :fill, 60, 60, format:"jpeg", fallback:"no_image.jpeg" %>
+      <%= @user.name %>
+      <%= link_to "", edit_user_registration_path,class:"fas fa-cogs" %>
+    </div>
+  </div>
+</div>
