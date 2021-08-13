@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get 'init', on: :collection
     post 'init_create', on: :collection
     resources :shares, only:[:new,:create]
-    resources :tasks, only:[:create] do
+    resources :tasks, only:[:new,:create] do
     # resources :tasks, only:[:create,:update] do
       post 'copy', on: :collection
     end
@@ -20,8 +20,8 @@ Rails.application.routes.draw do
       get 'complete', on: :collection
     end
   end
-  resources :shares, except:[:new,:create]
   resources :tasks, only:[:edit, :update]
+  resources :shares, except:[:new,:create]
   resources :task_works, only:[:update]
   resources :clips, only:[:create,:destroy]
   resources :helps, only:[:index]

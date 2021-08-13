@@ -19,6 +19,45 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+// リセットCSS
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// リストに・はつけない
+ul{
+  list-style:none;
+}
+
+// リンクのデザイン
+// リンクの下線をアニメーションする
+.link_animation{
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  color: #000000;
+  text-decoration: none;
+  &:hover{
+    color: #000000;
+    text-decoration: none;
+  }
+  &:after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+    transform: translate(-100%, 0);
+    transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s;
+    content: "";
+  }
+  &:hover:after{
+    transform: translate(0, 0);
+  }
+}
 
 // メッセージ
 .flash{
@@ -150,4 +189,3 @@
     cursor: pointer;
   }
 }
-

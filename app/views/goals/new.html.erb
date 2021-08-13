@@ -1,2 +1,18 @@
-<h1>Goals#new</h1>
-<p>Find me in app/views/goals/new.html.erb</p>
+<div class="container">
+
+
+<%= form_with model: @goal, local: true do |f| %>
+  <%= render "layouts/errors", obj: @goal %>
+
+    <div class="row mt-5">
+      <div class="col-6 mx-auto col-lg-5 form-field">
+        <%= f.text_field :content, size:"60" %>
+      </div>
+    </div>
+
+    <div class="row mt-5 mb-5">
+      <div class="col-2 mx-auto"><%= f.submit '新規登録', class:"btn-flat-success"%></div>
+    </div>
+
+<% end %>
+</div>

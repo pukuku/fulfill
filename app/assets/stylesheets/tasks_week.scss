@@ -1,0 +1,164 @@
+.week_tab{
+  display: flex;
+  flex-wrap: wrap;
+}
+.week_tab li a{
+  display: block;
+  background:#f5f5f5;
+  margin: 0 1px;
+  padding: 10px 20px;
+  border: solid #dcdcdc;
+  border-width: 2px 2px 0px 2px;
+}
+/*liにactiveクラスがついた時の形状*/
+.week_tab li.active .sun{
+  background:#ffeaff;
+  border: solid #ffd6ff;
+  border-width: 2px 2px 0px 2px;
+}
+
+.week_tab li.active .mon{
+  background:#fff8dc;
+  border: solid #eee8aa;
+  border-width: 2px 2px 0px 2px;
+}
+
+.week_tab li.active .tue{
+  background:#ffeaea;
+  border: solid #ffd6d6;
+  border-width: 2px 2px 0px 2px;
+}
+
+.week_tab li.active .wed{
+  background:#efffff;
+  border: solid #b7ffff;
+  border-width: 2px 2px 0px 2px;
+}
+
+.week_tab li.active .thu{
+  background:#eaffea;
+  border: solid #c6ffc6;
+  border-width: 2px 2px 0px 2px;
+}
+
+.week_tab li.active .fri{
+  background:#ffffdb;
+  border: solid #ffff9e;
+  border-width: 2px 2px 0px 2px;
+}
+
+.week_tab li.active .sat{
+  background:#ffead6;
+  border: solid #ffddbc;
+  border-width: 2px 2px 0px 2px;
+}
+
+
+/*エリアの表示非表示と形状*/
+.area {
+  display: none;/*はじめは非表示*/
+  opacity: 0;/*透過0*/
+  background: #fff;
+  // padding:50px 20px;
+}
+
+/*areaにis-activeというクラスがついた時の形状*/
+.area.is-active {
+    display: block;/*表示*/
+    animation-name: displayAnime;/*ふわっと表示させるためのアニメーション*/
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.area ul .sun {
+  width: 90%;
+  background:#ffeaff;
+  border: solid #ffd6ff;
+  border-width: 0px 2px 0px 2px;
+}
+
+.area ul .sun:last-child {
+  border-width: 0px 2px 2px 2px;
+}
+
+.area ul .mon {
+  width: 90%;
+  background:#fff8dc;
+  border: solid #eee8aa;
+  border-width: 0px 2px 0px 2px;
+}
+
+.area ul .mon:last-child {
+  border-width: 0px 2px 2px 2px;
+}
+
+.area ul .tue {
+  width: 90%;
+  background:#ffeaea;
+  border: solid #ffd6d6;
+  border-width: 0px 2px 0px 2px;
+}
+
+.area ul .tue:last-child {
+  border-width: 0px 2px 2px 2px;
+}
+
+.area ul .wed {
+  width: 90%;
+  background:#efffff;
+  border: solid #b7ffff;
+  border-width: 0px 2px 0px 2px;
+}
+
+.area ul .wed:last-child {
+  border-width: 0px 2px 2px 2px;
+}
+
+.area ul .thu {
+  width: 90%;
+  background:#eaffea;
+  border: solid #c6ffc6;
+  border-width: 0px 2px 0px 2px;
+}
+
+.area ul .thu:last-child {
+  border-width: 0px 2px 2px 2px;
+}
+
+.area ul .fri {
+  width: 90%;
+  background:#ffffdb;
+  border: solid #ffff9e;
+  border-width: 0px 2px 0px 2px;
+}
+
+.area ul .fri:last-child {
+  border-width: 0px 2px 2px 2px;
+}
+
+.area ul .sat {
+  width: 90%;
+  background:#ffead6;
+  border: solid #ffddbc;
+  border-width: 0px 2px 0px 2px;
+}
+
+.area ul .sat:last-child {
+  border-width: 0px 2px 2px 2px;
+}
+
+@keyframes displayAnime{
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+

@@ -11,5 +11,53 @@
       <%= @user.name %>
       <%= link_to "", edit_user_registration_path,class:"fas fa-cogs" %>
     </div>
+
+    <!--クリップした目標-->
+    <div class="col-5">
+      <h4>クリップした目標</h4>
+    </div>
+    <div class="col-5">
+      <table>
+        <% @clips.each do |clip| %>
+          <tr>
+            <td><%= link_to clip.share.goal.content, share_path(clip.share_id) %></td>
+          </tr>
+        <% end %>
+      </table>
+      <%= paginate @clips %>
+    </div>
   </div>
+
+
+  <!--自分が設定した目標-->
+  <div class="row mt-5">
+    <div class="col-6">
+      <h4>目標 <%= link_to "", new_goal_path, class: 'fas fa-plus-circle' %></h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <table>
+        <% @goals.each do |goal| %>
+          <tr>
+            <% if goal.status == true %>
+              <td class="fas fa-trophy"></td>
+            <% end %>
+            <td><%= link_to goal.content, goal_path(goal.id), class:'link_animation' %></td>
+            <td><%= link_to "", copy_goal_tasks_path(goal.id), class:"fas fa-copy" %></td>
+            <td>
+              <% if goal.share %>
+                <%= link_to "シェアした内容を編集する", edit_share_path(goal.share.id), class:"btn-flat-success ml-4" %>
+              <% else %>
+                <%= link_to "この目標をシェアする", new_goal_share_path(goal.id), class:"btn-flat-success ml-4" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+      <%= paginate @goals %>
+    </div>
+  </div>
+
 </div>

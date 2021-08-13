@@ -1,2 +1,23 @@
-<h1>Goals#show</h1>
-<p>Find me in app/views/goals/show.html.erb</p>
+
+<%= @goal.content %>
+  <%= link_to "達成", goals_path %>
+  <%= link_to "編集", edit_goal_path(@goal.id) %>
+  <%= link_to "削除", goal_path(@goal.id),method: :delete %>
+
+<!--4か月目要件-->
+<!--< @goal.sum_fulness %>-->
+<!--< @goal.sum_progress %>-->
+
+
+<table>
+  <tbody>
+    <%= render 'goals/tasks', tasks: @tasks %>
+  </tbody>
+</table>
+
+
+  <%= link_to "戻る", goals_path %>
+
+
+
+

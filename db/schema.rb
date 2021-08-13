@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_11_043119) do
+ActiveRecord::Schema.define(version: 2021_08_13_021527) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -70,10 +70,16 @@ ActiveRecord::Schema.define(version: 2021_08_11_043119) do
 
   create_table "tasks", force: :cascade do |t|
     t.integer "goal_id", null: false
-    t.integer "week", null: false
     t.string "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "sun", default: "0", null: false
+    t.string "mon", default: "0", null: false
+    t.string "tue", default: "0", null: false
+    t.string "wed", default: "0", null: false
+    t.string "thu", default: "0", null: false
+    t.string "fri", default: "0", null: false
+    t.string "sat", default: "0", null: false
   end
 
   create_table "users", force: :cascade do |t|
