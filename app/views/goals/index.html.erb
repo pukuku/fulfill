@@ -19,7 +19,7 @@
               <td class="fas fa-trophy"></td>
             <% end %>
             <td><%= link_to goal.content, goal_path(goal.id), class:'link_animation' %></td>
-            <td><%= link_to "", copy_goal_tasks_path(goal.id), class:"fas fa-copy" %></td>
+            <td><%= link_to "", copy_goal_path(goal.id), class:"fas fa-copy",method: :post %></td>
             <td>
               <% if goal.share %>
                 <%= link_to "シェアした内容を編集する", edit_share_path(goal.share.id), class:"btn-flat-success ml-4" %>

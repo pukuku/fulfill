@@ -17,7 +17,7 @@ class Task < ApplicationRecord
   has_one :task_work, dependent: :destroy
 
   def task_work_create
-    day = Date.today.wday
+    day = self.updated_at.wday
     checked = [self.sun,self.mon,self.tue,self.wed,self.thu,self.fri,self.sat]
     if checked[day] == "1"
       if !task_work = TaskWork.find_by(goal_id: self.goal_id, task_id: self.id)
@@ -28,7 +28,7 @@ class Task < ApplicationRecord
   end
 
   def task_work_destroy
-    day = Date.today.wday
+    day = self.updated_at.wday
     checked = [self.sun,self.mon,self.tue,self.wed,self.thu,self.fri,self.sat]
     if checked[day] == "0"
       if task_work = TaskWork.find_by(goal_id: self.goal_id, task_id: self.id)

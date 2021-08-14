@@ -1,24 +1,24 @@
 <div class="container">
 
   <div class="row mt-5">
-
-    <div class="col-10">
-      <%= form_with model: @goal,url: goal_path(@goal),class:"goal_form", remote: true do |f| %>
-        <%= f.label :目標 %>
-        <%= f.text_field :content, size:"60" %>
+    <div class="col-5">
+      <h2><%= @share.goal.content %></h3>
+      <%= form_with model: @share,url: share_path(@share.id), local: true do |f| %>
+        <%= render "layouts/errors", obj: @share %>
+        <div class="mt-3">
+          <%= f.label :カテゴリ %>
+          <%= f.collection_select :category_id, Category.all, :id, :name %>
+        </div>
+        <div>
+          <%= f.label :MEMO %>
+          <%= f.text_area :content, class:"area_form" %>
+        </div>
+        <div>
+          <%= f.submit '編集を保存する', class:"btn-flat-success ml-4"%>
+        </div>
       <% end %>
     </div>
-
-  </div>
-
-
-  <div class="row mt-5">
-
-    <div class="col-5 ml-1 mr-1">
-      <%= render 'goals/tasks', tasks: @tasks %>
-    </div>
-
-    <div class="col-6">
+        <div class="col-6">
       <!--曜日の配列取得-->
       <% week_name=["sun","mon","tue","wed","thu","fri","sat"] %>
 
@@ -35,11 +35,22 @@
       <% end %>
 
     </div>
+
+  </div>
+
+    <div class="col-10">
+    </div>
+
+  </div>
+
+
+  <div class="row mt-5">
+
   </div>
 
   <div class="row mt-5">
     <div class="col-2 mx-auto ">
-    <%= link_to "詳細に戻る", goal_path(@goal.id), class:"btn-flat-primary" %>
+    <%= link_to "詳細に戻る", share_path(@share.id), class:"btn-flat-primary" %>
     </div>
   </div>
 

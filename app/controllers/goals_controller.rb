@@ -28,13 +28,13 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id])
     @tasks = Task.where(goal_id: @goal.id)
     @tasks_week = [
-    @tasks_sun = Task.where(sun: "1"),
-    @tasks_mon = Task.where(mon: "1"),
-    @tasks_tue = Task.where(tue: "1"),
-    @tasks_wed = Task.where(wed: "1"),
-    @tasks_thu = Task.where(thu: "1"),
-    @tasks_fri = Task.where(fri: "1"),
-    @tasks_sat = Task.where(sat: "1")
+    @tasks_sun = Task.where(goal_id: @goal.id, sun: "1"),
+    @tasks_mon = Task.where(goal_id: @goal.id, mon: "1"),
+    @tasks_tue = Task.where(goal_id: @goal.id, tue: "1"),
+    @tasks_wed = Task.where(goal_id: @goal.id, wed: "1"),
+    @tasks_thu = Task.where(goal_id: @goal.id, thu: "1"),
+    @tasks_fri = Task.where(goal_id: @goal.id, fri: "1"),
+    @tasks_sat = Task.where(goal_id: @goal.id, sat: "1")
     ]
   end
 
@@ -60,6 +60,23 @@ class GoalsController < ApplicationController
     else
       render 'init'
     end
+  end
+
+  def copy
+    # コピー対象
+    @copy = Goal.find(params[:id])
+    @tasks = Task.where(goal_id: params[:id])
+    # 目標コピー
+    @goal = Goal.new(user_id: current_user.id, content: @copy.content)
+    @goal.save
+    # タスクコピー
+    @tasks.each do |task|
+      @task = Task.new(goal_id: @goal.id, content: task.content,
+                       sun: task.sun, mon: task.mon, tue: task.tue, wed: task.wed, thu: task.thu, fri: task.fri, sat: task.sat)
+      @task.save
+      @task.task_work_create
+    end
+    redirect_to goal_path(@goal.id)
   end
 
 private
