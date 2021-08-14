@@ -5,7 +5,7 @@ class CreateShares < ActiveRecord::Migration[5.2]
       t.integer :goal_id, null: false
       t.integer :category_id, null: false
       t.string :content, null: false
-      t.integer :copy_count, null: false
+      t.integer :copy_count, null: false, default: 0
 
       t.timestamps
     end

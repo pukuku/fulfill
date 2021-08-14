@@ -1,0 +1,19 @@
+  <div class="row">
+　  <!--ユーザー情報-->
+    <div class="col-12">
+      <%= attachment_image_tag user, :user_image, :fill, 60, 60, format:"jpeg", fallback:"no_image.jpeg",size:"60x50" %>
+      <%= user.name %>
+      <%= link_to "", edit_user_registration_path,class:"fas fa-cogs" %>
+
+      <h4>クリップした目標</h4>
+      <table>
+        <% clips.each do |clip| %>
+          <tr>
+            <td><%= link_to clip.share.goal.content, share_path(clip.share_id) %></td>
+          </tr>
+        <% end %>
+      </table>
+      <%= paginate clips %>
+    </div>
+  </div>
+
