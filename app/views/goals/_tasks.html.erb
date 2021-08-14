@@ -13,7 +13,7 @@
     <% tasks.each do |task| %>
       <tr>
         <td>
-          <%= link_to edit_task_path(task),class:"task_modal_open task_week_content d-block", remote: true do %>
+          <%= link_to edit_task_path(task),class:"task_modal_open task_week_content d-block link_animation", remote: true do %>
             <%= task.content %>
           <% end %>
         </td>

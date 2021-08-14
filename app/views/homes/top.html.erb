@@ -4,3 +4,8 @@
   <p>目標の実現があなたの人生を充実させる</p>
   <%= link_to "Fulfill!って？", about_path,class:"button" %>
 </div>
+
+<% if !user_signed_in? %>
+  <%= link_to "ゲストログイン",users_guest_sign_in_path, method: :post, class:"guest__btn" %>
+<% end %>
+

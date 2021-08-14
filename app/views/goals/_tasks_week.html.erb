@@ -1,5 +1,7 @@
 <ul>
+  <div class="<%= week_name %>">
   <% tasks.each do |task| %>
-    <li class="<%= week_name %>"><%= task.content %></li>
+    <li><%= task.content %></li>
   <% end %>
+  </div>
 </ul>

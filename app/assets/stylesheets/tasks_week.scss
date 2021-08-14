@@ -1,7 +1,9 @@
 .week_tab{
   display: flex;
   flex-wrap: wrap;
+  margin: 0;
 }
+
 .week_tab li a{
   display: block;
   background:#f5f5f5;
@@ -10,6 +12,7 @@
   border: solid #dcdcdc;
   border-width: 2px 2px 0px 2px;
 }
+
 /*liにactiveクラスがついた時の形状*/
 .week_tab li.active .sun{
   background:#ffeaff;
@@ -72,78 +75,64 @@
 
 .area ul .sun {
   width: 90%;
+  height: 400px;
+  padding: 5px;
   background:#ffeaff;
   border: solid #ffd6ff;
-  border-width: 0px 2px 0px 2px;
-}
-
-.area ul .sun:last-child {
   border-width: 0px 2px 2px 2px;
 }
 
 .area ul .mon {
   width: 90%;
+  height: 400px;
+  padding: 5px;
   background:#fff8dc;
   border: solid #eee8aa;
-  border-width: 0px 2px 0px 2px;
-}
-
-.area ul .mon:last-child {
   border-width: 0px 2px 2px 2px;
 }
 
 .area ul .tue {
   width: 90%;
+  height: 400px;
+  padding: 5px;
   background:#ffeaea;
   border: solid #ffd6d6;
-  border-width: 0px 2px 0px 2px;
-}
-
-.area ul .tue:last-child {
   border-width: 0px 2px 2px 2px;
 }
 
 .area ul .wed {
   width: 90%;
+  height: 400px;
+  padding: 5px;
   background:#efffff;
   border: solid #b7ffff;
-  border-width: 0px 2px 0px 2px;
-}
-
-.area ul .wed:last-child {
   border-width: 0px 2px 2px 2px;
 }
 
 .area ul .thu {
   width: 90%;
+  height: 400px;
+  padding: 5px;
   background:#eaffea;
   border: solid #c6ffc6;
-  border-width: 0px 2px 0px 2px;
-}
-
-.area ul .thu:last-child {
   border-width: 0px 2px 2px 2px;
 }
 
 .area ul .fri {
   width: 90%;
+  height: 400px;
+  padding: 5px;
   background:#ffffdb;
   border: solid #ffff9e;
-  border-width: 0px 2px 0px 2px;
-}
-
-.area ul .fri:last-child {
   border-width: 0px 2px 2px 2px;
 }
 
 .area ul .sat {
   width: 90%;
+  height: 400px;
+  padding: 5px;
   background:#ffead6;
   border: solid #ffddbc;
-  border-width: 0px 2px 0px 2px;
-}
-
-.area ul .sat:last-child {
   border-width: 0px 2px 2px 2px;
 }
 
@@ -155,10 +144,3 @@
     opacity: 1;
   }
 }
-
-
-
-
-
-
-

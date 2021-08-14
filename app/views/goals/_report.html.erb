@@ -1,0 +1,6 @@
+<%= render "layouts/errors", obj: report %>
+
+<%= form_with model: report, url: goal_reports_path(@goal.id), class:"report", remote: true do |f| %>
+  <div><%= f.label :どんな一日でしたか？ %></div>
+  <div><%= f.text_field :content, size:"60" %></div>
+<% end %>

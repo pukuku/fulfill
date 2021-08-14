@@ -2,9 +2,6 @@
 
   <div class="row mt-5">
 
-    <div class="col-10 mx-auto">
-    </div>
-
     <div class="col-10">
       <%= form_with model: @goal,url: goal_path(@goal),class:"goal_form", remote: true do |f| %>
         <%= f.label :目標 %>
@@ -42,7 +39,7 @@
 
   <div class="row mt-5">
     <div class="col-2 mx-auto ">
-    <%= link_to "決定", goals_path, class:"btn-flat-primary" %>
+    <%= link_to "詳細に戻る", goal_path(@goal.id), class:"btn-flat-primary" %>
     </div>
   </div>
 
