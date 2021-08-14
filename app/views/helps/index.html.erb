@@ -1,9 +1,9 @@
 <div class="container mb-5">
   <div class="row">
     <div class="col-12">
-      <%= form_with(url: helps_path, method: :get, enforce_utf8: false,class:"d-flex justify-content-end", local: true) do |f| %>
-        <%= f.text_field :search_word , class:"search_form_text" %>
-        <%= f.button :type => "submit" do %>
+      <%= form_with(url: helps_path, method: :get, enforce_utf8: false,class:"d-flex justify-content-end search-form", local: true) do |f| %>
+        <%= f.text_field :search_word , class:"search-text" %>
+        <%= f.button :type => "submit", class:"search-btn" do %>
           <i class="fas fa-search search_form_icon"></i>
         <% end %>
       <% end %>

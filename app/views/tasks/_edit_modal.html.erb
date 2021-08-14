@@ -10,40 +10,41 @@
         </div>
         <div class="col-10 ml-3">
           <%= f.text_field :content, class:"content_form",size:"40" %>
-          <%= f.button type: "submit", class:"task_modal_btn btn btn-light" do %>
+          <%= f.button type: "submit", class:"task_modal_btn btn" do %>
             <i class="fas fa-edit"></i>
           <% end %>
+          <%= link_to "", task_path(task.id),class:"fas fa-trash-alt",method: :delete %>
         </div>
       </div>
       <div class="row mt-2">
         <div class="col-10 ml-3 d-flex justify-content-around">
           <div>
-            <%= f.check_box :sun %>
-            <%= f.label :日 %>
+            <%= f.check_box :sun, id:"check_sun"%>
+            <%= f.label :日, for:"check_sun"%>
           </div>
           <div>
-          <%= f.check_box :mon %>
-          <%= f.label :月 %>
+          <%= f.check_box :mon, id:"check_mon" %>
+          <%= f.label :月, for:"check_mon" %>
           </div>
           <div>
-          <%= f.check_box :tue %>
-          <%= f.label :火 %>
+          <%= f.check_box :tue, id:"check_tue" %>
+          <%= f.label :火, for:"check_tue" %>
           </div>
           <div>
-          <%= f.check_box :wed %>
-          <%= f.label :水 %>
+          <%= f.check_box :wed, id:"check_wed" %>
+          <%= f.label :水, for:"check_wed" %>
           </div>
           <div>
-          <%= f.check_box :thu %>
-          <%= f.label :木 %>
+          <%= f.check_box :thu, id:"check_thu" %>
+          <%= f.label :木, for:"check_thu" %>
           </div>
           <div>
-          <%= f.check_box :fri %>
-          <%= f.label :金 %>
+          <%= f.check_box :fri, id:"check_fri" %>
+          <%= f.label :金, for:"check_fri" %>
           </div>
           <div>
-          <%= f.check_box :sat %>
-          <%= f.label :土 %>
+          <%= f.check_box :sat, id:"check_sat" %>
+          <%= f.label :土, for:"check_sat" %>
           </div>
         </div>
       </div>

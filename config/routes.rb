@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       get 'complete', on: :member
     end
   end
-  resources :tasks, only:[:edit, :update]
+  resources :tasks, only:[:edit, :update, :destroy]
   resources :shares, except:[:new,:create]
   resources :task_works, only:[:update]
   resources :clips, only:[:create,:destroy]

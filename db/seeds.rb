@@ -39,7 +39,6 @@
 
    Task.create!(
      goal_id: n + 1,
-     week: 0,
      content: "#{n + 1}個めのタスク"
    )
 

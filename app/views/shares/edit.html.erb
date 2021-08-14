@@ -1,2 +1,54 @@
-<h1>Shares#edit</h1>
-<p>Find me in app/views/shares/edit.html.erb</p>
+<div class="container">
+
+  <div class="row mt-5">
+
+    <div class="col-10">
+      <%= form_with model: @goal,url: goal_path(@goal),class:"goal_form", remote: true do |f| %>
+        <%= f.label :目標 %>
+        <%= f.text_field :content, size:"60" %>
+      <% end %>
+    </div>
+
+  </div>
+
+
+  <div class="row mt-5">
+
+    <div class="col-5 ml-1 mr-1">
+      <%= render 'goals/tasks', tasks: @tasks %>
+    </div>
+
+    <div class="col-6">
+      <!--曜日の配列取得-->
+      <% week_name=["sun","mon","tue","wed","thu","fri","sat"] %>
+
+      <ul class="week_tab">
+      <% week_name.each do |name|  %>
+        <li><a href="#<%= name %>" class="<%= name %>"><%= name %></a></li>
+      <% end %>
+      </ul>
+
+      <% 7.times do |i| %>
+        <div id="<%= week_name[i] %>" class="area">
+          <%= render 'goals/tasks_week', tasks: @tasks_week[i], week_name: week_name[i] %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-2 mx-auto ">
+    <%= link_to "詳細に戻る", goal_path(@goal.id), class:"btn-flat-primary" %>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="task_modal_window"></div>
+  </div>
+
+</div>
+
+
+
+
