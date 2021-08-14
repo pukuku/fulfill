@@ -1,0 +1,3 @@
+$(".task_modal_window").html("<%= j(render partial: "tasks/new_modal", locals: {task:@task,goal:@goal}) %>")
+$('.task_modal').addClass('task_modal-active');
+$('.task_mask').addClass('task_mask-active');

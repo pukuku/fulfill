@@ -1,0 +1,6 @@
+<%= render "layouts/errors", obj: @goal %>
+
+<%= form_with model: @goal,url: goal_path(@goal),class:"goal_form", remote: true do |f| %>
+  <%= f.label :目標 %>
+  <%= f.text_field :content, size:"60" %>
+<% end %>

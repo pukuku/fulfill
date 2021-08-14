@@ -82,9 +82,13 @@ gem 'font-awesome-sass', '~> 5.13'
 # 検証
 gem 'rubocop-airbnb'
 
+# ドラッグアンドドロップ
+# gem 'jquery-ui-rails'
+# gem 'ranked-model'
 
 # デプロイ
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+

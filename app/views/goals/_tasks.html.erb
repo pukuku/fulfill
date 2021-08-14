@@ -1,0 +1,24 @@
+<table class="table table-hover table-bordered">
+
+  <thead class="thead-light">
+    <tr>
+      <th>
+        設定したタスク
+        <%= link_to "",new_goal_task_path(@goal.id),class:"task_modal_open fas fa-plus-circle", remote: true %>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% tasks.each do |task| %>
+      <tr>
+        <td>
+          <%= link_to edit_task_path(task),class:"task_modal_open task_week_content d-block", remote: true do %>
+            <%= task.content %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>

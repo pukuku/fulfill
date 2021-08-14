@@ -1,0 +1,32 @@
+<div class="task_modal">
+  <div class="text-right"><a class="task_modal_close fas fa-times-circle"></a></div>
+  <p class="task_error"><i class="fas fa-exclamation-circle"></i>タスクを入力してください</p>
+  <div class="task_modal_contents">
+    <%= form_with model: task,url: goal_tasks_path(goal.id), local: true do |f| %>
+      <%= f.label :タスク %>
+      <%= f.text_field :content, class:"content_form" %>
+      <%= f.label :日 %>
+      <%= f.check_box :sun %>
+      <%= f.label :月 %>
+      <%= f.check_box :mon %>
+      <%= f.label :火 %>
+      <%= f.check_box :tue %>
+      <%= f.label :水 %>
+      <%= f.check_box :wed %>
+      <%= f.label :木 %>
+      <%= f.check_box :thu %>
+      <%= f.label :金 %>
+      <%= f.check_box :fri %>
+      <%= f.label :土 %>
+      <%= f.check_box :sat %>
+      <%= f.button type: "submit", class:"task_modal_btn btn btn-light" do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<!--マスク-->
+<div class="task_mask"></div>
+
+
