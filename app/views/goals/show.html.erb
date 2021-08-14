@@ -1,23 +1,61 @@
+<div class="container">
 
-<%= @goal.content %>
-  <%= link_to "達成", goals_path %>
-  <%= link_to "編集", edit_goal_path(@goal.id) %>
-  <%= link_to "削除", goal_path(@goal.id),method: :delete %>
+  <div class="row mt-3">
+    <div class="col-10">
+      <%= render "layouts/errors", obj: @report %>
+      <h4><%= @goal.content %>
+      <%= link_to "", edit_goal_path(@goal.id),class:"fas fa-edit" %>
+      <%= link_to "", goal_path(@goal.id),class:"fas fa-trash-alt",method: :delete %>
+    </div>
+  </div>
 
-<!--4か月目要件-->
-<!--< @goal.sum_fulness %>-->
-<!--< @goal.sum_progress %>-->
+  <div class="row mt-5">
+    <div class="col-12 d-flex justify-content-around">
+      <div class="goal_data month_fulness text-center">
+        <h4 class="goal_data_title">今月の満足度</p>
+        <p class="goal_data_body"><%= @goal.sum_fulness %></p>
+      </div>
+      <div class="goal_data week_fulness text-center">
+        <h4 class="goal_data_title">今週の満足度</p>
+        <p class="goal_data_body"><%= @goal.sum_fulness %></p>
+      </div>
+      <div class="goal_data month_progress text-center">
+        <h4 class="goal_data_title">今月のタスク完了度</p>
+        <p class="goal_data_body"><%= BigDecimal(@goal.sum_progress.to_s).floor(2).to_f %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-6">
+      <%= render 'goals/task_works', task_works: @task_works %>
+    </div>
+    <div class="col-4">
+      <% report = Report.find_by(goal_id: @goal.id,created_at: Time.zone.today.all_day) %>
+      <% if report == nil %>
+        <%= form_with model: @report, url: goal_reports_path(@goal.id), class:"report", local: true do |f| %>
+          <div><%= f.label :どんな一日でしたか？ %></div>
+          <div><%= f.text_area :comment ,class:"report_form"%></div>
+          <div><%= f.submit "今日の活動を終了する",class: "btn btn-success btn-sm" %></div>
+        <% end %>
+      <% else %>
+        <%= form_with model: @report, url: goal_reports_path(@goal.id), class:"report", local: true do |f| %>
+          <div><%= f.label :どんな一日でしたか？ %></div>
+          <div><%= f.text_area :comment ,class:"report_form", disabled: true,value:report.comment %></div>
+          <div><%= f.submit "今日の活動を終了する",class: "btn btn-success btn-sm", disabled: true %></div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-2 mx-auto ">
+    <%= link_to "一覧に戻る", goals_path, class:"btn-flat-primary" %>
+    </div>
+  </div>
 
 
-<table>
-  <tbody>
-    <%= render 'goals/tasks', tasks: @tasks %>
-  </tbody>
-</table>
-
-
-  <%= link_to "戻る", goals_path %>
-
-
-
+    </div>
+  </div>
+</div>
 

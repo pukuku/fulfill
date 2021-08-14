@@ -1,30 +1,54 @@
 <div class="task_modal">
   <div class="text-right"><a class="task_modal_close fas fa-times-circle"></a></div>
+  <h3>タスク編集</h3>
   <p class="task_error"><i class="fas fa-exclamation-circle"></i>タスクを入力してください</p>
   <div class="task_modal_contents">
     <%= form_with model: task,url: task_path(task), remote: true do |f| %>
-      <%= f.label :タスク %>
-      <%= f.text_field :content, class:"content_form" %>
-      <%= f.label :日 %>
-      <%= f.check_box :sun %>
-      <%= f.label :月 %>
-      <%= f.check_box :mon %>
-      <%= f.label :火 %>
-      <%= f.check_box :tue %>
-      <%= f.label :水 %>
-      <%= f.check_box :wed %>
-      <%= f.label :木 %>
-      <%= f.check_box :thu %>
-      <%= f.label :金 %>
-      <%= f.check_box :fri %>
-      <%= f.label :土 %>
-      <%= f.check_box :sat %>
-      <%= f.button type: "submit", class:"task_modal_btn btn btn-light" do %>
-        <i class="fas fa-edit"></i>
-      <% end %>
+      <div class="row mt-2">
+        <div class="col-6 ml-3">
+          <%= f.label :タスク %>
+        </div>
+        <div class="col-10 ml-3">
+          <%= f.text_field :content, class:"content_form",size:"40" %>
+          <%= f.button type: "submit", class:"task_modal_btn btn btn-light" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-10 ml-3 d-flex justify-content-around">
+          <div>
+            <%= f.check_box :sun %>
+            <%= f.label :日 %>
+          </div>
+          <div>
+          <%= f.check_box :mon %>
+          <%= f.label :月 %>
+          </div>
+          <div>
+          <%= f.check_box :tue %>
+          <%= f.label :火 %>
+          </div>
+          <div>
+          <%= f.check_box :wed %>
+          <%= f.label :水 %>
+          </div>
+          <div>
+          <%= f.check_box :thu %>
+          <%= f.label :木 %>
+          </div>
+          <div>
+          <%= f.check_box :fri %>
+          <%= f.label :金 %>
+          </div>
+          <div>
+          <%= f.check_box :sat %>
+          <%= f.label :土 %>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
-  <a class="task_modal_close">閉じる</a>
 </div>
 
 <!--マスク-->

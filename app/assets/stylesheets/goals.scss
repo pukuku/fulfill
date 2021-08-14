@@ -1,3 +1,25 @@
-// Place all the styles related to the goals controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.goal_data{
+  width: 160px;
+  height: 100px;
+  padding: 10px 10px 15px;
+  border: solid;
+  border-radius: 5px;
+}
+
+.goal_data_title{
+  font-size: 15px;
+  font-weight: 10px;
+}
+
+.goal_data_body{
+  height: 100px;
+  text-align: center;
+  font-size: 35px;
+}
+
+
+.report_form{
+  width: 450px;
+  height: 150px;
+}
+

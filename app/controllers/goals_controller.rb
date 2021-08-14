@@ -7,12 +7,8 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find(params[:id])
-    if params[:search]
-      @task=Task.find(params[:search])
-    else
-      @task =Task.new
-    end
-    @tasks = Task.where(goal_id: @goal.id)
+    @task_works = TaskWork.where(goal_id: @goal.id)
+    @report = Report.new
   end
 
   def new
@@ -44,9 +40,7 @@ class GoalsController < ApplicationController
 
   def update
     @goal = Goal.find(params[:id])
-    if @goal.update(goal_params)
-    else
-    end
+    @goal.update(goal_params)
   end
 
   def destroy
@@ -68,8 +62,7 @@ class GoalsController < ApplicationController
     end
   end
 
-
-  private
+private
 
   def goal_params
     params.require(:goal).permit(:content)
