@@ -1,7 +1,8 @@
 class GoalsController < ApplicationController
   def index
     @user = User.find(current_user.id)
-    @goals = Goal.where(user_id: current_user.id).page(params[:page]).per(10)
+    @goals = Goal.where(user_id: current_user.id,status: false).page(params[:page]).per(10)
+    @completes = Goal.where(user_id: current_user.id,status: true).page(params[:page]).per(10)
     @clips = Clip.where(user_id: current_user.id).page(params[:page]).per(20)
   end
 

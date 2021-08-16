@@ -33,8 +33,7 @@
      user_id: 1,
      goal_id: n + 1,
      category_id: n + 1,
-     content: "#{n + 10}日で達成したよ！",
-     copy_count: (n + 1)
+     content: "#{n + 10}日で達成したよ！"
    )
 
    Task.create!(
