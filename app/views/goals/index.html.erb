@@ -9,6 +9,9 @@
     <!--ユーザー情報-->
     <%= render 'users/show', user: @user, clips: @clips %>
 
+
+
+
     <!--自分が設定した目標-->
     <div class="col-4 ml-1">
       <h4>目標 <%= link_to "", new_goal_path, class: 'fas fa-plus-circle' %></h4>
@@ -29,7 +32,7 @@
       </table>
       <%= paginate @goals %>
     </div>
-        <div class="col-4 ml-1">
+    <div class="col-4 ml-1">
       <h4>達成した目標</h4>
       <table>
         <% @completes.each do |complete| %>
@@ -50,4 +53,45 @@
     </div>
   </div>
 
+  <div class="row mt-5">
+    <!--ユーザー情報-->
+    <%= render 'users/show', user: @user, clips: @clips %>
+
+
+
+
+    <!--自分が設定した目標-->
+    <div class="col-4 ml-1">
+      <h4>目標 <%= link_to "", new_goal_path, class: 'fas fa-plus-circle' %></h4>
+        <div class="item-container0 item_parent" id="sortable_task_0" value="0">
+        <% @goals.each do |goal| %>
+          <div class="draggable-item">
+            <div class="item">
+              <%= hidden_field_tag :goal_id, goal.id %>
+              <%= link_to goal.content, goal_path(goal.id), class:'link_animation' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-4 ml-1">
+      <h4>達成した目標</h4>
+      <div class="item-container1 item_parent" id="sortable_task_1" value="1">
+        <% @completes.each do |complete| %>
+          <div class="draggable-item">
+            <div class="item">
+            <%= hidden_field_tag :goal_id, complete.id %>
+            <%= link_to complete.content, goal_path(complete.id), class:'link_animation' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+<script>
+  // ドラッグ&ドロップ機能 (sortable.js)
+
+</script>

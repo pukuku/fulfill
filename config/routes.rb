@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   resources :clips, only:[:create,:destroy]
   resources :helps, only:[:index]
 
+# ソート用
+  patch 'goals/:id/sort', to: 'goals#sort'
+
 
   devise_for :users, :controllers => {
     registrations: 'users/registrations',

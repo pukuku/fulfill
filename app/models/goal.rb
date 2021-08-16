@@ -7,12 +7,13 @@ class Goal < ApplicationRecord
 
   validates :status,inclusion: { in: [true,false]}
 
-
-  has_many :tasks, dependent: :destroy
+  has_many :tasks,dependent: :destroy
   has_many :task_works, dependent: :destroy
   has_many :reports, dependent: :destroy
   belongs_to :user
   has_one :share, dependent: :destroy
+
+  acts_as_list scope: :user
 
 def sum_fulness
     reports = Report.where(goal_id: self.id)
@@ -39,15 +40,9 @@ end
 
 
 
-# シェアをもつゴールを抽出
-scope :share_join, -> { joins(share: :clips).where("share.id IS NOT NULL")}
 # コンテントにキーワードが入ったものを抽出
-scope :share_word, -> (word) { where(["goal.content like?","%#{word}%"])}
+scope :share_word, -> (word) { where(["goals.content like?","%#{word}%"])}
 # ステータスが達成のもののみ抽出
-scope :share_status, -> { where(["goal.status = ?", true])}
-# クリップをshare_idでグルーピングし総数の降順にする
-scope :share_sort, -> { group("clips.share_id").order('count_all DESC').count}
-# カテゴリで抽出
-scope :share_category, -> (category) { where(["share.category_id = ?", category])}
+scope :share_status, -> { where(status: true) }
 
 end

@@ -3,13 +3,12 @@
   <div class="row mt-5">
     <div class="col-12">
       <%= form_with(url: shares_path, method: :get, enforce_utf8: false,class:"d-flex align-items-center", local: true) do |f| %>
-        <%= f.collection_select :search_category, Category.all, :id, :name, :include_blank => "カテゴリを選択" %>
+        <%= f.collection_select :search_category, Category.all, :id, :name, :include_blank => "カテゴリを選択",:selected => @category %>
         <%= f.check_box :search_status,class:"ml-4" %>
-        <%= f.label :達成済みのみ表示, for:"search_goal" %>
+        <%= f.label :達成済みのみ表示, for:"search_status" %>
         <%= f.check_box :search_sort,class:"ml-4" %>
         <%= f.label :クリップが多い順, for:"search_sort" %>
-        <%= f.text_field :search_word,class:"ml-4" %>
-        <%= f.hidden_field :search_data,value:"true" %>
+        <%= f.text_field :search_word,class:"ml-4",value: @word %>
         <%= f.button :type => "submit", class:"btn" do %>
           <i class="fas fa-search search_form_icon"></i>
         <% end %>
@@ -20,11 +19,12 @@
     <div class="col-12 d-flex">
       <% @shares.each do |share| %>
         <div class="ml-2">
-          <!--<div>-->
-            <!--% if share.goal.status %>-->
-            <!--  達成-->
-            <!--% end %>-->
-          <!--</div>-->
+          <%= link_to share_path(share.id) do %>
+          <div>
+            <% if share.goal.status %>
+              <i class="fas fa-medal"></i>
+            <% end %>
+          </div>
           <div>
             <%= attachment_image_tag share.user, :user_image, :fill, 60, 60, format:"jpeg", fallback:"no_image.jpeg",size:"60x50" %>
           </div>
@@ -41,6 +41,7 @@
             <p class="fas fa-paperclip"></p>
             <%= share.clips.count %>
           </div>
+          <% end %>
         </div>
       <% end %>
     </div>
