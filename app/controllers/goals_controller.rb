@@ -1,17 +1,17 @@
 class GoalsController < ApplicationController
   def index
     @user = User.find(current_user.id)
-    @goals = Goal.where(user_id: current_user.id,status: false).order(position: :asc).page(params[:page]).per(10)
-    @completes = Goal.where(user_id: current_user.id,status: true).order(position: :asc).page(params[:page]).per(10)
     @clips = Clip.where(user_id: current_user.id).page(params[:page]).per(20)
+    @goals = current_user.goals.rank(:row_order).where(status:false)
+    @completes = current_user.goals.rank(:row_order).where(status:true)
   end
 
   def sort
-    @user = User.find(current_user.id)
-    goal = @user.goals[params[:from].to_i]
-    goal.insert_at(params[:to].to_i + 1)
-    head :ok
+    goal= Goal.find(params[:id])
+    goal.update(rank_params)
+    render body: nil
   end
+
 
   def show
     @goal = Goal.find(params[:id])
@@ -87,10 +87,22 @@ class GoalsController < ApplicationController
     redirect_to goal_path(@goal.id)
   end
 
+  after_action :reset_row_order, only: [:sort, :create, :update]
+
+  def reset_row_order
+    Goal.rank(:row_order).each_with_index do |goal, i|
+    goal.update_attribute :row_order, i + 1
+    end
+  end
+
 private
 
   def goal_params
-    params.require(:goal).permit(:content)
+    params.require(:goal).permit(:content, :row_order_position)
   end
+  def rank_params
+    params.permit(:status, :row_order_position)
+  end
+
 
 end

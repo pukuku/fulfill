@@ -9,7 +9,7 @@ class User < ApplicationRecord
   end
 
 
-  has_many :goals, -> { order(position: :asc) }, dependent: :destroy
+  has_many :goals, dependent: :destroy
   has_many :shares, dependent: :destroy
   has_many :clips, dependent: :destroy
 

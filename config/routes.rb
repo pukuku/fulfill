@@ -32,7 +32,6 @@ Rails.application.routes.draw do
 # ソート用
   patch 'goals/:id/sort', to: 'goals#sort'
 
-
   devise_for :users, :controllers => {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
