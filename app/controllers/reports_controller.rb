@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
 
   def index
-    @report = Report.where(goal_id: params[:goal_id])
+    @reports = Report.where(goal_id: params[:goal_id])
   end
 
   def new

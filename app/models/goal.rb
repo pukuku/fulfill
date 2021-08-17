@@ -13,7 +13,8 @@ class Goal < ApplicationRecord
   belongs_to :user
   has_one :share, dependent: :destroy
 
-  acts_as_list scope: :user
+  include RankedModel
+  ranks :row_order , with_same: :user_id
 
 def sum_fulness
     reports = Report.where(goal_id: self.id)

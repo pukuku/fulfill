@@ -83,7 +83,7 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'rubocop-airbnb'
 
 # ドラッグアンドドロップ
-gem 'acts_as_list'
+gem 'ranked-model'
 
 # カレンダー
 gem 'fullcalendar-rails'
