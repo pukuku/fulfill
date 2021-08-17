@@ -104,5 +104,4 @@ private
     params.permit(:status, :row_order_position)
   end
 
-
 end

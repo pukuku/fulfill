@@ -8,7 +8,6 @@ class User < ApplicationRecord
     validates :name
   end
 
-
   has_many :goals, dependent: :destroy
   has_many :shares, dependent: :destroy
   has_many :clips, dependent: :destroy

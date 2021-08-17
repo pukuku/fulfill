@@ -16,7 +16,6 @@ class Goal < ApplicationRecord
   include RankedModel
   ranks :row_order , with_same: :user_id
 
-
 def sum_fulness
     reports = Report.where(goal_id: self.id)
     sum = 0
