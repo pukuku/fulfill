@@ -18,7 +18,7 @@
    )
 
    Report.create!(
-     goal_id: n + 1,
+     goal_id: 1,
      comment: "#{n + 1}日目！頑張った！！",
      fulness: 0.1,
      task_all: (n + 1),
@@ -33,8 +33,7 @@
      user_id: 1,
      goal_id: n + 1,
      category_id: n + 1,
-     content: "#{n + 10}日で達成したよ！",
-     copy_count: (n + 1)
+     content: "#{n + 10}日で達成したよ！"
    )
 
    Task.create!(

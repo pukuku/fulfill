@@ -83,8 +83,11 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'rubocop-airbnb'
 
 # ドラッグアンドドロップ
-# gem 'jquery-ui-rails'
-# gem 'ranked-model'
+gem 'acts_as_list'
+
+# カレンダー
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 # デプロイ
 gem 'dotenv-rails'

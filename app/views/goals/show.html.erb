@@ -35,13 +35,13 @@
       <% if report == nil %>
         <%= form_with model: @report, url: goal_reports_path(@goal.id), class:"report", local: true do |f| %>
           <div><%= f.label :どんな一日でしたか？ %></div>
-          <div><%= f.text_area :comment ,class:"_form"%></div>
+          <div><%= f.text_area :comment ,class:"area_form"%></div>
           <div><%= f.submit "今日の活動を終了する",class: "btn btn-success btn-sm" %></div>
         <% end %>
       <% else %>
         <%= form_with model: @report, url: goal_reports_path(@goal.id), class:"report", local: true do |f| %>
           <div><%= f.label :どんな一日でしたか？ %></div>
-          <div><%= f.text_area :comment ,class:"report_form", disabled: true,value:report.comment %></div>
+          <div><%= f.text_area :comment ,class:"area_form", disabled: true,value:report.comment %></div>
           <div><%= f.submit "今日の活動を終了する",class: "btn btn-success btn-sm", disabled: true %></div>
         <% end %>
       <% end %>

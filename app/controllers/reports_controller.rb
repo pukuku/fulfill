@@ -1,6 +1,7 @@
 class ReportsController < ApplicationController
+
   def index
-    @report = Report.find(goal_id: params[:goal_id])
+    @report = Report.where(goal_id: params[:goal_id])
   end
 
   def new

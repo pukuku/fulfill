@@ -12,11 +12,13 @@
         <tr>
           <td class="d-flex">
             <% if task_work.status == true %>
-              <%= link_to "",task_work_path(task_work),class:"fas fa-check-circle", method: :patch, remote: true %>
-              <%= task_work.task.content %>
+              <%= link_to task_work_path(task_work),class:"fas fa-check-circle d-block link_animation", method: :patch, remote: true do %>
+                <%= task_work.task.content %>
+              <% end %>
             <% else %>
-              <%= link_to "",task_work_path(task_work),class:"far fa-circle", method: :patch, remote: true %>
-              <%= task_work.task.content %>
+              <%= link_to task_work_path(task_work),class:"far fa-circle d-block link_animation", method: :patch, remote: true do %>
+                <%= task_work.task.content %>
+              <% end %>
             <% end %>
           </td>
         </tr>

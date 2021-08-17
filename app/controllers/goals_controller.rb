@@ -1,8 +1,16 @@
 class GoalsController < ApplicationController
   def index
     @user = User.find(current_user.id)
-    @goals = Goal.where(user_id: current_user.id).page(params[:page]).per(10)
+    @goals = Goal.where(user_id: current_user.id,status: false).order(position: :asc).page(params[:page]).per(10)
+    @completes = Goal.where(user_id: current_user.id,status: true).order(position: :asc).page(params[:page]).per(10)
     @clips = Clip.where(user_id: current_user.id).page(params[:page]).per(20)
+  end
+
+  def sort
+    @user = User.find(current_user.id)
+    goal = @user.goals[params[:from].to_i]
+    goal.insert_at(params[:to].to_i + 1)
+    head :ok
   end
 
   def show

@@ -7,12 +7,13 @@ class Goal < ApplicationRecord
 
   validates :status,inclusion: { in: [true,false]}
 
-
-  has_many :tasks, dependent: :destroy
+  has_many :tasks,dependent: :destroy
   has_many :task_works, dependent: :destroy
   has_many :reports, dependent: :destroy
   belongs_to :user
   has_one :share, dependent: :destroy
+
+  acts_as_list scope: :user
 
 def sum_fulness
     reports = Report.where(goal_id: self.id)
@@ -35,5 +36,13 @@ def sum_progress
     pct = (progress / all) * 100
     return pct
 end
+
+
+
+
+# コンテントにキーワードが入ったものを抽出
+scope :share_word, -> (word) { where(["goals.content like?","%#{word}%"])}
+# ステータスが達成のもののみ抽出
+scope :share_status, -> { where(status: true) }
 
 end

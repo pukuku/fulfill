@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_13_021527) do
+ActiveRecord::Schema.define(version: 2021_08_16_073845) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2021_08_13_021527) do
     t.boolean "status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position"
   end
 
   create_table "helps", force: :cascade do |t|
@@ -55,7 +56,6 @@ ActiveRecord::Schema.define(version: 2021_08_13_021527) do
     t.integer "goal_id", null: false
     t.integer "category_id", null: false
     t.string "content", null: false
-    t.integer "copy_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

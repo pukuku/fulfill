@@ -16,6 +16,7 @@ class Task < ApplicationRecord
   belongs_to :goal
   has_one :task_work, dependent: :destroy
 
+
   def task_work_create
     day = self.updated_at.wday
     checked = [self.sun,self.mon,self.tue,self.wed,self.thu,self.fri,self.sat]
