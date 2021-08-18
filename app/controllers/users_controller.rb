@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def edit
     @user = current_user
   end
@@ -11,7 +12,6 @@ class UsersController < ApplicationController
     else
       render "edit"
     end
-
   end
 
   def quit_confirm
@@ -24,8 +24,7 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-
-  private
+private
 
   def user_params
     params.require(:user).permit(:email, :name, :user_image)

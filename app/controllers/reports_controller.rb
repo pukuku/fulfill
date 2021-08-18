@@ -14,6 +14,7 @@ class ReportsController < ApplicationController
     @report.task_all = TaskWork.where(goal_id: @report.goal_id).count
     @report.task_progress = TaskWork.where(goal_id: @report.goal_id,status: true).count
     @report.fulness = 0
+    @report.post_date = Time.now
     if @report.save
       redirect_to complete_goal_report_path(@report.goal_id,@report.id)
     else
@@ -21,8 +22,6 @@ class ReportsController < ApplicationController
       @task_works = TaskWork.where(goal_id: @report.goal_id)
       render 'goals/show'
     end
-
-
   end
 
   def complete

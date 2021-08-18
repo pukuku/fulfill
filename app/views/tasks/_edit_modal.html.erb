@@ -3,7 +3,7 @@
   <h3>タスク編集</h3>
   <p class="task_error"><i class="fas fa-exclamation-circle"></i>タスクを入力してください</p>
   <div class="task_modal_contents">
-    <%= form_with model: task,url: task_path(task), remote: true do |f| %>
+    <%= form_with model: task,url: goal_task_path(goal.id,task), remote: true do |f| %>
       <div class="row mt-2">
         <div class="col-6 ml-3">
           <%= f.label :タスク %>
@@ -13,7 +13,7 @@
           <%= f.button type: "submit", class:"task_modal_btn btn" do %>
             <i class="fas fa-edit"></i>
           <% end %>
-          <%= link_to "", task_path(task.id),class:"fas fa-trash-alt",method: :delete %>
+          <%= link_to "", goal_task_path(goal.id,task.id),class:"fas fa-trash-alt",method: :delete %>
         </div>
       </div>
       <div class="row mt-2">

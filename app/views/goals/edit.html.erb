@@ -23,9 +23,9 @@
       <% week_name=["sun","mon","tue","wed","thu","fri","sat"] %>
 
       <ul class="week_tab">
-      <% week_name.each do |name|  %>
-        <li><a href="#<%= name %>" class="<%= name %>"><%= name %></a></li>
-      <% end %>
+        <% week_name.each do |name|  %>
+          <li><a href="#<%= name %>" class="<%= name %>"><%= name %></a></li>
+        <% end %>
       </ul>
 
       <% 7.times do |i| %>
@@ -39,7 +39,7 @@
 
   <div class="row mt-5">
     <div class="col-2 mx-auto ">
-    <%= link_to "詳細に戻る", goal_path(@goal.id), class:"btn-flat-primary" %>
+      <%= link_to "詳細に戻る", goal_path(@goal.id), class:"btn-flat-primary" %>
     </div>
   </div>
 
@@ -48,7 +48,3 @@
   </div>
 
 </div>
-
-
-
-

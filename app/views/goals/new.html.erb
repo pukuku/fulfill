@@ -1,9 +1,6 @@
 <div class="container">
-
-
-<%= form_with model: @goal, local: true do |f| %>
-  <%= render "layouts/errors", obj: @goal %>
-
+  <%= form_with model: @goal, local: true do |f| %>
+    <%= render "layouts/errors", obj: @goal %>
     <div class="row mt-5">
       <div class="col-6 mx-auto col-lg-5 form-field">
         <%= f.text_field :content, size:"60" %>
@@ -14,5 +11,5 @@
       <div class="col-2 mx-auto"><%= f.submit '新規登録', class:"btn-flat-success"%></div>
     </div>
 
-<% end %>
+  <% end %>
 </div>

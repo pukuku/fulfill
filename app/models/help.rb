@@ -5,8 +5,8 @@ class Help < ApplicationRecord
     validates :body
   end
 
-
  def self.search(search_word)
    where(["title like?","%#{search_word}%"])
  end
+
 end

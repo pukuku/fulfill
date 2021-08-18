@@ -3,7 +3,7 @@
   <div class="row mt-5">
     <div class="col-5">
       <div class="d-flex align-items-center">
-      <h2><%= @share.goal.content %></h3>
+      <h2><%= @share.goal.content %></h2>
         <div class="ml-2">
           <% if @share.user_id == current_user.id %>
             <%= link_to "", edit_share_path(@share.id),class:"fas fa-edit" %>
@@ -17,14 +17,13 @@
       <p><%= @share.category.name %></p>
       <pre><%= @share.content %></pre>
     </div>
-        <div class="col-6">
+    <div class="col-6">
       <!--曜日の配列取得-->
       <% week_name=["sun","mon","tue","wed","thu","fri","sat"] %>
-
       <ul class="week_tab">
-      <% week_name.each do |name|  %>
-        <li><a href="#<%= name %>" class="<%= name %>"><%= name %></a></li>
-      <% end %>
+        <% week_name.each do |name|  %>
+          <li><a href="#<%= name %>" class="<%= name %>"><%= name %></a></li>
+        <% end %>
       </ul>
 
       <% 7.times do |i| %>
@@ -34,17 +33,6 @@
       <% end %>
 
     </div>
-
-  </div>
-
-    <div class="col-10">
-    </div>
-
-  </div>
-
-
-  <div class="row mt-5">
-
   </div>
 
   <div class="row mt-5">
@@ -58,7 +46,3 @@
   </div>
 
 </div>
-
-
-
-
