@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :tasks, only:[:new,:create] do
     # resources :tasks, only:[:create,:update] do
     end
-    resources :reports, only:[:create,:index] do
+    resources :reports, only:[:create,:index,:show] do
       get 'complete', on: :member
     end
   end
