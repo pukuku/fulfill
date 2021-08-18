@@ -1,0 +1,39 @@
+.report_modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  min-width: 500px;
+  border-radius: 5px;
+  background-color: #fff;
+  transform: translate(-50%, -50%) scale(.95);
+  z-index: 3;
+  opacity: 0; //透明にする（ふわっと表示させる）
+  visibility: hidden; //存在自体隠す
+  transition: 0.3s;
+  overflow: auto; //スクロール
+}
+
+.report_mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 2;
+  opacity: 0; //透明にする（ふわっと表示させる）
+  visibility: hidden; //存在自体隠す
+  transition: 0.3s;
+}
+
+.report_modal.report_modal-active{
+  transform: translate(-50%, -50%) scale(1); //.95(95%)=>1(100%)にすることで徐々に大きくなる表示
+  opacity: 1;
+  visibility: visible;
+}
+
+.report_mask.report_mask-active{
+  opacity: 0.7;
+  visibility: visible;
+}

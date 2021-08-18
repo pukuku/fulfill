@@ -90,8 +90,14 @@ class GoalsController < ApplicationController
   after_action :reset_row_order, only: [:sort, :create, :update]
 
   def reset_row_order
-    Goal.rank(:row_order).each_with_index do |goal, i|
+    @goals = current_user.goals.rank(:row_order).where(status:false)
+    @goals.each_with_index do |goal, i|
     goal.update_attribute :row_order, i + 1
+    end
+    @count = @goals.count
+    @completes = current_user.goals.rank(:row_order).where(status:true)
+    @completes.each_with_index do |goal, i|
+    goal.update_attribute :row_order, @count + i + 1
     end
   end
 

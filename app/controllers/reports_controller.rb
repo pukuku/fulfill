@@ -4,7 +4,8 @@ class ReportsController < ApplicationController
     @reports = Report.where(goal_id: params[:goal_id])
   end
 
-  def new
+  def show
+    @report = Report.find(params[:id])
   end
 
   def create
