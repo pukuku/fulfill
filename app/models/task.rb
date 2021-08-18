@@ -12,11 +12,10 @@ class Task < ApplicationRecord
     validates :content
   end
 
-
   belongs_to :goal
   has_one :task_work, dependent: :destroy
 
-
+  # タスクワーク作成
   def task_work_create
     day = self.updated_at.wday
     checked = [self.sun,self.mon,self.tue,self.wed,self.thu,self.fri,self.sat]
@@ -28,6 +27,7 @@ class Task < ApplicationRecord
     end
   end
 
+  # タスクワーク削除
   def task_work_destroy
     day = self.updated_at.wday
     checked = [self.sun,self.mon,self.tue,self.wed,self.thu,self.fri,self.sat]

@@ -19,14 +19,13 @@
         </div>
       <% end %>
     </div>
-        <div class="col-6">
+    <div class="col-6">
       <!--曜日の配列取得-->
       <% week_name=["sun","mon","tue","wed","thu","fri","sat"] %>
-
       <ul class="week_tab">
-      <% week_name.each do |name|  %>
-        <li><a href="#<%= name %>" class="<%= name %>"><%= name %></a></li>
-      <% end %>
+        <% week_name.each do |name|  %>
+          <li><a href="#<%= name %>" class="<%= name %>"><%= name %></a></li>
+        <% end %>
       </ul>
 
       <% 7.times do |i| %>
@@ -36,9 +35,5 @@
       <% end %>
 
     </div>
-
   </div>
-
 </div>
-
-

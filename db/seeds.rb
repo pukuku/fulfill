@@ -22,7 +22,8 @@
      comment: "#{n + 1}日目！頑張った！！",
      fulness: 0.1,
      task_all: (n + 1),
-     task_progress: 1
+     task_progress: 1,
+     post_date:Time.now
    )
 
    Category.create!(

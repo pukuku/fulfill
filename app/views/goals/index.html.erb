@@ -12,7 +12,7 @@
     <!--自分が設定した目標-->
     <div class="col-4 ml-1">
       <h4>目標 <%= link_to "", new_goal_path, class: 'fas fa-plus-circle' %></h4>
-        <div id="sortable_task_0">
+      <div id="sortable_task_0">
         <% @goals.each do |goal| %>
           <div class="d-flex align-content-center draggable-item task_0" value=<%= goal.id %>>
               <%= link_to goal.content, goal_path(goal.id), class:'link_animation' %>
@@ -42,8 +42,5 @@
         <% end %>
       </div>
     </div>
-
-
   </div>
-
 </div>

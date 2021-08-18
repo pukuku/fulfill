@@ -6,31 +6,26 @@
 
   <%= form_with model: @user, url: users_path, local: true do |f| %>
     <%= render "layouts/errors", obj: @user %>
-
-
-
     <div class="row mt-3">
       <div class="col-6 mx-auto col-lg-5 form-field">
-      <%= f.label :user_image %><br />
-      <%= f.attachment_field :user_image, autofocus: true %>
+        <%= f.label :user_image %><br />
+        <%= f.attachment_field :user_image, autofocus: true %>
       </div>
     </div>
 
     <div class="row mt-3">
       <div class="col-6 mx-auto col-lg-5 form-field">
-       <%= f.label :name %><br />
-       <%= f.text_field :name, autofocus: true %>
+         <%= f.label :name %><br />
+         <%= f.text_field :name, autofocus: true %>
       </div>
     </div>
 
     <div class="row mt-3">
       <div class="col-6 mx-auto col-lg-5 form-field">
-       <%= f.label :email %><br />
-       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+         <%= f.label :email %><br />
+         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
     </div>
-
-
 
     <div class="row mt-5 mb-5">
       <div class="col-3"></div>

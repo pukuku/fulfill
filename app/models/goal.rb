@@ -13,19 +13,22 @@ class Goal < ApplicationRecord
   belongs_to :user
   has_one :share, dependent: :destroy
 
+  # ranked_model導入
   include RankedModel
   ranks :row_order , with_same: :user_id
 
-def sum_fulness
+  # fulness取得
+  def sum_fulness
     reports = Report.where(goal_id: self.id)
     sum = 0
     reports.each do |report|
       sum += report.fulness
     end
     return sum
-end
+  end
 
-def sum_progress
+  # progress取得
+  def sum_progress
     reports = Report.where(goal_id: self.id)
     progress = 0.0
     all = 0.0
@@ -36,14 +39,12 @@ def sum_progress
     end
     pct = (progress / all) * 100
     return pct
-end
+  end
 
-
-
-
-# コンテントにキーワードが入ったものを抽出
-scope :share_word, -> (word) { where(["goals.content like?","%#{word}%"])}
-# ステータスが達成のもののみ抽出
-scope :share_status, -> { where(status: true) }
+  # シェア一覧検索用スコープ
+  # コンテントにキーワードが入ったものを抽出
+  scope :share_word, -> (word) { where(["goals.content like?","%#{word}%"])}
+  # ステータスが達成のもののみ抽出
+  scope :share_status, -> { where(status: true) }
 
 end

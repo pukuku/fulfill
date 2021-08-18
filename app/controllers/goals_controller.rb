@@ -1,4 +1,6 @@
 class GoalsController < ApplicationController
+  after_action :reset_row_order, only: [:sort, :create]
+
   def index
     @user = User.find(current_user.id)
     @clips = Clip.where(user_id: current_user.id).page(params[:page]).per(20)
@@ -11,7 +13,6 @@ class GoalsController < ApplicationController
     goal.update(rank_params)
     render body: nil
   end
-
 
   def show
     @goal = Goal.find(params[:id])
@@ -36,13 +37,13 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id])
     @tasks = Task.where(goal_id: @goal.id)
     @tasks_week = [
-    @tasks_sun = Task.where(goal_id: @goal.id, sun: "1"),
-    @tasks_mon = Task.where(goal_id: @goal.id, mon: "1"),
-    @tasks_tue = Task.where(goal_id: @goal.id, tue: "1"),
-    @tasks_wed = Task.where(goal_id: @goal.id, wed: "1"),
-    @tasks_thu = Task.where(goal_id: @goal.id, thu: "1"),
-    @tasks_fri = Task.where(goal_id: @goal.id, fri: "1"),
-    @tasks_sat = Task.where(goal_id: @goal.id, sat: "1")
+      @tasks_sun = Task.where(goal_id: @goal.id, sun: "1"),
+      @tasks_mon = Task.where(goal_id: @goal.id, mon: "1"),
+      @tasks_tue = Task.where(goal_id: @goal.id, tue: "1"),
+      @tasks_wed = Task.where(goal_id: @goal.id, wed: "1"),
+      @tasks_thu = Task.where(goal_id: @goal.id, thu: "1"),
+      @tasks_fri = Task.where(goal_id: @goal.id, fri: "1"),
+      @tasks_sat = Task.where(goal_id: @goal.id, sat: "1")
     ]
   end
 
@@ -87,17 +88,15 @@ class GoalsController < ApplicationController
     redirect_to goal_path(@goal.id)
   end
 
-  after_action :reset_row_order, only: [:sort, :create, :update]
-
   def reset_row_order
     @goals = current_user.goals.rank(:row_order).where(status:false)
     @goals.each_with_index do |goal, i|
-    goal.update_attribute :row_order, i + 1
+      goal.update_attribute :row_order, i + 1
     end
     @count = @goals.count
     @completes = current_user.goals.rank(:row_order).where(status:true)
     @completes.each_with_index do |goal, i|
-    goal.update_attribute :row_order, @count + i + 1
+      goal.update_attribute :row_order, @count + i + 1
     end
   end
 

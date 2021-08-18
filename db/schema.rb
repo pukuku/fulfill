@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_17_052450) do
+ActiveRecord::Schema.define(version: 2021_08_18_115527) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2021_08_17_052450) do
     t.integer "task_progress", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "post_date"
   end
 
   create_table "shares", force: :cascade do |t|

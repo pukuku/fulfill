@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+
   def new
     @task=Task.new
     @goal = Goal.find(params[:goal_id])
@@ -14,12 +15,12 @@ class TasksController < ApplicationController
       @tasks = Task.where(goal_id: params[:goal_id])
       redirect_to edit_goal_path(@task.goal_id)
     else
-    @goal = Goal.find(params[:goal_id])
+      @goal = Goal.find(params[:goal_id])
     end
-
   end
 
   def edit
+    @goal=Goal.find(params[:goal_id])
     @task=Task.find(params[:id])
   end
 
@@ -44,7 +45,7 @@ class TasksController < ApplicationController
     end
   end
 
-  private
+private
 
   def task_params
     params.require(:task).permit(:content, :sun, :mon, :tue, :wed, :thu, :fri, :sat)

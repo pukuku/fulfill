@@ -89,6 +89,9 @@ gem 'ranked-model'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
+# バッチ
+gem 'whenever', require: false
+
 # デプロイ
 gem 'dotenv-rails'
 group :production do
