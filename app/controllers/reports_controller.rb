@@ -2,6 +2,11 @@ class ReportsController < ApplicationController
 
   def index
     @reports = Report.where(goal_id: params[:goal_id])
+    # アクセス権
+    @correct_user = User.find(@reports[0].goal.user_id)
+    if @correct_user.id != current_user.id
+      redirect_to goals_path
+    end
   end
 
   def show
@@ -26,6 +31,11 @@ class ReportsController < ApplicationController
 
   def complete
     @report = Report.find(params[:id])
+    # アクセス権
+    @correct_user = User.find(@report.goal.user_id)
+    if @correct_user.id != current_user.id
+      redirect_to goals_path
+    end
   end
 
   private
