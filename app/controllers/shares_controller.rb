@@ -72,6 +72,11 @@ class SharesController < ApplicationController
 
   def edit
     @share = Share.find(params[:id])
+    # アクセス権
+    @correct_user = User.find(@share.goal.user_id)
+    if @correct_user.id != current_user.id
+      redirect_to goals_path
+    end
     @tasks_week = [
       @tasks_sun = Task.where(goal_id: @share.goal_id, sun: "1"),
       @tasks_mon = Task.where(goal_id: @share.goal_id, mon: "1"),
@@ -85,6 +90,11 @@ class SharesController < ApplicationController
 
   def update
     @share = Share.find(params[:id])
+    # アクセス権
+    @correct_user = User.find(@share.goal.user_id)
+    if @correct_user.id != current_user.id
+      redirect_to goals_path
+    end
     @tasks_week = [
       @tasks_sun = Task.where(goal_id: @share.goal_id, sun: "1"),
       @tasks_mon = Task.where(goal_id: @share.goal_id, mon: "1"),
@@ -103,6 +113,11 @@ class SharesController < ApplicationController
 
   def destroy
     @share=Share.find(params[:id])
+    # アクセス権
+    @correct_user = User.find(@share.goal.user_id)
+    if @correct_user.id != current_user.id
+      redirect_to goals_path
+    end
     @share.destroy
     redirect_to shares_path
   end

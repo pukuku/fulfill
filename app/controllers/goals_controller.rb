@@ -16,6 +16,11 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find(params[:id])
+    # アクセス権
+    @correct_user = User.find(@goal.user_id)
+    if @correct_user != current_user
+      redirect_to goals_path
+    end
     @task_works = TaskWork.where(goal_id: @goal.id)
     @report = Report.new
   end
@@ -35,6 +40,11 @@ class GoalsController < ApplicationController
 
   def edit
     @goal = Goal.find(params[:id])
+    # アクセス権
+    @correct_user = User.find(@goal.user_id)
+    if @correct_user != current_user
+      redirect_to goals_path
+    end
     @tasks = Task.where(goal_id: @goal.id)
     @tasks_week = [
       @tasks_sun = Task.where(goal_id: @goal.id, sun: "1"),
@@ -49,11 +59,21 @@ class GoalsController < ApplicationController
 
   def update
     @goal = Goal.find(params[:id])
+    # アクセス権
+    @correct_user = User.find(@goal.user_id)
+    if @correct_user != current_user
+      redirect_to goals_path
+    end
     @goal.update(goal_params)
   end
 
   def destroy
     @goal=Goal.find(params[:id])
+    # アクセス権
+    @correct_user = User.find(@goal.user_id)
+    if @correct_user != current_user
+      redirect_to goals_path
+    end
     @goal.destroy
     redirect_to goals_path
   end
