@@ -1,10 +1,11 @@
-<div class="report_modal">
+<div class="modal_display">
+  <div class="text-right"><a class="modal_display_close fas fa-times-circle"></a></div>
   <h3>詳細</h3>
-  <div class="report_modal_contents">
+  <div class="modal_display_body">
     <div class="row mt-5">
-      <div class="col-5 mx-auto d-flex">
-        <div class="complete_body">コメント：</div>
-        <pre><%= @report.comment %></pre>
+      <div class="col-10 mx-auto d-flex">
+        <div class="complete_body col-4">コメント：</div>
+        <div class="col-6 report_memo"><%= @report.comment %></div>
       </div>
     </div>
 
@@ -23,4 +24,4 @@
 </div>
 
 <!--マスク-->
-<div class="report_mask"></div>
+<div class="mask_display"></div>

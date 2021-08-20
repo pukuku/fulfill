@@ -1,3 +1,27 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.clip_box{
+  width: 240px;
+  height: 350px;
+  left: -20px;
+  background-image: url("boad.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 12px;
+}
+
+.clip:before{
+  margin: 0px 4px;
+  bottom: 1px;
+  content: "\f0c6";
+  font-family: FontAwesome;
+}
+
+.clip_area{
+  width:　220px;
+  height: 260px;
+  overflow-y: scroll;
+}
+
+.clip_item{
+  list-style-type: disc;
+  margin-left: 20px;
+}

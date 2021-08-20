@@ -1,7 +1,8 @@
-<div class="container mb-5">
-  <div class="row">
-    <div class="col-12">
-      <%= link_to "よくある質問", helps_path,class:"far fa-question-circle d-flex justify-content-end" %>
+<div class="container mb-4">
+  <div class="row d-flex justify-content-between">
+    <h4 class="col-3">ＭｙＰａｇｅ</h4>
+    <div class="col-2">
+      <%= link_to "よくある質問", helps_path,class:"far fa-question-circle link" %>
     </div>
   </div>
 
@@ -9,37 +10,38 @@
     <!--ユーザー情報-->
     <%= render 'users/show', user: @user, clips: @clips %>
 
-    <!--自分が設定した目標-->
-    <div class="col-4 ml-1">
-      <h4>目標 <%= link_to "", new_goal_path, class: 'fas fa-plus-circle' %></h4>
-      <div id="sortable_task_0">
-        <% @goals.each do |goal| %>
-          <div class="d-flex align-content-center draggable-item task_0" value=<%= goal.id %>>
-              <%= link_to goal.content, goal_path(goal.id), class:'link_animation' %>
-              <%= link_to "", copy_goal_path(goal.id), class:"ml-2 fas fa-copy",method: :post %>
-              <% if goal.share %>
-                <%= link_to "", edit_share_path(goal.share.id), class:"ml-2 fas fa-share-alt-square" %>
-              <% else %>
-                <%= link_to "", new_goal_share_path(goal.id), class:"ml-2 fas fa-share-alt-square" %>
-              <% end %>
-          </div>
-        <% end %>
+    <div class="note d-flex ml-5">
+      <div class="ml-1 goal_box">
+        <h5 class="goal ml-3">目標 <%= link_to "", new_goal_path, class: 'fas fa-plus-circle' %></h5>
+        <div class="goal_area ml-5" id="sortable_goal_0">
+          <% @goals.each do |goal| %>
+            <div class="d-flex align-content-center draggable-item goal_0" value=<%= goal.id %>>
+                <%= link_to goal.content, goal_path(goal.id), class:'link' %>
+                <%= link_to "", copy_goal_path(goal.id), class:"ml-2 fas fa-copy",method: :post %>
+                <% if goal.share %>
+                  <%= link_to "", edit_share_path(goal.share.id), class:"ml-2 fas fa-share-alt-square" %>
+                <% else %>
+                  <%= link_to "", new_goal_share_path(goal.id), class:"ml-2 fas fa-share-alt-square" %>
+                <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <div class="col-4 ml-1">
-      <h4>達成した目標</h4>
-      <div id="sortable_task_1">
-        <% @completes.each do |complete| %>
-          <div class="d-flex align-content-center draggable-item task_1" value=<%= complete.id %>>
-            <%= link_to complete.content, goal_path(complete.id), class:'link_animation' %>
-            <%= link_to "", copy_goal_path(complete.id), class:"ml-2 fas fa-copy",method: :post %>
-            <% if complete.share %>
-              <%= link_to "", edit_share_path(complete.share.id), class:"ml-2 fas fa-share-alt-square" %>
-            <% else %>
-              <%= link_to "", new_goal_share_path(complete.id), class:"ml-2 fas fa-share-alt-square" %>
-            <% end %>
-          </div>
-        <% end %>
+      <div class="ml-4 complete_box">
+        <h5 class="complete ml-3">達成</h5>
+        <div class="goal_area ml-5" id="sortable_goal_1">
+          <% @completes.each do |complete| %>
+            <div class="d-flex align-content-center draggable-item goal_1" value=<%= complete.id %>>
+              <%= link_to complete.content, goal_path(complete.id), class:'link' %>
+              <%= link_to "", copy_goal_path(complete.id), class:"ml-2 fas fa-copy",method: :post %>
+              <% if complete.share %>
+                <%= link_to "", edit_share_path(complete.share.id), class:"ml-2 fas fa-share-alt-square" %>
+              <% else %>
+                <%= link_to "", new_goal_share_path(complete.id), class:"ml-2 fas fa-share-alt-square" %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

@@ -1,44 +1,35 @@
 <div class="container mt-5">
-
   <div class="row">
-    <div class="col-xs-6 mx-auto"><h4>Login</h4></div>
+    <div class=" mx-auto"><h4>ＬＯＧＩＮ</h4></div>
   </div>
 
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= form_with model: @user, url: user_session_path, class:"contact-form" , local: true do |f| %>
 
-
-    <div class="row mt-5">
-      <div class="col-6 mx-auto col-lg-5 form-field">
+    <div class="row mt-2">
+      <div class="col-4 mx-auto form-field">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input-text form-js-input" %>
       </div>
     </div>
-
-    <div class="row mt-3">
-      <div class="col-6 mx-auto col-lg-5 form-field">
+    <div class="row">
+      <div class="col-4 mx-auto form-field">
         <%= f.label :password %><br />
         <%= f.password_field :password, autocomplete: "current-password", class:"input-text form-js-input" %>
       </div>
     </div>
 
-
-    <div class="row mt-5 mb-5 form-field">
-    <%= f.submit "Log in", class:"col-3 mx-auto col-lg-2 submit-btn" %>
+    <div class="row mt-2 mb-3 form-field">
+      <%= f.submit "Log in", class:"col-3 mx-auto col-lg-2 submit-btn" %>
     </div>
 
+  <% end %>
 
-
-<% end %>
-
-
-
-
-  <div class="row mt-3">
-    <div class="col-xs-6 mx-auto"><h5>＜ 会員登録がお済みでない方 ＞</h5></div>
+  <div class="row mt-5">
+    <div class="col-xs-6 mx-auto"><h7>＜ 会員登録がお済みでない方 ＞</h7></div>
   </div>
 
-  <div class="row mt-2 mb-5">
+  <div class="row mb-4">
     <div class="col-12 text-center"><%= render "devise/shared/links" %></div>
   </div>
 

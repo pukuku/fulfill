@@ -1,8 +1,8 @@
-<div class="task_modal">
-  <div class="text-right"><a class="task_modal_close fas fa-times-circle"></a></div>
+<div class="modal_display">
+  <div class="text-right"><a class="modal_display_close fas fa-times-circle"></a></div>
   <h3>タスク編集</h3>
-  <p class="task_error"><i class="fas fa-exclamation-circle"></i>タスクを入力してください</p>
-  <div class="task_modal_contents">
+  <p class="modal_display_error"><i class="fas fa-exclamation-circle"></i>タスクを入力してください</p>
+  <div class="modal_display_body">
     <%= form_with model: task,url: goal_task_path(goal.id,task), remote: true do |f| %>
       <div class="row mt-2">
         <div class="col-6 ml-3">
@@ -10,7 +10,7 @@
         </div>
         <div class="col-10 ml-3">
           <%= f.text_field :content, class:"content_form",size:"40" %>
-          <%= f.button type: "submit", class:"task_modal_btn btn" do %>
+          <%= f.button type: "submit", class:"btn modal_display_btn" do %>
             <i class="fas fa-edit"></i>
           <% end %>
           <%= link_to "", goal_task_path(goal.id,task.id),class:"fas fa-trash-alt",method: :delete %>
@@ -53,5 +53,5 @@
 </div>
 
 <!--マスク-->
-<div class="task_mask"></div>
+<div class="mask_display"></div>
 

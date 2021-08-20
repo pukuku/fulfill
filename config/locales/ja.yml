@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        name: アカウント名
+        user_image_id: アイコン
+
+      goal:
+        content: 目標
+
+      report:
+        comment: コメント
+
+      share:
+        category_id: カテゴリ
+        content: Memo
+
+      task:
+        content: タスク

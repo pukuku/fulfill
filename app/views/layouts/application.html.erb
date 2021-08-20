@@ -4,53 +4,46 @@
     <title>Fulfill</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag('favicon.ico') %>
     <script src="https://kit.fontawesome.com/3d20b9dd2f.js " crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-          <a class="navbar-brand p-3" href="/"><%= image_tag "logo.jpg", size:"100" %></a>
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-            <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to current_user.name, edit_user_registration_path,class: 'nav-link text-dark' %>
+    <header>
+      <nav class="flex">
+        <a href="/"><%= image_tag "logo.jpg", class:"main_logo" %></a>
+        <ul class="main_menu">
+          <% if user_signed_in? %>
+            <li class="nav_item">
+              <%= link_to current_user.name, edit_user_registration_path,class: 'nav_link' %>
             </li>
-            <li class="nav-item">
-              <%= link_to "マイページ", goals_path, class: 'nav-link text-dark' %>
+            <li class="nav_item">
+              <%= link_to "マイページ", goals_path, class: 'nav_link' %>
             </li>
-            <li class="nav-item">
-              <%= link_to "Share", shares_path, class: 'nav-link text-dark' %>
+            <li class="nav_item">
+              <%= link_to "Share", shares_path, class: 'nav_link' %>
             </li>
-            <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+            <li class="nav_item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav_link' %>
             </li>
-            <% else %>
-            <li class="nav-item">
-              <%= link_to "Fulfill!って？", about_path, class: 'nav-link text-dark' %>
+          <% else %>
+            <li class="nav_item">
+              <%= link_to "Fulfill!って？", about_path, class: 'nav_link' %>
             </li>
-            <li class="nav-item">
-              <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
+            <li class="nav_item">
+              <%= link_to "新規登録", new_user_registration_path, class: 'nav_link' %>
             </li>
-            <li class="nav-item">
-              <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+            <li class="nav_item">
+              <%= link_to "ログイン", new_user_session_path, class: 'nav_link' %>
             </li>
-            <% end %>
-            </ul>
-          </div>
-        </div>
+          <% end %>
+        </ul>
       </nav>
     </header>
 
-   <main>
+    <main>
       <div class="container">
         <div class="row my-2">
           <% if alert %>
@@ -66,19 +59,14 @@
         </div>
       </div>
       <%= yield %>
-      <script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
     </main>
 
 
-   <div class="container">
-      <div class="row">
-        <div class="mx-auto mt-5">
-          <footer class="foot">CopyRight pukuku.inc</footer>
-        </div>
-      </div>
-    </div>
-
+    <footer class="foot">
+      <p class="copyright">CopyRight pukuku</p>
+    </footer>
 
   </body>
+
 </html>
 

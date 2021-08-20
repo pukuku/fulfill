@@ -2,7 +2,6 @@
 
   <div class="row mt-3">
     <div class="col-10">
-      <%= render "layouts/errors", obj: @report %>
       <h4><%= @goal.content %></h4>
       <%= link_to "", edit_goal_path(@goal.id),class:"fas fa-edit" %>
       <%= link_to "", goal_path(@goal.id),class:"fas fa-trash-alt",method: :delete %>
@@ -37,6 +36,7 @@
           <div>
             <%= f.label :どんな一日でしたか？ %>
           　<%= link_to "履歴", goal_reports_path(@goal.id) %>
+            <%= render "layouts/errors", obj: @report %>
           </div>
           <div><%= f.text_area :comment ,class:"area_form"%></div>
           <div><%= f.submit "今日の活動を終了する",class: "btn btn-success btn-sm" %></div>

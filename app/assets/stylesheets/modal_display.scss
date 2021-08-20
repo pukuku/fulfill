@@ -1,4 +1,4 @@
-.task_modal {
+.modal_display {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -14,7 +14,7 @@
   overflow: auto; //スクロール
 }
 
-.task_mask {
+.mask_display {
   position: fixed;
   top: 0;
   left: 0;
@@ -27,13 +27,26 @@
   transition: 0.3s;
 }
 
-.task_modal.task_modal-active{
+.modal_display_error {
+  visibility: hidden; //存在自体隠す
+  height: 0;
+}
+
+.modal_display.modal_display_active{
   transform: translate(-50%, -50%) scale(1); //.95(95%)=>1(100%)にすることで徐々に大きくなる表示
   opacity: 1;
   visibility: visible;
 }
 
-.task_mask.task_mask-active{
+.mask_display.mask_display_active{
   opacity: 0.7;
   visibility: visible;
+}
+
+.modal_display_error.modal_display_error_active{
+  color: #ff0000;
+  border: solid #ff0000;
+  visibility: visible;
+  height: 35px;
+  padding: 5px;
 }

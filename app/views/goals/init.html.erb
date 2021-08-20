@@ -1,10 +1,12 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-6 mx-auto message_underline"><h4>最初の目標を決めましょう</h4></div>
+  <div class="row mt-5">
+    <div class="col-5 mx-auto">
+      <h4>最初の目標を決めましょう</h4>
+      <div><%= render "layouts/errors", obj: @goal %></div>
+    </div>
   </div>
 
   <%= form_with model: @goal,url: init_create_goals_path, local: true do |f| %>
-    <%= render "layouts/errors", obj: @goal %>
     <div class="row mt-5">
       <div class="col-6 mx-auto col-lg-5 form-field">
         <%= f.text_field :content, size:"60" %>
