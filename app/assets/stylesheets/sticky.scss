@@ -1,0 +1,27 @@
+.sticky{
+  display: flex;
+  width: 600px;
+  height: 150px;
+  background-image: url("sticky.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+}
+
+.sticky_data{
+  width: 160px;
+  height: 100px;
+  margin: 20px;
+  padding: 15px 10px;
+}
+
+.sticky_data_title{
+  font-size: 15px;
+  font-weight: 10px;
+}
+
+.sticky_data_body{
+  height: 100px;
+  text-align: center;
+  font-size: 35px;
+}

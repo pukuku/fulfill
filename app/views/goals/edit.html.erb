@@ -1,36 +1,37 @@
-<div class="container">
-
-  <div class="row mt-5">
-
-    <div class="col-10">
-      <%= form_with model: @goal,url: goal_path(@goal),class:"goal_form", remote: true do |f| %>
-        <%= f.label :目標 %>
-        <%= f.text_field :content, size:"60" %>
+<div class="user_info">
+  <%= render 'users/show', user: @user, clips: @clips %>
+</div>
+<div class="main_area">
+  <div class="row mt-3">
+    <div class="col-1 ml-1">
+      <%= link_to "", goal_path(@goal.id), class:"fas fa-arrow-circle-left" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 mb-2 ml-4">
+      <h4>目標</h4>
+    </div>
+    <div class="col-6 ml-5">
+      <%= form_with model: @goal,url: goal_path(@goal),class:"goal_form form-group", remote: true do |f| %>
+        <%= f.text_field :content,class:"form-control" %>
       <% end %>
     </div>
-
   </div>
 
-
-  <div class="row mt-5">
-
-    <div class="col-4 ml-1 mr-1">
-      <%= render 'goals/tasks', tasks: @tasks %>
-    </div>
-
-    <div class="col-1 ml-2 mr-4 d-flex mt-5">
+  <div class="row mt-3 d-flex">
+    <%= render 'goals/tasks', tasks: @tasks %>
+    <div class="col-1 ml-2 d-flex mt-5">
       <div class="arrow"></div>
       <div class="arrow"></div>
       <div class="arrow"></div>
     </div>
-
-    <div class="col-6">
+    <div class="col-4 week_area">
       <!--曜日の配列取得-->
       <% week_name=["sun","mon","tue","wed","thu","fri","sat"] %>
 
       <ul class="week_tab">
         <% week_name.each do |name|  %>
-          <li><a href="#<%= name %>" class="<%= name %>"><%= name %></a></li>
+          <li><a href="#<%= name %>" class="<%= name %> link"><%= name %></a></li>
         <% end %>
       </ul>
 
@@ -42,13 +43,6 @@
 
     </div>
   </div>
-
-  <div class="row mt-5">
-    <div class="col-2 mx-auto ">
-      <%= link_to "詳細に戻る", goal_path(@goal.id), class:"btn-flat-primary" %>
-    </div>
-  </div>
-
 </div>
 
 <div class="modal_display_window"></div>

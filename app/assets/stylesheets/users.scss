@@ -1,11 +1,15 @@
+.info{
+  width: 100%;
+  display: flex;
+}
+
+.user_name{
+  position: relative;
+  top: 18px;
+}
 .clip_box{
   width: 240px;
-  height: 350px;
-  left: -20px;
-  background-image: url("boad.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  padding: 12px;
+  height: 380px;
 }
 
 .clip:before{
@@ -17,7 +21,7 @@
 
 .clip_area{
   width:　220px;
-  height: 260px;
+  height: 340px;
   overflow-y: scroll;
 }
 

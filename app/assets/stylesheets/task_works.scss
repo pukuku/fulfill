@@ -1,0 +1,17 @@
+.wide_note{
+  width: 330px;
+  height: 280px;
+  background-image: url("wide_note.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.wide_note_box{
+  width: 350px;
+  padding: 30px 30px;
+}
+
+.wide_note_area{
+  height: 200px;
+  overflow-y: scroll;
+}

@@ -1,37 +1,39 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-6 mx-auto"><h4>ユーザー情報変更</h4></div>
+    <h4 class="mx-auto">ユーザー情報変更</h4>
   </div>
-
-
+  <div class="row mt-2">
+    <div class="col-4 mx-auto">
+      <%= render "layouts/errors", obj: @user %>
+    </div>
+  </div>
   <%= form_with model: @user, url: users_path, local: true do |f| %>
-    <%= render "layouts/errors", obj: @user %>
-    <div class="row mt-3">
-      <div class="col-6 mx-auto col-lg-5 form-field">
-        <%= f.label :user_image %><br />
-        <%= f.attachment_field :user_image, autofocus: true %>
+    <div class="row mt-5">
+      <div class="col-9 d-flex ml-5">
+        <div class="col-4 ml-2"></div>
+        <%= f.label :アイコン, class:"ml-5" %>
+        <div class="ml-5 mr-3"></div>
+        <%= f.attachment_field :user_image, autofocus: true, class:"ml-5" %>
       </div>
     </div>
-
     <div class="row mt-3">
-      <div class="col-6 mx-auto col-lg-5 form-field">
-         <%= f.label :name %><br />
-         <%= f.text_field :name, autofocus: true %>
+      <div class="col-4 d-flex mx-auto">
+        <%= f.label :name ,class:"devise_label" %>
+        <%= f.text_field :name, autofocus: true, class:"form-control-sm" %>
       </div>
     </div>
-
     <div class="row mt-3">
-      <div class="col-6 mx-auto col-lg-5 form-field">
-         <%= f.label :email %><br />
-         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="col-4 d-flex mx-auto">
+         <%= f.label :email ,class:"devise_label" %><br />
+         <%= f.email_field :email, autofocus: true, class:"form-control-sm" %>
       </div>
     </div>
-
     <div class="row mt-5 mb-5">
-      <div class="col-3"></div>
-      <div class="col-2"><%= link_to "退会する", quit_confirm_users_path, class:"btn-flat-danger" %></div>
-      <div class="col-3 offset-1"><%= f.submit "編集内容を保存", class:"btn-flat-success" %></div>
+      <!--<div class="col-3"></div>-->
+      <div class="col-8 d-flex justify-content-around mx-auto">
+        <%= link_to "退会する", quit_confirm_users_path, class:"btn-flat-danger" %>
+        <%= f.submit "編集内容を保存", class:"btn-flat-success" %>
+      </div>
     </div>
-
   <% end %>
 </div>

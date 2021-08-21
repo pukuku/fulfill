@@ -1,3 +1,8 @@
-<div id="calendar" style="width: 50%; margin: 0 auto;"></div>
+<div class="user_info">
+  <%= render 'users/show', user: @user, clips: @clips %>
+</div>
+<div class="main_area">
+  <div class="mt-4" id="calendar" style="width: 80%; margin: 0 auto;"></div>
+</div>
 
 <div class="modal_display_window"></div>

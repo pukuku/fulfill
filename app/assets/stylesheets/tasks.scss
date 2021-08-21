@@ -1,0 +1,27 @@
+.memo{
+  width: 345px;
+  height: 380px;
+  background-image: url("memo.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.task_box{
+  width: 360px;
+  padding: 35px 30px;
+}
+
+.task_area{
+  height: 310px;
+  overflow-y: scroll;
+}
+
+.arrow{
+  margin-top: 140px;
+  margin-left: 6px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #abff44;
+}

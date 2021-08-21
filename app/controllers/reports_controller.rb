@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  before_action :user_info
 
   def index
     @reports = Report.where(goal_id: params[:goal_id])

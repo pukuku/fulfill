@@ -1,4 +1,12 @@
 $(document).on('turbolinks:load', function() {
+
+  // ロード時
+    $('.week_tab li:first-of-type').addClass("active");
+    $('.area:first-of-type').addClass("is-active");
+    var hashName = location.hash;
+    GethashID (hashName);
+
+
   function GethashID (hashIDName){
     if(hashIDName){
       $('.week_tab li').find('a').each(function() {
@@ -13,6 +21,7 @@ $(document).on('turbolinks:load', function() {
       });
     }
   }
+
   //タブをクリックしたら
   $('.week_tab a').on('click', function() {
     var idName = $(this).attr('href');
@@ -21,11 +30,4 @@ $(document).on('turbolinks:load', function() {
   });
 
 
-  // ロード時
-  $(window).on('load', function () {
-    $('.week_tab li:first-of-type').addClass("active");
-    $('.area:first-of-type').addClass("is-active");
-    var hashName = location.hash;
-    GethashID (hashName);
-  });
 });

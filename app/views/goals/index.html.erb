@@ -1,14 +1,17 @@
-<div class="container mb-4">
+<div class="user_info">
+  <%= render 'users/show', user: @user, clips: @clips %>
+</div>
+<div class="main_area">
   <div class="row d-flex justify-content-between">
-    <h4 class="col-3">ＭｙＰａｇｅ</h4>
-    <div class="col-2">
+    <h4 class="col-4">ＭｙＰａｇｅ</h4>
+    <div class="col-3">
       <%= link_to "よくある質問", helps_path,class:"far fa-question-circle link" %>
     </div>
   </div>
 
   <div class="row mt-5">
     <!--ユーザー情報-->
-    <%= render 'users/show', user: @user, clips: @clips %>
+    <!--%= render 'users/show', user: @user, clips: @clips %>-->
 
     <div class="note d-flex ml-5">
       <div class="ml-1 goal_box">
