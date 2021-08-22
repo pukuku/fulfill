@@ -34,3 +34,7 @@
   width: 320px;
   padding: 14px;
 }
+
+.goal_area::-webkit-scrollbar {
+    display:none;
+}

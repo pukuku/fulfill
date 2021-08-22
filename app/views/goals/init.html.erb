@@ -1,6 +1,7 @@
 <div class="container">
+  <div class="row mt-5 mb-5"></div>
   <div class="row mt-5">
-    <div class="col-5 mx-auto">
+    <div class="col-4 mx-auto">
       <h4>最初の目標を決めましょう</h4>
       <div><%= render "layouts/errors", obj: @goal %></div>
     </div>
@@ -8,8 +9,8 @@
 
   <%= form_with model: @goal,url: init_create_goals_path, local: true do |f| %>
     <div class="row mt-5">
-      <div class="col-6 mx-auto col-lg-5 form-field">
-        <%= f.text_field :content, size:"60" %>
+      <div class="col-5 mx-auto">
+        <%= f.text_field :content, size:"40",class:"form-control-lg" %>
       </div>
     </div>
 

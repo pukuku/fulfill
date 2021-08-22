@@ -11,23 +11,57 @@
   </div>
 
   <div class="row mt-2">
-    <div class="sticky ml-5">
+    <div class="sticky_data-area ml-5">
       <div class="sticky_data text-center">
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+      </div>
         <h5 class="sticky_data_title">今月の満足度</h5>
         <p class="sticky_data_body"><%= @goal.sum_fulness %></p>
-      </div>
+    </div>
+    <div class="sticky_data-area">
       <div class="sticky_data text-center">
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+      </div>
         <h5 class="sticky_data_title">今週の満足度</h5>
         <p class="sticky_data_body"><%= @goal.sum_fulness %></p>
-      </div>
+    </div>
+    <div class="sticky_data-area">
       <div class="sticky_data text-center">
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+        <div class='sticky_data-hole'></div>
+      </div>
         <h5 class="sticky_data_title">今月のタスク完了度</h5>
         <p class="sticky_data_body"><%= BigDecimal(@goal.sum_progress.to_s).floor(2).to_f %></p>
-      </div>
     </div>
   </div>
 
-  <div class="row mt-5">
+  <div class="row mt-4">
     <div class="col-6">
       <%= render 'goals/task_works', task_works: @task_works %>
     </div>
@@ -35,7 +69,9 @@
       <% report = Report.find_by(goal_id: @goal.id,created_at: Time.zone.today.all_day) %>
             <div>
               <p class="fas fa-pen-nib">どんな一日でしたか？</p>
-            　<%= link_to "履歴", goal_reports_path(@goal.id), class:"link" %>
+              <% unless Report.where(goal_id: @goal.id).empty? %>
+              　<%= link_to "履歴", goal_reports_path(@goal.id), class:"link" %>
+            　<% end %>
             </div>
         <%= form_with model: @report, url: goal_reports_path(@goal.id), class:"report", local: true do |f| %>
           <div>

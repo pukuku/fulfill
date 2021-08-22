@@ -15,3 +15,7 @@
   height: 200px;
   overflow-y: scroll;
 }
+
+.wide_note_area::-webkit-scrollbar {
+    display:none;
+}

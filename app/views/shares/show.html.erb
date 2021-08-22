@@ -1,23 +1,49 @@
-<div class="container">
-
-  <div class="row mt-5">
-    <div class="col-5">
-      <div class="d-flex align-items-center">
-      <h2><%= @share.goal.content %></h2>
-        <div class="ml-2">
+<div class="user_info">
+  <%= render 'users/show', user: @user, clips: @clips %>
+</div>
+<div class="main_area">
+  <div class="row mt-4">
+    <div class="col-12 mr-5">
+      <%= link_to "", shares_path, class:"fas fa-arrow-circle-left" %>
+      <div class="col-12 d-flex align-items-center">
+      <h4 class="mr-2"><%= @share.goal.content %></h4>
           <% if @share.user_id == current_user.id %>
             <%= link_to "", edit_share_path(@share.id),class:"fas fa-edit" %>
-            <%= link_to "", share_path(@share.id),class:"fas fa-trash-alt" %>
+            <%= link_to "", share_path(@share.id),class:"fas fa-trash-alt ml-2",method: :delete %>
           <% else %>
             <%= render 'clips/clip', share: @share %>
-            <%= link_to "", copy_goal_path(@share.goal_id), class:"fas fa-copy",method: :post %>
+            <%= link_to "", copy_goal_path(@share.goal_id), class:"fas fa-copy ml-2",method: :post %>
           <% end %>
-        </div>
       </div>
-      <p><%= @share.category.name %></p>
-      <pre><%= @share.content %></pre>
     </div>
-    <div class="col-6">
+  </div>
+  <div class="row mt-5">
+    <div class="col-5 mr-5">
+      <div class="share_memo-area ml-3">
+        <div class="share_memo text-center">
+          <div class='share_memo-hole'></div>
+          <div class='share_memo-hole'></div>
+          <div class='share_memo-hole'></div>
+          <div class='share_memo-hole'></div>
+          <div class='share_memo-hole'></div>
+          <div class='share_memo-hole'></div>
+          <div class='share_memo-hole'></div>
+          <div class='share_memo-hole'></div>
+          <div class='share_memo-hole'></div>
+          <div class='share_memo-hole'></div>
+          <div class='share_memo-hole'></div>
+          <div class='share_memo-hole'></div>
+          <div class='share_memo-hole'></div>
+          <div class='share_memo-hole'></div>
+          <div class='share_memo-hole'></div>
+          <div class='share_memo-hole'></div>
+          <div class='share_memo-hole'></div>
+        </div>
+        <p class="share_memo-category"><%= @share.category.name %></p>
+        <pre class="share_memo-body"><%= @share.content %></pre>
+      </div>
+    </div>
+    <div class="col-1 week_area ml-5">
       <!--曜日の配列取得-->
       <% week_name=["sun","mon","tue","wed","thu","fri","sat"] %>
       <ul class="week_tab">
@@ -34,15 +60,4 @@
 
     </div>
   </div>
-
-  <div class="row mt-5">
-    <div class="col-2 mx-auto ">
-    <%= link_to "一覧に戻る", shares_path, class:"btn-flat-primary" %>
-    </div>
-  </div>
-
-  <div class="row mt-5">
-    <div class="task_modal_window"></div>
-  </div>
-
 </div>

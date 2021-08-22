@@ -66,6 +66,8 @@ nav{
 //---- フッター ----
 footer{
   width: 100%;
+  position: absolute;
+  bottom: 20px
 }
 
 .copyright{
@@ -84,7 +86,7 @@ footer{
   width: 18%;
   height: 520px;
   margin: 2% 5% 4% 10%;
-  background-image: url("boad.jpg");
+  background-image: url("board.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   padding: 18px 14px 40px 14px;

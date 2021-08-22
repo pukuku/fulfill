@@ -1,6 +1,7 @@
-.sticky_data {
-  height: 150px;
-  width: 200px;
+.share_memo {
+  width: 345px;
+  height: 380px;
+  background:#ffeaea;
   border-radius: 0 0 10px 10px;
   position: relative;
   margin-bottom: 30px;
@@ -8,23 +9,6 @@
   &-area {
     position: relative;
     z-index: 1;
-    &:nth-child(1){
-      & div{
-        background:#ffbfbf;
-      }
-    }
-    &:nth-child(2){
-      margin-left: 20px;
-      & div{
-        background:#d7d1ff;
-      }
-    }
-    &:nth-child(3){
-      margin-left: 20px;
-      & div{
-        background:#dbfbff;
-      }
-    }
   }
   &-hole {
     height: 10px;
@@ -53,8 +37,8 @@
 
   &:before {
     content: "";
-    height: 155px;
-    width: 200px;
+    width: 345px;
+    height: 385px;
     background: gray;
     opacity: 0.5;
     position: absolute;
@@ -65,23 +49,26 @@
 
 }
 
-
-.sticky_data_title{
-  width: 200px;
-  text-align: center;
-  font-size: 15px;
-  font-weight: 10px;
+.share_memo-category{
+  text-decoration: underline dotted;
+  width: 360px;
+  padding: 0 20px;
   position: absolute;
   display: block;
-  top: 40px;
+  top: 30px;
 }
 
-.sticky_data_body{
-  width: 200px;
-  text-align: center;
-  height: 100px;
-  font-size: 35px;
+.share_memo-body{
+  width: 310px;
+  height: 300px;
+  overflow-y: scroll;
   position: absolute;
   display: block;
-  top: 60px;
+  top: 70px;
+  left: 20px;
+}
+
+
+.share_memo-body::-webkit-scrollbar {
+    display:none;
 }

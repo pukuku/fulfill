@@ -1,4 +1,23 @@
-<div class="memo ml-5">
+<div class="task_data-area ml-5">
+  <div class="task_data text-center">
+    <div class='task_data-hole'></div>
+    <div class='task_data-hole'></div>
+    <div class='task_data-hole'></div>
+    <div class='task_data-hole'></div>
+    <div class='task_data-hole'></div>
+    <div class='task_data-hole'></div>
+    <div class='task_data-hole'></div>
+    <div class='task_data-hole'></div>
+    <div class='task_data-hole'></div>
+    <div class='task_data-hole'></div>
+    <div class='task_data-hole'></div>
+    <div class='task_data-hole'></div>
+    <div class='task_data-hole'></div>
+    <div class='task_data-hole'></div>
+    <div class='task_data-hole'></div>
+    <div class='task_data-hole'></div>
+    <div class='task_data-hole'></div>
+  </div>
   <div class="task_box">
     <div>
       設定したタスク
@@ -6,7 +25,7 @@
     </div>
     <div class="task_area">
       <% tasks.each do |task| %>
-        <div>
+        <div class="mb-2">
           <%= link_to edit_goal_task_path(@goal.id,task),class:"task_modal_open task_week_content d-block link", remote: true do %>
             <%= task.content %>
           <% end %>

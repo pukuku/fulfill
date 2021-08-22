@@ -11,7 +11,7 @@
   <h5 class="clip mt-3">クリップした目標</h5>
   <ul class=" clip_area">
     <% clips.each do |clip| %>
-      <li class="clip_item"><%= link_to clip.share.goal.content, share_path(clip.share_id), class:"link" %></li>
+      <li class="clip_item"><%= link_to clip.share.goal.content, share_path(clip.share_id), class:"link clip_text" %></li>
     <% end %>
   </ul>
 </div>

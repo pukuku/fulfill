@@ -22,7 +22,7 @@ class ReportsController < ApplicationController
     @report.fulness = 0
     @report.post_date = Time.now
     if @report.save
-      redirect_to complete_goal_report_path(@report.goal_id,@report.id)
+      redirect_to goal_reports_path(@report.goal_id)
     else
       @goal = Goal.find(@report.goal_id)
       @task_works = TaskWork.where(goal_id: @report.goal_id)

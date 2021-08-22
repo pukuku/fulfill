@@ -1,4 +1,4 @@
-<div class="clip">
+<div class="clip_btn">
 <% if share.cliped_by?(current_user) %>
   <%= link_to "外す", share_clips_path(share.id),class:"fas fa-paperclip",method: :delete, remote:true %>
 <% else %>

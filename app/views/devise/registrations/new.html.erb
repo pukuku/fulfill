@@ -3,10 +3,10 @@
     <h4 class="mx-auto">新規会員登録</h4>
   </div>
   <div class="row">
-    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="mx-auto"><%= render "devise/shared/error_messages", resource: resource %></div>
   </div>
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-    <div class="row mt-5">
+    <div class="row mt-4">
       <div class="col-4 d-flex mx-auto">
         <%= f.label :name ,class:"devise_label" %>
         <%= f.text_field :name, autofocus: true, class:"form-control-sm" %>

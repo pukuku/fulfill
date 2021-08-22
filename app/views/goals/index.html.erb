@@ -18,7 +18,7 @@
         <h5 class="goal ml-3">目標 <%= link_to "", new_goal_path, class: 'fas fa-plus-circle' %></h5>
         <div class="goal_area ml-5" id="sortable_goal_0">
           <% @goals.each do |goal| %>
-            <div class="d-flex align-content-center draggable-item goal_0" value=<%= goal.id %>>
+            <div class="d-flex align-content-center draggable-item goal_0 mb-1" value=<%= goal.id %>>
                 <%= link_to goal.content, goal_path(goal.id), class:'link' %>
                 <%= link_to "", copy_goal_path(goal.id), class:"ml-2 fas fa-copy",method: :post %>
                 <% if goal.share %>
@@ -34,7 +34,7 @@
         <h5 class="complete ml-3">達成</h5>
         <div class="goal_area ml-5" id="sortable_goal_1">
           <% @completes.each do |complete| %>
-            <div class="d-flex align-content-center draggable-item goal_1" value=<%= complete.id %>>
+            <div class="d-flex align-content-center draggable-item goal_1 mb-1" value=<%= complete.id %>>
               <%= link_to complete.content, goal_path(complete.id), class:'link' %>
               <%= link_to "", copy_goal_path(complete.id), class:"ml-2 fas fa-copy",method: :post %>
               <% if complete.share %>
