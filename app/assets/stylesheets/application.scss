@@ -29,53 +29,6 @@
 }
 
 
-//---- ヘッダー ----
-
-nav{
-  width: 100%;
-  height: 90px;
-  display: flex;
-  justify-content: space-between;
-  background-color: #ffffef;
-  padding: 0px 50px;
-}
-
-.main_logo{
-  width: 200px;
-  height: 100px;
-  margin-top: 5px;
-  object-fit: cover;
-}
-
-.main_menu{
-  width: 500px;
-  display:flex;
-  justify-content: space-around;
-}
-
-.nav_item{
-  margin: auto;
-}
-
-.nav_link,
-.nav_link:visited,
-.nav_link:hover,
-.nav_link:active {
-  color: #808080;
-}
-
-//---- フッター ----
-footer{
-  width: 100%;
-  position: absolute;
-  bottom: 20px
-}
-
-.copyright{
-  width: 135px;
-  margin: auto;
-}
-
 // メインエリア分割
 .full_area{
   width: 100%;
@@ -103,16 +56,15 @@ body{
   background-color: #f9fff2;
 }
 
+// 見出し
 h4{
   text-decoration: underline dotted;
-}
-// 見出しにアイコンをつける
-h4:before{
-  content: url("icon.jpg");
-  position: relative;
-  right: 6px;
-  bottom: -5px;
-
+  &:before{
+    content: url("icon.jpg");
+    position: relative;
+    right: 6px;
+    bottom: -5px;
+  }
 }
 
 // リストに・はつけない
@@ -150,50 +102,3 @@ ul{
    color :#ff0000;
  }
 
-
-
-.btn-flat-success {
-
-  display: inline-block;
-  padding: 5px 10px;
-  text-decoration: none;
-  color: #228b22;
-  border: solid 2px #228b22;
-  border-radius: 5px;
-  transition: .4s;
-  background: transparent;
-  &:hover{
-    background: #228b22;
-    color: white;
-  }
-}
-
-.btn-flat-primary {
-  display: inline-block;
-  padding: 5px 10px;
-  text-decoration: none;
-  color: #007bff;
-  border: solid 2px #007bff;
-  border-radius: 5px;
-  transition: .4s;
-  background:  transparent;
-  &:hover{
-    background: #007bff;
-    color: white;
-  }
-}
-
-.btn-flat-danger {
-  display: inline-block;
-  padding: 5px 10px;
-  text-decoration: none;
-  color: #dc3545;
-  border: solid 2px #dc3545;
-  border-radius: 5px;
-  transition: .4s;
-  background:  transparent;
-  &:hover{
-    background: #dc3545;
-    color: white;
-  }
-}

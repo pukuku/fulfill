@@ -1,0 +1,60 @@
+.home{
+  text-align: center;
+  margin-top: 10%;
+
+  &.blur{
+    margin: 120px auto 150px;
+    animation-name: blurAnime;
+    animation-duration: 1800ms;
+    animation-fill-mode: forwards;
+  }
+
+  &_logo{
+    width: 400px;
+    height: 120px;
+    object-fit: cover;
+  }
+
+  &_content {
+    font-size: 13px;
+    margin: 0px 0 50px;
+  }
+
+  &_btn {
+    padding: 9px 16px;
+    font-size: 17px;
+    background: #00f735;
+    color: #fff;
+    border-radius: 5px;
+
+    &:hover {
+      background: #77f490;
+      color: #fff;
+    }
+
+  }
+
+
+  &_guest,
+  &_guest:visited,
+  &_guest:hover,
+  &_guest:active {
+    margin-top: 10px;
+    color: #808080;
+  }
+
+}
+
+
+@keyframes blurAnime{
+  from {
+  filter: blur(10px);
+  transform: scale(1.02);
+  }
+
+  to {
+  filter: blur(0);
+  transform: scale(1);
+  }
+}
+

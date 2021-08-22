@@ -61,3 +61,29 @@
     @include sticky-data-before(200px, 155px);
   }
 }
+
+
+.wide_note{
+  width: 330px;
+  height: 280px;
+  background-image: url("../wide_note.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  &_box{
+    width: 350px;
+    padding: 30px 30px;
+  }
+
+  &_area{
+    height: 200px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display:none;
+    }
+
+  }
+
+}
+

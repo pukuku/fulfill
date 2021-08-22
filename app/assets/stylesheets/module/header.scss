@@ -1,0 +1,47 @@
+// ヘッダー
+.nav{
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffef;
+  padding: 0px 50px;
+  margin-bottom: 10px;
+
+  &_item{
+    margin: auto;
+  }
+
+  &_link,
+  &_link:visited,
+  &_link:hover,
+  &_link:active {
+    color: #808080;
+  }
+
+  .main_logo{
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  .main_menu{
+    width: 500px;
+    display:flex;
+    justify-content: space-around;
+  }
+
+}
+
+
+//---- フッター ----
+footer{
+  width: 100%;
+  position: absolute;
+  bottom: 20px
+}
+
+.copyright{
+  width: 135px;
+  margin: auto;
+}

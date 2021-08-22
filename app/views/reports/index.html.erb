@@ -1,7 +1,11 @@
-<div class="user_info">
+<!--サブエリア-->
+<div class="sub_area">
   <%= render 'users/show', user: @user, clips: @clips %>
 </div>
+
+<!--メインエリア-->
 <div class="main_area">
+  <!--ページヘッド部-->
   <%= link_to "", goal_path(@reports[0].goal_id),class:"fas fa-arrow-circle-left" %>
   <div class="mt-4" id="calendar" style="width: 80%; margin: 0 auto;"></div>
 </div>

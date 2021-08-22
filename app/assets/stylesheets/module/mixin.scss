@@ -68,13 +68,13 @@
 }
 
 @mixin week-area-active($area_color, $border_color){
-      width: 300px;
-      height: 370px;
-      margin-top: 1px;
-      padding: 5px;
-      background:$area_color;
-      border: solid $border_color;
-      border-width: 2px 2px 2px 0px;
+  width: 300px;
+  height: 370px;
+  margin-top: 1px;
+  padding: 5px;
+  background:$area_color;
+  border: solid $border_color;
+  border-width: 2px 2px 2px 0px;
 }
 
 

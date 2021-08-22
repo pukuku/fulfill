@@ -3,20 +3,20 @@
   <div class="modal_display_body">
     <div class="row mt-2">
       <div class="col-10 mx-auto d-flex">
-        <div class="complete_body col-4">コメント：</div>
-        <div class="col-9 report_memo"><%= @report.comment %></div>
+        <div class="col-4">コメント：</div>
+        <div class="col-9" style="white-space: pre-wrap;"><%= @report.comment %></div>
       </div>
     </div>
 
     <div class="row mt-3">
       <div class="col-3 mx-auto">
-        <div class="complete_body">満足度：<%= @report.fulness %></div>
+        <div>満足度：<%= @report.fulness %></div>
       </div>
     </div>
 
     <div class="row mt-3 mb-2">
       <div class="col-3 mx-auto">
-        <div class="complete_body">達成度：<%= @report.task_progress %>/<%= @report.task_all %></div>
+        <div>達成度：<%= @report.task_progress %>/<%= @report.task_all %></div>
       </div>
     </div>
   </div>

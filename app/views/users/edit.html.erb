@@ -28,10 +28,10 @@
          <%= f.email_field :email, autofocus: true, class:"form-control-sm" %>
       </div>
     </div>
-    <div class="row mt-5 mb-5">
-      <div class="col-8 d-flex justify-content-around mx-auto">
-        <%= link_to "退会する", quit_confirm_users_path, class:"btn-flat-danger" %>
-        <%= f.submit "編集内容を保存", class:"btn-flat-success" %>
+    <div class="row mt-5 mb-5 ml-5">
+      <div class="col-7 d-flex justify-content-around mx-auto">
+        <%= link_to "退会する", quit_confirm_users_path, class:"btn btn-danger" %>
+        <%= f.submit "編集内容を保存", class:"btn btn-success ml-5" %>
       </div>
     </div>
   <% end %>

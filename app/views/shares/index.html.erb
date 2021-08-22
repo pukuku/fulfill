@@ -1,7 +1,11 @@
-<div class="user_info">
+<!--サブエリア-->
+<div class="sub_area">
   <%= render 'users/show', user: @user, clips: @clips %>
 </div>
+
+<!--メインエリア-->
 <div class="main_area">
+  <!--ページヘッド部-->
   <div class="row mt-4">
     <div class="col-12">
       <%= form_with(url: shares_path, method: :get, enforce_utf8: false,class:"d-flex align-items-center", local: true) do |f| %>
