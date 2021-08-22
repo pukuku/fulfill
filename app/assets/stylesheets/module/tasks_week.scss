@@ -1,0 +1,116 @@
+@import "module/mixin";
+
+
+.week_area{
+  display: flex;
+}
+
+.week_tab{
+  margin: 0;
+
+  li{
+
+    a{
+      display: block;
+      background:#f5f5f5;
+      margin: 1px 0;
+      padding: 12px 20px;
+      border: solid #dcdcdc;
+      border-width: 2px 0px 2px 2px;
+    }
+
+    &.active{
+      .sun{
+        @include week-tab-active(#ffeaff, #ffd6ff);
+      }
+
+      .mon{
+        @include week-tab-active(#fff8dc, #eee8aa);
+      }
+
+      .tue{
+        @include week-tab-active(#ffeaea, #ffd6d6);
+      }
+
+      .wed{
+        @include week-tab-active(#efffff, #b7ffff);
+      }
+
+      .thu{
+        @include week-tab-active(#eaffea, #c6ffc6);
+      }
+
+      .fri{
+        @include week-tab-active(#ffffdb, #ffff9e);
+      }
+
+      .sat{
+        @include week-tab-active(#ffead6, #ffddbc);
+      }
+
+    }
+
+  }
+
+}
+
+
+.area {
+  display: none;
+  opacity: 0;
+  background: #fff;
+
+  &.is-active {
+    width: 300px;
+    height: 370px;
+    display: block;/*表示*/
+    animation-name: displayAnime;/*ふわっと表示させるためのアニメーション*/
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  ul {
+    width: 90%;
+    background:#ffeaff;
+
+    .sun {
+      @include week-area-active(#ffeaff, #ffd6ff);
+    }
+
+    .mon {
+      @include week-area-active(#fff8dc, #eee8aa);
+    }
+
+    .tue {
+      @include week-area-active(#ffeaea, #ffd6d6);
+    }
+
+    .wed {
+      @include week-area-active(#efffff, #b7ffff);
+    }
+
+    .thu {
+      @include week-area-active(#eaffea, #c6ffc6);
+    }
+
+    .fri {
+      @include week-area-active(#ffffdb, #ffff9e);
+    }
+
+    .sat {
+      @include week-area-active(#ffead6, #ffddbc);
+    }
+
+  }
+
+}
+
+
+@keyframes displayAnime{
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

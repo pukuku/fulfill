@@ -1,11 +1,10 @@
 $(document).on('turbolinks:load', function() {
 
   // ロード時
-    $('.week_tab li:first-of-type').addClass("active");
-    $('.area:first-of-type').addClass("is-active");
-    var hashName = location.hash;
-    GethashID (hashName);
-
+  $('.week_tab li:first-of-type').addClass("active");
+  $('.area:first-of-type').addClass("is-active");
+  var hashName = location.hash;
+  GethashID (hashName);
 
   function GethashID (hashIDName){
     if(hashIDName){
@@ -28,6 +27,5 @@ $(document).on('turbolinks:load', function() {
     GethashID (idName);
     return false;
   });
-
 
 });

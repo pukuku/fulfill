@@ -8,25 +8,25 @@
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
     <div class="row mt-4">
       <div class="col-4 d-flex mx-auto">
-        <%= f.label :name ,class:"devise_label" %>
+        <%= f.label :name , style:"width:200px" %>
         <%= f.text_field :name, autofocus: true, class:"form-control-sm" %>
       </div>
     </div>
     <div class="row mt-3">
       <div class="col-4 d-flex mx-auto">
-        <%= f.label :email,class:"devise_label" %>
+        <%= f.label :email, style:"width:200px" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control-sm" %>
       </div>
     </div>
     <div class="row mt-3">
       <div class="col-4 d-flex mx-auto">
-        <%= f.label :password, "パスワード(6文字以上)",class:"devise_label" %>
+        <%= f.label :password, "パスワード(6文字以上)", style:"width:200px" %>
         <%= f.password_field :password, autocomplete: "new-password", class:"form-control-sm" %>
       </div>
     </div>
     <div class="row mt-3">
       <div class="col-4 d-flex mx-auto">
-        <%= f.label :password_confirmation, "パスワード(確認用)",class:"devise_label" %>
+        <%= f.label :password_confirmation, "パスワード(確認用)", style:"width:200px" %>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control-sm" %>
       </div>
     </div>

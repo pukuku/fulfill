@@ -1,0 +1,58 @@
+@import "module/mixin";
+
+.sticky_task {
+  @include sticky-data(345px, 380px);
+  background:#bfffc5;
+
+  &_area {
+    @include sticky-area();
+
+    .task_box{
+      width: 100%;
+      padding: 0 20px;
+      position: absolute;
+      display: block;
+      top: 30px;
+
+      .task_area{
+        width: 310px;
+        height: 310px;
+        overflow-y: scroll;
+        position: absolute;
+        display: block;
+        top: 30px;
+
+        &::-webkit-scrollbar {
+          display:none;
+        }
+      }
+    }
+  }
+
+  &_hole {
+    @include sticky-hole();
+
+    &:before {
+      @include sticky-hole-before();
+    }
+
+    &:after {
+      @include sticky-hole-after();
+    }
+  }
+
+  &:before {
+    @include sticky-data-before(345px, 385px);
+  }
+
+}
+
+.arrow{
+  margin-top: 140px;
+  margin-left: 6px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #abff44;
+}

@@ -1,8 +1,17 @@
-<div class="user_info">
+<!--サブエリア-->
+<div class="sub_area">
   <%= render 'users/show', user: @user, clips: @clips %>
 </div>
+
+<!--メインエリア-->
 <div class="main_area">
+  <!--ページヘッド部-->
   <div class="row mt-3">
+    <div class="col-1 ml-1">
+      <%= link_to "", goals_path, class:"fas fa-arrow-circle-left" %>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-10 d-flex align-items-center">
       <h4><%= @goal.content %></h4>
       <%= link_to "", edit_goal_path(@goal.id),class:"fas fa-edit ml-2" %>
@@ -10,77 +19,46 @@
     </div>
   </div>
 
+  <!--達成度・充実度評価-->
   <div class="row mt-2">
-    <div class="sticky_data-area ml-5">
-      <div class="sticky_data text-center">
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-      </div>
-        <h5 class="sticky_data_title">今月の満足度</h5>
-        <p class="sticky_data_body"><%= @goal.sum_fulness %></p>
+    <div class="sticky_score_area ml-5">
+      <%= render 'layouts/sticky', hole: 10, sel: "score" %>
+      <h5 class="sticky_data_title">今月の満足度</h5>
+      <p class="sticky_data_body"><%= @goal.sum_fulness %></p>
     </div>
-    <div class="sticky_data-area">
-      <div class="sticky_data text-center">
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-      </div>
-        <h5 class="sticky_data_title">今週の満足度</h5>
-        <p class="sticky_data_body"><%= @goal.sum_fulness %></p>
+    <div class="sticky_score_area">
+      <%= render 'layouts/sticky', hole: 10, sel: "score" %>
+      <h5 class="sticky_data_title">今週の満足度</h5>
+      <p class="sticky_data_body"><%= @goal.sum_fulness %></p>
     </div>
-    <div class="sticky_data-area">
-      <div class="sticky_data text-center">
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-        <div class='sticky_data-hole'></div>
-      </div>
-        <h5 class="sticky_data_title">今月のタスク完了度</h5>
-        <p class="sticky_data_body"><%= BigDecimal(@goal.sum_progress.to_s).floor(2).to_f %></p>
+    <div class="sticky_score_area">
+      <%= render 'layouts/sticky', hole: 10, sel: "score" %>
+      <h5 class="sticky_data_title">今月のタスク完了度</h5>
+      <p class="sticky_data_body"><%= BigDecimal(@goal.sum_progress.to_s).floor(2).to_f %></p>
     </div>
   </div>
 
+  <!--今日のタスク・レポート送信-->
   <div class="row mt-4">
     <div class="col-6">
       <%= render 'goals/task_works', task_works: @task_works %>
     </div>
     <div class="col-6">
-      <% report = Report.find_by(goal_id: @goal.id,created_at: Time.zone.today.all_day) %>
-            <div>
-              <p class="fas fa-pen-nib">どんな一日でしたか？</p>
-              <% unless Report.where(goal_id: @goal.id).empty? %>
-              　<%= link_to "履歴", goal_reports_path(@goal.id), class:"link" %>
-            　<% end %>
-            </div>
-        <%= form_with model: @report, url: goal_reports_path(@goal.id), class:"report", local: true do |f| %>
-          <div>
-            <%= render "layouts/errors", obj: @report %>
-          </div>
-      <% if report == nil %>
+      <div>
+        <p class="fas fa-pen-nib">どんな一日でしたか？</p>
+        <% unless Report.where(goal_id: @goal.id).empty? %>
+        　<%= link_to "履歴", goal_reports_path(@goal.id), class:"link" %>
+      　<% end %>
+      </div>
+      <%= form_with model: @report, url: goal_reports_path(@goal.id), class:"report", local: true do |f| %>
+        <div>
+          <%= render "layouts/errors", obj: @report %>
+        </div>
+        <% report = Report.find_by(goal_id: @goal.id,created_at: Time.zone.today.all_day) %>
+        <% if report == nil %>
           <div><%= f.text_area :comment ,class:"area_form"%></div>
           <div><%= f.submit "今日の活動を終了する",class: "btn btn-success btn-sm" %></div>
-      <% else %>
+        <% else %>
           <div><%= f.text_area :comment ,class:"area_form", disabled: true,value:report.comment %></div>
           <div><%= f.submit "今日の活動を終了する",class: "btn btn-success btn-sm", disabled: true %></div>
         <% end %>
@@ -88,4 +66,3 @@
     </div>
   </div>
 </div>
-

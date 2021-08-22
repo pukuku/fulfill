@@ -1,0 +1,88 @@
+// beforeにfontawesomeを適用する
+@mixin before-awesome($font_code){
+  margin: 0px 4px;
+  bottom: 1px;
+  content: $font_code;
+  font-family: FontAwesome;
+}
+
+// 付箋デザイン用
+@mixin sticky-data($width, $height){
+  width: $width;
+  height: $height;
+  border-radius: 0 0 10px 10px;
+  position: relative;
+  margin-bottom: 30px;
+  display: flex;
+}
+
+@mixin sticky-area(){
+  position: relative;
+  z-index: 1;
+}
+
+@mixin sticky-hole(){
+  height: 10px;
+  width: 20px;
+  position: relative;
+}
+
+@mixin sticky-hole-before(){
+  content: "";
+  height: 10px;
+  width: 4px;
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 8px;
+}
+
+@mixin sticky-hole-after(){
+  content: "";
+  height: 10px;
+  width: 10px;
+  background: white;
+  border-radius: 5px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+@mixin sticky-data-before($width, $height){
+  width: $width;
+  height: $height;
+  content: "";
+  background: gray;
+  opacity: 0.5;
+  position: absolute;
+  left: 5px;
+  border-radius: 0 0 20px 20px;
+  z-index: -1;
+}
+
+// 一週間のタスクのタブメニュー
+@mixin week-tab-active($area_color, $border_color){
+  background:$area_color;
+  border: solid $border_color;
+  border-width: 2px 0px 2px 2px;
+}
+
+@mixin week-area-active($area_color, $border_color){
+      width: 300px;
+      height: 370px;
+      margin-top: 1px;
+      padding: 5px;
+      background:$area_color;
+      border: solid $border_color;
+      border-width: 2px 2px 2px 0px;
+}
+
+
+
+
+
+
+
+
+
+

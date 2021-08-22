@@ -1,0 +1,63 @@
+@import "module/mixin";
+
+.sticky_score {
+  @include sticky-data(200px, 150px);
+
+  &_area {
+    @include sticky-area();
+
+    .sticky_data_title{
+      width: 200px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 10px;
+      position: absolute;
+      display: block;
+      top: 40px;
+    }
+
+    .sticky_data_body{
+      width: 200px;
+      text-align: center;
+      height: 100px;
+      font-size: 35px;
+      position: absolute;
+      display: block;
+      top: 60px;
+    }
+
+    &:nth-child(1){
+      & div{
+        background:#ffbfbf;
+      }
+    }
+    &:nth-child(2){
+      margin-left: 20px;
+      & div{
+        background:#d7d1ff;
+      }
+    }
+    &:nth-child(3){
+      margin-left: 20px;
+      & div{
+        background:#dbfbff;
+      }
+    }
+  }
+
+  &_hole {
+    @include sticky-hole();
+
+    &:before {
+      @include sticky-hole-before();
+    }
+
+    &:after {
+      @include sticky-hole-after();
+    }
+  }
+
+  &:before {
+    @include sticky-data-before(200px, 155px);
+  }
+}

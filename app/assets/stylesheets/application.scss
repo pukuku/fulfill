@@ -11,11 +11,12 @@
  * It is generally better to create a new file per style scope.
  *
  *= require fullcalendar
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
 
 /*追記*/
+@import "module/mixin";
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
@@ -82,7 +83,7 @@ footer{
   margin-bottom: -40px;
 }
 
-.user_info{
+.sub_area{
   width: 18%;
   height: 520px;
   margin: 2% 5% 4% 10%;

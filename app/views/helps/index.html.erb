@@ -1,4 +1,11 @@
-<div class="container mb-5">
+<!--サブエリア-->
+<div class="sub_area">
+  <%= render 'users/show', user: @user, clips: @clips %>
+</div>
+
+<!--メインエリア-->
+<div class="main_area">
+  <!--ページヘッド部-->
   <div class="row mt-5">
     <div class="col-12">
       <%= form_with(url: helps_path, method: :get, enforce_utf8: false,class:"d-flex justify-content-end search-form", local: true) do |f| %>

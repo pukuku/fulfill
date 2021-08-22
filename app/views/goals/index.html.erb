@@ -1,7 +1,11 @@
-<div class="user_info">
+<!--サブエリア-->
+<div class="sub_area">
   <%= render 'users/show', user: @user, clips: @clips %>
 </div>
+
+<!--メインエリア-->
 <div class="main_area">
+  <!--ページヘッド部-->
   <div class="row d-flex justify-content-between">
     <h4 class="col-4">ＭｙＰａｇｅ</h4>
     <div class="col-3">
@@ -9,16 +13,14 @@
     </div>
   </div>
 
+  <!--目標一覧-->
   <div class="row mt-5">
-    <!--ユーザー情報-->
-    <!--%= render 'users/show', user: @user, clips: @clips %>-->
-
-    <div class="note d-flex ml-5">
-      <div class="ml-1 goal_box">
+    <div class="note_block d-flex ml-5">
+      <div class="note_box ml-1">
         <h5 class="goal ml-3">目標 <%= link_to "", new_goal_path, class: 'fas fa-plus-circle' %></h5>
-        <div class="goal_area ml-5" id="sortable_goal_0">
+        <div class="note_area ml-5" id="sortable_goal_0">
           <% @goals.each do |goal| %>
-            <div class="d-flex align-content-center draggable-item goal_0 mb-1" value=<%= goal.id %>>
+            <div class="draggable-item goal_0 d-flex align-content-center mb-1" value=<%= goal.id %>>
                 <%= link_to goal.content, goal_path(goal.id), class:'link' %>
                 <%= link_to "", copy_goal_path(goal.id), class:"ml-2 fas fa-copy",method: :post %>
                 <% if goal.share %>
@@ -30,11 +32,11 @@
           <% end %>
         </div>
       </div>
-      <div class="ml-4 complete_box">
+      <div class="ml-4 note_box">
         <h5 class="complete ml-3">達成</h5>
-        <div class="goal_area ml-5" id="sortable_goal_1">
+        <div class="note_area ml-5" id="sortable_goal_1">
           <% @completes.each do |complete| %>
-            <div class="d-flex align-content-center draggable-item goal_1 mb-1" value=<%= complete.id %>>
+            <div class="draggable-item goal_1 d-flex align-content-center mb-1" value=<%= complete.id %>>
               <%= link_to complete.content, goal_path(complete.id), class:'link' %>
               <%= link_to "", copy_goal_path(complete.id), class:"ml-2 fas fa-copy",method: :post %>
               <% if complete.share %>

@@ -1,7 +1,11 @@
-<div class="user_info">
+<!--サブエリア-->
+<div class="sub_area">
   <%= render 'users/show', user: @user, clips: @clips %>
 </div>
+
+<!--メインエリア-->
 <div class="main_area">
+  <!--ページヘッド部-->
   <div class="row mt-3">
     <div class="col-1 ml-1">
       <%= link_to "", goal_path(@goal.id), class:"fas fa-arrow-circle-left" %>
@@ -19,29 +23,15 @@
   </div>
 
   <div class="row mt-3 d-flex">
-    <%= render 'goals/tasks', tasks: @tasks %>
+    <!--設定したタスク一覧-->
+    <%= render 'goals/edit_tasks', tasks: @tasks %>
     <div class="col-1 ml-2 d-flex mt-5">
       <div class="arrow"></div>
       <div class="arrow"></div>
       <div class="arrow"></div>
     </div>
-    <div class="col-4 week_area">
-      <!--曜日の配列取得-->
-      <% week_name=["sun","mon","tue","wed","thu","fri","sat"] %>
-
-      <ul class="week_tab">
-        <% week_name.each do |name|  %>
-          <li><a href="#<%= name %>" class="<%= name %> link"><%= name %></a></li>
-        <% end %>
-      </ul>
-
-      <% 7.times do |i| %>
-        <div id="<%= week_name[i] %>" class="area">
-          <%= render 'goals/tasks_week', tasks: @tasks_week[i], week_name: week_name[i] %>
-        </div>
-      <% end %>
-
-    </div>
+    <!--週ごとタスク一覧-->
+    <%= render 'layouts/tasks_week', tasks_week: @tasks_week %>
   </div>
 </div>
 
