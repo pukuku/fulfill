@@ -1,55 +1,51 @@
-<div class="task_modal">
-  <div class="text-right"><a class="task_modal_close fas fa-times-circle"></a></div>
-  <h3>タスク登録</h3>
-  <p class="task_error"><i class="fas fa-exclamation-circle"></i>タスクを入力してください</p>
-  <div class="task_modal_contents">
+<div class="modal_display">
+  <div class="text-right ml-5">
+    <a class="modal_display_close fas fa-times-circle"></a>
+  </div>
+
+  <div class="row">
     <%= form_with model: task,url: goal_tasks_path(goal.id), local: true do |f| %>
-      <div class="row mt-2">
-        <div class="col-6 ml-3">
-          <%= f.label :タスク %>
-        </div>
-        <div class="col-10 ml-3">
-          <%= f.text_field :content, class:"content_form",size:"40" %>
-          <%= f.button type: "submit", class:"task_modal_btn btn" do %>
-            <i class="fas fa-edit"></i>
-          <% end %>
-        </div>
+      <h4 class="col-11 ml-2">タスクを登録する</h4>
+      <p class="modal_display_error col-10 ml-3"><i class="fas fa-exclamation-circle"></i>タスクを入力してください</p>
+      <div class="col-12 mt-4 ml-3">
+        <%= f.text_field :content, class:"content_form form-control-sm",size:"40" %>
+        <%= f.button type: "submit", class:"btn modal_display_btn" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
       </div>
-      <div class="row mt-2">
-        <div class="col-10 ml-3 d-flex justify-content-around">
-          <div>
-            <%= f.check_box :sun, id:"check_sun"%>
-            <%= f.label :日, for:"check_sun"%>
-          </div>
-          <div>
+      <div class="col-12 d-flex justify-content-around">
+        <div>
+          <%= f.check_box :sun, id:"check_sun"%>
+          <%= f.label :日, for:"check_sun"%>
+        </div>
+        <div>
           <%= f.check_box :mon, id:"check_mon" %>
           <%= f.label :月, for:"check_mon" %>
-          </div>
-          <div>
+        </div>
+        <div>
           <%= f.check_box :tue, id:"check_tue" %>
           <%= f.label :火, for:"check_tue" %>
-          </div>
-          <div>
+        </div>
+        <div>
           <%= f.check_box :wed, id:"check_wed" %>
           <%= f.label :水, for:"check_wed" %>
-          </div>
-          <div>
+        </div>
+        <div>
           <%= f.check_box :thu, id:"check_thu" %>
           <%= f.label :木, for:"check_thu" %>
-          </div>
-          <div>
+        </div>
+        <div>
           <%= f.check_box :fri, id:"check_fri" %>
           <%= f.label :金, for:"check_fri" %>
-          </div>
-          <div>
+        </div>
+        <div>
           <%= f.check_box :sat, id:"check_sat" %>
           <%= f.label :土, for:"check_sat" %>
-          </div>
         </div>
       </div>
-     <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
 
 <!--マスク-->
-<div class="task_mask"></div>
+<div class="mask_display"></div>

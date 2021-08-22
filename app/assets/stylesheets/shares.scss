@@ -1,3 +1,82 @@
-// Place all the styles related to the shares controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.share_area{
+  position: relative;
+  width: 880px;
+  height: 480px;
+  padding: 10px;
+  background-color:#e9eaad;
+  &:before{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    content: "";
+    width: 840px;
+    height: 460px;
+    background-color: #4e575b;
+  }
+  &:after{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    content: "";
+    width: 820px;
+    height: 440px;
+    background-color: #000;
+  }
+}
+
+.share_area_inside{
+  overflow-y: scroll;
+  position: relative;
+  width: 860px;
+  height: 420px;
+  top: 20px;
+}
+
+.share_block{
+  width: 175px;
+  height: 200px;
+  position:relative;
+  z-index: 1;
+  background-color: #fff;
+  &:before{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    content: "";
+    width: 155px;
+    height: 160px;
+    background-color: #d0e3ea;
+  }
+}
+
+.share_item{
+  position:relative;
+  top: 20px;
+  z-index: 2;
+  padding: 0 12px;
+}
+
+.share_complete.fas{
+  position: absolute;
+  top: -15px;
+  left: 5px;
+  font-size: 30px;
+  color: #e9bc00;
+}
+
+.share_text{
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.share_link{
+  display: block;
+  position: absolute;
+  top: -11px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+

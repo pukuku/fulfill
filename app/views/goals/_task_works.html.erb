@@ -1,29 +1,20 @@
 <div class="task_works">
-  <table class="table table-hover table-bordered">
-
-    <thead class="thead-light">
-      <tr>
-        <th>今日のタスク</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% task_works.each do |task_work| %>
-        <tr>
-          <td class="d-flex">
-            <% if task_work.status == true %>
-              <%= link_to task_work_path(task_work),class:"fas fa-check-circle d-block link_animation", method: :patch, remote: true do %>
-                <%= task_work.task.content %>
-              <% end %>
-            <% else %>
-              <%= link_to task_work_path(task_work),class:"far fa-circle d-block link_animation", method: :patch, remote: true do %>
-                <%= task_work.task.content %>
-              <% end %>
+  <div class="ml-4 wide_note">
+    <div class="wide_note_box">
+      <h5>今日のタスク</h5>
+      <div class="wide_note_area">
+        <% task_works.each do |task_work| %>
+          <% if task_work.status == true %>
+            <%= link_to task_work_path(task_work),class:"fas fa-check-circle d-block link mb-2", method: :patch, remote: true do %>
+              <%= task_work.task.content %>
             <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-
-  </table>
+          <% else %>
+            <%= link_to task_work_path(task_work),class:"far fa-circle d-block link mb-2", method: :patch, remote: true do %>
+              <%= task_work.task.content %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

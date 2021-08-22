@@ -1,16 +1,5 @@
     $(document).on('turbolinks:load', function () {
 
-    $(document).on('click', ".report_modal_close", function(){
-      $('.report_modal').removeClass('report_modal-active');
-      $('.report_mask').removeClass('report_mask-active');
-    });
-
-    $(document).on('click', ".report_mask-active", function(){
-      $('.report_modal-active').removeClass('report_modal-active');
-      $('.report_mask-active').removeClass('report_mask-active');
-    });
-
-
     if ($('#calendar').length == 1) {
       var url = location.pathname
 

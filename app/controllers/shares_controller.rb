@@ -1,4 +1,5 @@
 class SharesController < ApplicationController
+  before_action :user_info
 
   def index
     # 検索条件がある場合は絞り込んでいく

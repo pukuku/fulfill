@@ -1,19 +1,17 @@
-  <div class="row">
-    <!--ユーザー情報-->
-    <div class="col-12">
-      <%= attachment_image_tag user, :user_image, :fill, 60, 60, format:"jpeg", fallback:"no_image.jpeg",size:"60x50" %>
-      <%= user.name %>
-      <%= link_to "", edit_user_registration_path,class:"fas fa-cogs" %>
-
-      <h4>クリップした目標</h4>
-      <table>
-        <% clips.each do |clip| %>
-          <tr>
-            <td><%= link_to clip.share.goal.content, share_path(clip.share_id) %></td>
-          </tr>
-        <% end %>
-      </table>
-      <%= paginate clips %>
-    </div>
+<div class="info">
+  <div class="icon">
+    <%= attachment_image_tag user, :user_image, :fill, 60, 60, format:"jpeg", fallback:"no_image.jpeg",size:"60x50" %>
   </div>
-
+  <div class="user_name">
+    <%= user.name %>
+    <%= link_to "", edit_user_registration_path,class:"fas fa-cogs" %>
+  </div>
+</div>
+<div class="mt-4 clip_box">
+  <h5 class="clip mt-3">クリップした目標</h5>
+  <ul class=" clip_area">
+    <% clips.each do |clip| %>
+      <li class="clip_item"><%= link_to clip.share.goal.content, share_path(clip.share_id), class:"link clip_text" %></li>
+    <% end %>
+  </ul>
+</div>

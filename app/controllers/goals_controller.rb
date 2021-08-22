@@ -1,9 +1,8 @@
 class GoalsController < ApplicationController
   after_action :reset_row_order, only: [:sort, :create]
+  before_action :user_info
 
   def index
-    @user = User.find(current_user.id)
-    @clips = Clip.where(user_id: current_user.id).page(params[:page]).per(20)
     @goals = current_user.goals.rank(:row_order).where(status:false)
     @completes = current_user.goals.rank(:row_order).where(status:true)
   end
@@ -39,6 +38,8 @@ class GoalsController < ApplicationController
   end
 
   def edit
+    @user = User.find(current_user.id)
+    @clips = Clip.where(user_id: current_user.id).page(params[:page]).per(10)
     @goal = Goal.find(params[:id])
     # アクセス権
     @correct_user = User.find(@goal.user_id)

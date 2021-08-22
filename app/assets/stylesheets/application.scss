@@ -27,48 +27,117 @@
   box-sizing: border-box;
 }
 
+
+//---- ヘッダー ----
+
+nav{
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffef;
+  padding: 0px 50px;
+}
+
+.main_logo{
+  width: 200px;
+  height: 100px;
+  margin-top: 5px;
+  object-fit: cover;
+}
+
+.main_menu{
+  width: 500px;
+  display:flex;
+  justify-content: space-around;
+}
+
+.nav_item{
+  margin: auto;
+}
+
+.nav_link,
+.nav_link:visited,
+.nav_link:hover,
+.nav_link:active {
+  color: #808080;
+}
+
+//---- フッター ----
+footer{
+  width: 100%;
+  position: absolute;
+  bottom: 20px
+}
+
+.copyright{
+  width: 135px;
+  margin: auto;
+}
+
+// メインエリア分割
+.full_area{
+  width: 100%;
+  display: flex;
+  margin-bottom: -40px;
+}
+
+.user_info{
+  width: 18%;
+  height: 520px;
+  margin: 2% 5% 4% 10%;
+  background-image: url("board.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 18px 14px 40px 14px;
+}
+
+.main_area{
+ width: 50%;
+}
+
+//---- 共通設定 ----
+
+body{
+  background-color: #f9fff2;
+}
+
+h4{
+  text-decoration: underline dotted;
+}
+// 見出しにアイコンをつける
+h4:before{
+  content: url("icon.jpg");
+  position: relative;
+  right: 6px;
+  bottom: -5px;
+
+}
+
 // リストに・はつけない
 ul{
   list-style:none;
+  margin: 0px;
 }
 
-// fontawesomeのアイコンカラーは黒とする
+// fontawesomeのアイコンカラー
 .fas{
-  color:black;
+  color: #808080;
 }
+
+// リンクのカラー指定
+.link,
+.link:visited,
+.link:hover,
+.link:active {
+  color: #808080;
+}
+
 
 // テキストエリアのサイズ
 .area_form{
-  width: 450px;
+  width: 350px;
   height: 150px;
-}
-
-// リンクのデザイン
-// リンクの下線をアニメーションする
-.link_animation{
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  color: #000000;
-  text-decoration: none;
-  &:hover{
-    color: #000000;
-    text-decoration: none;
-  }
-  &:after{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: #000000;
-    transform: translate(-100%, 0);
-    transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s;
-    content: "";
-  }
-  &:hover:after{
-    transform: translate(0, 0);
-  }
 }
 
 // メッセージ
@@ -80,23 +149,7 @@ ul{
    color :#ff0000;
  }
 
-.message_underline{
-  margin: auto;
-  background: linear-gradient(transparent 70%, #a7d6ff 70%);
-}
 
-// ボタン
-.button {
-  font-size: 1rem;
-  background: #0bd;
-  color: #fff;
-  border-radius: 5px;
-  padding: 10px 20px;
-}
-
-.button:hover {
-  background: #0090aa;
-}
 
 .btn-flat-success {
 
@@ -141,63 +194,5 @@ ul{
   &:hover{
     background: #dc3545;
     color: white;
-  }
-}
-
-// 入力フォーム1
-.contact-form {
-  .form-field {
-    position: relative;
-    margin: 32px 0;
-  }
-
-  .input-text {
-    display: block;
-    width: 100%;
-    height: 36px;
-    border-width: 0 0 2px 0;
-    border-color: #000;
-    font-size: 18px;
-    line-height: 26px;
-    font-weight: 400;
-
-    &:focus {
-      outline: none;
-
-      + .label {
-        transform: translateY(-24px);
-      }
-    }
-
-    &.not-empty {
-      + .label {
-        transform: translateY(-24px);
-      }
-    }
-  }
-
-  .label {
-    position: absolute;
-    left: 20px;
-    bottom: 11px;
-    font-size: 18px;
-    line-height: 26px;
-    font-weight: 400;
-    color: #888;
-    cursor: text;
-    transition: transform 0.2s ease-in-out;
-  }
-
-  .submit-btn {
-    display: inline-block;
-    background-color: #000;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 16px;
-    line-height: 24px;
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
   }
 }

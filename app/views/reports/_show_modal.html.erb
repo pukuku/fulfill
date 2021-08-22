@@ -1,20 +1,20 @@
-<div class="report_modal">
-  <h3>詳細</h3>
-  <div class="report_modal_contents">
-    <div class="row mt-5">
-      <div class="col-5 mx-auto d-flex">
-        <div class="complete_body">コメント：</div>
-        <pre><%= @report.comment %></pre>
+<div class="modal_display">
+  <div class="text-right"><a class="modal_display_close fas fa-times-circle"></a></div>
+  <div class="modal_display_body">
+    <div class="row mt-2">
+      <div class="col-10 mx-auto d-flex">
+        <div class="complete_body col-4">コメント：</div>
+        <div class="col-9 report_memo"><%= @report.comment %></div>
       </div>
     </div>
 
-    <div class="row mt-5">
+    <div class="row mt-3">
       <div class="col-3 mx-auto">
         <div class="complete_body">満足度：<%= @report.fulness %></div>
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row mt-3 mb-2">
       <div class="col-3 mx-auto">
         <div class="complete_body">達成度：<%= @report.task_progress %>/<%= @report.task_all %></div>
       </div>
@@ -23,4 +23,4 @@
 </div>
 
 <!--マスク-->
-<div class="report_mask"></div>
+<div class="mask_display"></div>

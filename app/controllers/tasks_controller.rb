@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :user_info
 
   def new
     @task=Task.new

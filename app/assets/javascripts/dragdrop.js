@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function() {
 
-    var el = document.getElementById("sortable_task_0")
+    var el = document.getElementById("sortable_goal_0")
     if (el != null){
       var sortable = Sortable.create(el, {
         draggable: '.draggable-item',
@@ -23,8 +23,8 @@ $(document).on('turbolinks:load', function() {
           var item = evt.item;
           var item_id = $(item).attr('value')
           // クラス付け替え
-          $(item).removeClass('task_1');
-          $(item).addClass('task_0');
+          $(item).removeClass('goal_1');
+          $(item).addClass('goal_0');
           $.ajax({
             url: 'goals/' + item_id + '/sort',
             type: 'patch',
@@ -34,7 +34,7 @@ $(document).on('turbolinks:load', function() {
       })
     }
 
-    var el = document.getElementById("sortable_task_1")
+    var el = document.getElementById("sortable_goal_1")
     if (el != null){
       var sortable = Sortable.create(el, {
         draggable: '.draggable-item',
@@ -46,8 +46,8 @@ $(document).on('turbolinks:load', function() {
           // URL用にidを取得
           var item = evt.item;
           var item_id = $(item).attr('value')
-          // ポジションをsortable_task_0も含めて整形
-          var count = $('.task_0').length
+          // ポジションをsortable_goal_0も含めて整形
+          var count = $('.goal_0').length
           var position = count + evt.newIndex
           $.ajax({
             url: 'goals/' + item_id + '/sort',
@@ -60,10 +60,10 @@ $(document).on('turbolinks:load', function() {
           var item = evt.item;
           var item_id = $(item).attr('value')
           // クラス付け替え
-          $(item).removeClass('task_0');
-          $(item).addClass('task_1');
-          // ポジションをsortable_task_0も含めて整形
-          var count = $('.task_0').length
+          $(item).removeClass('goal_0');
+          $(item).addClass('goal_1');
+          // ポジションをsortable_goal_0も含めて整形
+          var count = $('.goal_0').length
           var position = count + evt.newIndex
           $.ajax({
             url: 'goals/' + item_id + '/sort',

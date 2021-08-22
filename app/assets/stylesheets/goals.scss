@@ -1,20 +1,40 @@
-.goal_data{
-  width: 160px;
-  height: 100px;
-  padding: 10px 10px 15px;
-  border: solid;
-  border-radius: 5px;
+.goal:before{
+  margin: 0px 4px;
+  bottom: 1px;
+  content: "\f024";
+  font-family: FontAwesome;
 }
 
-.goal_data_title{
-  font-size: 15px;
-  font-weight: 10px;
+.complete:before{
+  margin: 0px 4px;
+  bottom: 1px;
+  content: "\f5a2";
+  font-family: FontAwesome;
 }
 
-.goal_data_body{
-  height: 100px;
-  text-align: center;
-  font-size: 35px;
+.goal_area{
+  height: 390px;
+  overflow-y: scroll;
 }
 
+.note{
+  width: 700px;
+  height: 450px;
+  background-image: url("note.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
 
+.goal_box{
+  width: 320px;
+  padding: 14px;
+}
+
+.complete_box{
+  width: 320px;
+  padding: 14px;
+}
+
+.goal_area::-webkit-scrollbar {
+    display:none;
+}

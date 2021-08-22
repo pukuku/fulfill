@@ -9,6 +9,10 @@ def after_sign_in_path_for(resource)
   goals_path
 end
 
+def user_info
+  @user = User.find(current_user.id)
+  @clips = Clip.where(user_id: current_user.id).page(params[:page]).per(10)
+end
 
 protected
 
