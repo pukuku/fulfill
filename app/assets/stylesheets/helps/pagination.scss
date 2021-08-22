@@ -1,0 +1,22 @@
+.pagination {
+  width: 200px;
+  margin: auto;
+  padding: auto;
+
+  li a {
+    margin-left: 10px;
+    border: none;
+    color: #696969;
+
+    &:hover {
+      border-radius: 15px;
+    }
+
+  }
+
+  .active a {
+    background: #93c9ff;
+    border-radius: 15px;
+  }
+
+}

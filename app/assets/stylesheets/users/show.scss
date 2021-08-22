@@ -1,0 +1,45 @@
+@import "module/mixin";
+
+
+.user_data{
+  width: 100%;
+  display: flex;
+
+  .user_name{
+    position: relative;
+    top: 18px;
+  }
+
+}
+
+
+.clip{
+  &:before{
+    @include before-awesome("\f0c6");
+  }
+
+  &_area{
+    width:　220px;
+    height: 340px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display:none;
+    }
+
+  }
+
+  &_item{
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+
+  &_text{
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+  }
+
+}

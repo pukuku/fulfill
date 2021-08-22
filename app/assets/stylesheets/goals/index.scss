@@ -1,0 +1,33 @@
+@import "module/mixin";
+
+.note_block{
+  width: 700px;
+  height: 450px;
+  background-image: url("../note.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  .note_box{
+    width: 320px;
+    padding: 14px;
+
+    .goal:before{
+      @include before-awesome("\f024");
+    }
+
+    .complete:before{
+      @include before-awesome("\f5a2");
+    }
+
+    .note_area{
+      height: 390px;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        display:none;
+      }
+    }
+
+  }
+
+}

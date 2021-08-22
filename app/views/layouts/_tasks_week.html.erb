@@ -1,0 +1,25 @@
+<div class="col-4 week_area">
+
+  <!--曜日の配列取得-->
+  <% week_name=["sun","mon","tue","wed","thu","fri","sat"] %>
+
+  <ul class="week_tab">
+    <% week_name.each do |name|  %>
+      <li><a href="#<%= name %>" class="<%= name %> link"><%= name %></a></li>
+    <% end %>
+  </ul>
+
+  <!--曜日ごとのタスクを取得-->
+  <% 7.times do |i| %>
+    <div id="<%= week_name[i] %>" class="area">
+      <ul>
+        <div class="<%= week_name[i] %>">
+          <% tasks_week[i].each do |task| %>
+            <li class="mb-2"><%= task.content %></li>
+          <% end %>
+        </div>
+      </ul>
+    </div>
+  <% end %>
+
+</div>

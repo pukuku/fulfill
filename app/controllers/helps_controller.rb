@@ -1,4 +1,5 @@
 class HelpsController < ApplicationController
+  before_action :user_info
 
   def index
     if params[:search_word] == nil

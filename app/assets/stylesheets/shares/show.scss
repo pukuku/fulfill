@@ -1,0 +1,51 @@
+@import "module/mixin";
+
+.sticky_memo {
+  @include sticky-data(345px, 380px);
+  background:#ffeaea;
+
+  &_category{
+    text-decoration: underline dotted;
+    width: 360px;
+    padding: 0 20px;
+    position: absolute;
+    display: block;
+    top: 30px;
+  }
+
+  &_body{
+    width: 310px;
+    height: 300px;
+    overflow-y: scroll;
+    position: absolute;
+    display: block;
+    top: 70px;
+    left: 20px;
+
+    &::-webkit-scrollbar {
+      display:none;
+    }
+
+  }
+
+  &_area {
+    @include sticky-area();
+  }
+
+  &_hole {
+    @include sticky-hole();
+
+    &:before {
+      @include sticky-hole-before();
+    }
+
+    &:after {
+      @include sticky-hole-after();
+    }
+  }
+
+  &:before {
+    @include sticky-data-before(345px, 385px);
+  }
+
+}
