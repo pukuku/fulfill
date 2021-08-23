@@ -14,11 +14,11 @@
   transition: 0.3s;
   overflow: auto;
 
-  &error {
+  &_error {
     visibility: hidden;
     height: 0;
 
-    &.modal_display_error_active{
+    &_active{
       visibility: visible;
       height: 35px;
       padding: 10px 15px;

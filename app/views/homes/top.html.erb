@@ -6,7 +6,7 @@
 
   <% if !user_signed_in? %>
     <div class="home_guest">
-      <%= link_to "GUEST LOGIN",users_guest_sign_in_path, method: :post, class:"home_guest" %>
+      <%= link_to "GUEST LOGIN",users_guest_sign_in_path, method: :get, class:"home_guest" %>
     </div>
   <% end %>
 </div>

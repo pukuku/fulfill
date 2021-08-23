@@ -40,7 +40,7 @@
   width: 18%;
   height: 520px;
   margin: 2% 5% 4% 10%;
-  background-image: url("board.png");
+  background-image: image-url("board.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   padding: 18px 14px 40px 14px;
@@ -60,7 +60,7 @@ body{
 h4{
   text-decoration: underline dotted;
   &:before{
-    content: url("icon.jpg");
+    content: image-url("icon.jpg");
     position: relative;
     right: 6px;
     bottom: -5px;
@@ -71,6 +71,12 @@ h4{
 ul{
   list-style:none;
   margin: 0px;
+}
+
+// 箇条書き要素に・をつける
+.point:before{
+  content: "・";
+  color: #808080;
 }
 
 // fontawesomeのアイコンカラー

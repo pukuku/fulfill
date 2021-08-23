@@ -12,7 +12,7 @@ class Batch::Daily
       report.fulness = 0
       report.task_all = TaskWork.where(goal_id: goal.id).count
       report.task_progress = TaskWork.where(goal_id: goal.id,status: true).count
-      report.post_date = Time.now - (60*60*1)
+      report.post_date = Time.now - (60)
       if report.save
         success += 1
       else

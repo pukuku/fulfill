@@ -5,6 +5,15 @@
   width: 100%;
   display: flex;
 
+  .icon{
+    &_img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 5px;
+    }
+  }
+
   .user_name{
     position: relative;
     top: 18px;
