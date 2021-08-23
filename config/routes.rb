@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :shares, except:[:new,:create] do
       resource :clips, only:[:create,:destroy]
   end
-  
+
   resources :task_works, only:[:update]
   resources :helps, only:[:index]
 
@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+    get 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
 end
