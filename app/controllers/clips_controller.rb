@@ -1,4 +1,6 @@
 class ClipsController < ApplicationController
+  before_action :user_info
+
   def create
   	@share=Share.find(params[:share_id])
   	clip = current_user.clips.build(share_id: params[:share_id])

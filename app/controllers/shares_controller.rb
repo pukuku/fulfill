@@ -55,6 +55,7 @@ class SharesController < ApplicationController
     @share = current_user.shares.build(share_params)
     @share.goal_id = params[:goal_id]
     if @share.save
+      flash[:notice]="シェアしました"
       redirect_to share_path(@share.id)
     else
       @goal = Goal.find(params[:goal_id])
@@ -106,6 +107,7 @@ class SharesController < ApplicationController
       @tasks_sat = Task.where(goal_id: @share.goal_id, sat: "1")
     ]
     if @share.update(share_params)
+      flash[:notice]="更新しました"
       redirect_to share_path(@share.id)
     else
       render 'edit'
@@ -120,6 +122,7 @@ class SharesController < ApplicationController
       redirect_to goals_path
     end
     @share.destroy
+    flash[:notice]="削除しました"
     redirect_to shares_path
   end
 

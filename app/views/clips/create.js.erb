@@ -1,1 +1,2 @@
 $(".clip_btn").html("<%= j(render partial: "clips/clip", locals: {share:@share}) %>")
+$(".sub_area").html("<%= j(render partial: "users/show", locals: {user:@user, clips:@clips}) %>")

@@ -22,11 +22,17 @@
           <% @goals.each do |goal| %>
             <div class="draggable-item goal_0 d-flex align-items-center mb-1 point" value=<%= goal.id %>>
                 <%= link_to goal.content, goal_path(goal.id), class:'link' %>
-                <%= link_to "", copy_goal_path(goal.id), class:"ml-2 fas fa-copy",method: :post %>
+                  <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="コピーする"　 data-delay="500">
+               　　  <%= link_to "", copy_goal_path(goal.id), class:"ml-2 fas fa-copy fo_tooltip",method: :post %>
+                  </span>
                 <% if goal.share %>
-                  <%= link_to "", edit_share_path(goal.share.id), class:"ml-2 fas fa-share-alt-square" %>
+                  <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="シェアの編集"　 data-delay="500">
+                    <%= link_to "", edit_share_path(goal.share.id), class:"ml-2 fas fa-share-alt-square" %>
+                  </span>
                 <% else %>
-                  <%= link_to "", new_goal_share_path(goal.id), class:"ml-2 fas fa-share-alt-square" %>
+                  <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="シェアする"　 data-delay="500">
+                    <%= link_to "", new_goal_share_path(goal.id), class:"ml-2 fas fa-share-alt-square" %>
+                  </span>
                 <% end %>
             </div>
           <% end %>

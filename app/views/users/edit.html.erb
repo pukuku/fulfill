@@ -10,7 +10,7 @@
   <%= form_with model: @user, url: users_path, local: true do |f| %>
     <div class="row mt-5">
       <div class="col-9 d-flex ml-5">
-        <div class="col-4 ml-2"></div>
+        <div class="col-4 ml-3"></div>
         <%= f.label :アイコン, class:"ml-5" %>
         <div class="ml-5 mr-3"></div>
         <%= f.attachment_field :user_image, autofocus: true, class:"ml-5" %>
