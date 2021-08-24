@@ -22,6 +22,7 @@ class ReportsController < ApplicationController
     @report.fulness = 0
     @report.post_date = Time.now
     if @report.save
+      flash[:notice]="レポートを記入しました"
       redirect_to goal_reports_path(@report.goal_id)
     else
       @goal = Goal.find(@report.goal_id)

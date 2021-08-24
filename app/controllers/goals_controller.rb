@@ -76,6 +76,7 @@ class GoalsController < ApplicationController
       redirect_to goals_path
     end
     @goal.destroy
+    flash[:notice]="削除しました"
     redirect_to goals_path
   end
 
@@ -106,6 +107,7 @@ class GoalsController < ApplicationController
       @task.save
       @task.task_work_create
     end
+    flash[:notice]="コピーしました"
     redirect_to goal_path(@goal.id)
   end
 

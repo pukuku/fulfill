@@ -12,11 +12,17 @@
       <div class="col-12 d-flex align-items-center">
         <h4 class="mr-2"><%= @share.goal.content %></h4>
         <% if @share.user_id == current_user.id %>
-          <%= link_to "", edit_share_path(@share.id),class:"fas fa-edit" %>
-          <%= link_to "", share_path(@share.id),class:"fas fa-trash-alt ml-2",method: :delete %>
+          <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="編集する"　 data-delay="500">
+            <%= link_to "", edit_share_path(@share.id),class:"fas fa-edit" %>
+          </span>
+          <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="削除する"　 data-delay="500">
+            <%= link_to "", share_path(@share.id),class:"fas fa-trash-alt ml-2",method: :delete %>
+          </span>
         <% else %>
           <%= render 'clips/clip', share: @share %>
-          <%= link_to "", copy_goal_path(@share.goal_id), class:"fas fa-copy ml-2",method: :post %>
+          <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="コピーする"　 data-delay="500">
+            <%= link_to "", copy_goal_path(@share.goal_id), class:"fas fa-copy ml-2",method: :post %>
+          </span>
         <% end %>
       </div>
     </div>

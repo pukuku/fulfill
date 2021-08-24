@@ -12,10 +12,11 @@
 //
 
 
-// 追記
+// 追記(記述順注意)
 //= require jquery3
 //= require jquery
 //= require popper
+//= require bootstrap/bootstrap-tooltip
 //= require bootstrap-sprockets
 //= require moment
 //= require fullcalendar
@@ -23,4 +24,5 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
 
