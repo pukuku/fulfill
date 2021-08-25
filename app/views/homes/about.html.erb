@@ -1,23 +1,25 @@
-<!--ボタン-->
-<div class="slider_btn_block">
-  <input type="radio" name="slider" title="slide1" checked="checked" id="slider_btn_1" class="slider_btn" />
-  <label class="slider_label" for="slider_btn_1">ＳＴＥＰ１</label>
-  <input type="radio" name="slider" title="slide2" id="slider_btn_2" class="slider_btn"/>
-  <label class="slider_label" for="slider_btn_2">ＳＴＥＰ２</label>
-  <input type="radio" name="slider" title="slide3" id="slider_btn_3" class="slider_btn"/>
-  <label class="slider_label" for="slider_btn_3">ＳＴＥＰ３</label>
-  <input type="radio" name="slider" title="slide4" id="slider_btn_4" class="slider_btn"/>
-  <label class="slider_label" for="slider_btn_4">ＳＴＥＰ４</label>
-</div>
+<div class="about_block mx-auto">
 
-<div class="slider mt-3 mx-auto">
-  <div id="slider_inner">
-    <div class="slider_contents"></div>
-    <div class="slider_contents"></div>
-    <div class="slider_contents"></div>
-    <div class="slider_contents">
-      登録ボタン
+  <div class="slider mt-3">
+    <div id="slider_inner">
+      <div class="slider_contents"></div>
+      <div class="slider_contents"></div>
+      <div class="slider_contents"></div>
+      <div class="slider_contents">
+        <%= link_to "会員登録をして始める", new_user_registration_path, class: 'about_btn' %>
+      </div>
     </div>
   </div>
-</div>
 
+  <!--ボタン-->
+  <div class="slider_btn_block">
+    <input type="radio" name="slider" title="slide1" checked="checked" id="slider_btn_1" class="slider_btn" />
+    <label class="slider_label" for="slider_btn_1">ＳＴＥＰ１</label>
+    <input type="radio" name="slider" title="slide2" id="slider_btn_2" class="slider_btn"/>
+    <label class="slider_label" for="slider_btn_2">ＳＴＥＰ２</label>
+    <input type="radio" name="slider" title="slide3" id="slider_btn_3" class="slider_btn"/>
+    <label class="slider_label" for="slider_btn_3">ＳＴＥＰ３</label>
+    <input type="radio" name="slider" title="slide4" id="slider_btn_4" class="slider_btn"/>
+    <label class="slider_label" for="slider_btn_4">ＳＴＥＰ４</label>
+  </div>
+</div>
