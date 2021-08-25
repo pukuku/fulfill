@@ -6,7 +6,7 @@
   justify-content: space-between;
   background-color: #ffffef;
   padding: 0px 50px;
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
 
   &_item{
     margin: auto;
@@ -35,13 +35,10 @@
 
 
 //---- フッター ----
-footer{
+.copyright{
   width: 100%;
   position: absolute;
-  bottom: 20px
+  bottom: 5px;
+  text-align: center;
 }
 
-.copyright{
-  width: 135px;
-  margin: auto;
-}
