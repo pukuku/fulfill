@@ -1,3 +1,12 @@
+<div class="row">
+  <% if alert %>
+    <p class="alert col-12"><%= alert %></p>
+  <% end %>
+  <% if flash[:notice] %>
+    <p class="flash col-12"><%= flash[:notice]%></p>
+  <% end %>
+</div>
+
 <div class="user_data mt-3 ml-2">
   <div class="icon">
     <%= attachment_image_tag user, :user_image, :fill, 60, 60, format:"jpeg", fallback:"no_image.jpeg",class:"icon_img" %>

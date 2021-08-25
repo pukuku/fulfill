@@ -45,26 +45,11 @@
     </header>
 
     <main>
-      <div class="container">
-        <div class="row">
-          <% if alert %>
-            <p class="alert"><%= alert %></p>
-          <% end %>
-          <% if flash[:notice] %>
-            <p class="flash"><%= flash[:notice]%></p>
-          <% end %>
-        </div>
-      </div>
-
       <div class="full_area">
         <%= yield %>
+        <p class="copyright">CopyRight pukuku</p>
       </div>
     </main>
-
-
-    <footer class="foot">
-      <p class="copyright">CopyRight pukuku</p>
-    </footer>
 
   </body>
 
