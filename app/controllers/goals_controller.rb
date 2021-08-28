@@ -3,12 +3,12 @@ class GoalsController < ApplicationController
   before_action :user_info
 
   def index
-    @goals = current_user.goals.rank(:row_order).where(status:false)
-    @completes = current_user.goals.rank(:row_order).where(status:true)
+    @goals = current_user.goals.rank(:row_order).where(status: false)
+    @completes = current_user.goals.rank(:row_order).where(status: true)
   end
 
   def sort
-    goal= Goal.find(params[:id])
+    goal = Goal.find(params[:id])
     goal.update(rank_params)
     render body: nil
   end
@@ -69,14 +69,14 @@ class GoalsController < ApplicationController
   end
 
   def destroy
-    @goal=Goal.find(params[:id])
+    @goal = Goal.find(params[:id])
     # アクセス権
     @correct_user = User.find(@goal.user_id)
     if @correct_user != current_user
       redirect_to goals_path
     end
     @goal.destroy
-    flash[:notice]="削除しました"
+    flash[:notice] = "削除しました"
     redirect_to goals_path
   end
 
@@ -107,29 +107,29 @@ class GoalsController < ApplicationController
       @task.save
       @task.task_work_create
     end
-    flash[:notice]="コピーしました"
+    flash[:notice] = "コピーしました"
     redirect_to goal_path(@goal.id)
   end
 
   def reset_row_order
-    @goals = current_user.goals.rank(:row_order).where(status:false)
+    @goals = current_user.goals.rank(:row_order).where(status: false)
     @goals.each_with_index do |goal, i|
       goal.update_attribute :row_order, i + 1
     end
     @count = @goals.count
-    @completes = current_user.goals.rank(:row_order).where(status:true)
+    @completes = current_user.goals.rank(:row_order).where(status: true)
     @completes.each_with_index do |goal, i|
       goal.update_attribute :row_order, @count + i + 1
     end
   end
 
-private
+  private
 
   def goal_params
     params.require(:goal).permit(:content, :row_order_position)
   end
+
   def rank_params
     params.permit(:status, :row_order_position)
   end
-
 end

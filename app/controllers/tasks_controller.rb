@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :user_info
 
   def new
-    @task=Task.new
+    @task = Task.new
     @goal = Goal.find(params[:goal_id])
   end
 
@@ -21,8 +21,8 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @goal=Goal.find(params[:goal_id])
-    @task=Task.find(params[:id])
+    @goal = Goal.find(params[:goal_id])
+    @task = Task.find(params[:id])
   end
 
   def update
@@ -46,10 +46,9 @@ class TasksController < ApplicationController
     end
   end
 
-private
+  private
 
   def task_params
     params.require(:task).permit(:content, :sun, :mon, :tue, :wed, :thu, :fri, :sat)
   end
-
 end

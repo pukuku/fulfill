@@ -1,5 +1,13 @@
 <div class="container mt-5">
   <div class="row">
+    <% if alert %>
+      <p class="alert col-12"><%= alert %></p>
+    <% end %>
+    <% if flash[:notice] %>
+      <p class="flash col-12"><%= flash[:notice]%></p>
+    <% end %>
+  </div>
+  <div class="row">
     <h4 class=" mx-auto">ログイン</h4>
   </div>
   <div class="row">

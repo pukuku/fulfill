@@ -13,5 +13,4 @@ class User < ApplicationRecord
   has_many :clips, dependent: :destroy
 
   attachment :user_image
-
 end

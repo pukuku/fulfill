@@ -1,5 +1,4 @@
 class Clip < ApplicationRecord
-
   with_options presence: true do
     validates :user_id
     validates :share_id
@@ -7,5 +6,4 @@ class Clip < ApplicationRecord
 
   belongs_to :user
   belongs_to :share
-
 end

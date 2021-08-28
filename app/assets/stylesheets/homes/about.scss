@@ -52,12 +52,10 @@
 .about_btn{
   margin: auto;
   line-height: 610px;
-  // background-image: linear-gradient(to top, #e14fad 0%, #f9d423 100%);
   padding: 20px;
   border-radius: 10px;
   color: #fff;
-// background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
-background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
+  background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
 
   &:hover{
     color: #fff;

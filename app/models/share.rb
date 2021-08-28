@@ -1,5 +1,4 @@
 class Share < ApplicationRecord
-
   with_options presence: true do
     validates :user_id
     validates :goal_id
@@ -14,7 +13,6 @@ class Share < ApplicationRecord
 
   # クリップ済みチェック
   def cliped_by?(user)
-	  clips.where(user_id: user.id).exists?
+    clips.where(user_id: user.id).exists?
   end
-
 end

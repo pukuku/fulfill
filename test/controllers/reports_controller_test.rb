@@ -20,5 +20,4 @@ class ReportsControllerTest < ActionDispatch::IntegrationTest
     get reports_complete_url
     assert_response :success
   end
-
 end

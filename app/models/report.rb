@@ -1,5 +1,4 @@
 class Report < ApplicationRecord
-
   with_options presence: true do
     validates :goal_id
     validates :comment
@@ -9,5 +8,4 @@ class Report < ApplicationRecord
   end
 
   belongs_to :goal
-
 end

@@ -13,11 +13,11 @@
   </div>
   <div class="row">
     <div class="col-6 mb-2 ml-4">
-      <h4>目標</h4>
+      <h4>編集</h4>
     </div>
     <div class="col-6 ml-5">
       <%= form_with model: @goal,url: goal_path(@goal),class:"goal_form form-group", remote: true do |f| %>
-        <%= f.text_field :content,class:"form-control" %>
+        <%= f.text_field :content,class:"form-control",id:"goal_content" %>
       <% end %>
     </div>
   </div>

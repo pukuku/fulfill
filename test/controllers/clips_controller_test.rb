@@ -10,5 +10,4 @@ class ClipsControllerTest < ActionDispatch::IntegrationTest
     get clips_destroy_url
     assert_response :success
   end
-
 end

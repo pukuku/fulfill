@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def edit
     @user = current_user
   end
@@ -7,7 +6,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      flash[:notice]="更新しました"
+      flash[:notice] = "更新しました"
       redirect_to goals_path
     else
       render "edit"
@@ -20,15 +19,14 @@ class UsersController < ApplicationController
   def quit
     @user = current_user
     @user.destroy
-    reset_session #ログアウト
-    flash[:notice]="退会しました"
+    reset_session # ログアウト
+    flash[:notice] = "退会しました"
     redirect_to root_path
   end
 
-private
+  private
 
   def user_params
     params.require(:user).permit(:email, :name, :user_image)
   end
-
 end
