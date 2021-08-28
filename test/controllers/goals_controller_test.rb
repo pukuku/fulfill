@@ -45,5 +45,4 @@ class GoalsControllerTest < ActionDispatch::IntegrationTest
     get goals_init_create_url
     assert_response :success
   end
-
 end

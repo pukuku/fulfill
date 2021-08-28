@@ -1,6 +1,5 @@
 class Batch::Daily
   def self.daily
-
     # 締まっていないレポートのみ空レポート作成
     goals = Goal.left_joins(:reports).select("goals.*").where("reports.id is null")
     success = 0
@@ -11,7 +10,7 @@ class Batch::Daily
       report.comment = "コメント未送信のためデータなし"
       report.fulness = 0
       report.task_all = TaskWork.where(goal_id: goal.id).count
-      report.task_progress = TaskWork.where(goal_id: goal.id,status: true).count
+      report.task_progress = TaskWork.where(goal_id: goal.id, status: true).count
       report.post_date = Time.now - (60)
       if report.save
         success += 1
@@ -49,7 +48,7 @@ class Batch::Daily
     success = 0
     error = 0
     tasks.each do |task|
-      today_task =TaskWork.new
+      today_task = TaskWork.new
       today_task.goal_id = task.goal_id
       today_task.task_id = task.id
       if today_task.save
@@ -60,8 +59,5 @@ class Batch::Daily
     end
     p "#{success}件のタスクを作成しました"
     p "エラーは#{error}件です"
-
   end
 end
-
-

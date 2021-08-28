@@ -35,5 +35,4 @@ class SharesControllerTest < ActionDispatch::IntegrationTest
     get shares_destroy_url
     assert_response :success
   end
-
 end

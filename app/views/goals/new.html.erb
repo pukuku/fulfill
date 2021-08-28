@@ -1,7 +1,13 @@
-<div class="container">
-  <div class="row mt-5 mb-5"></div>
-  <div class="row mt-5">
-    <div class="col-3 mx-auto">
+<!--サブエリア-->
+<div class="sub_area">
+  <%= render 'users/show', user: @user, clips: @clips %>
+</div>
+
+<!--メインエリア-->
+<div class="main_area">
+  <!--ページヘッド部-->
+  <div class="row mt-3">
+    <div class="col-6 ml-1">
       <h4>目標を決めましょう</h4>
       <div><%= render "layouts/errors", obj: @goal %></div>
     </div>
@@ -9,13 +15,13 @@
 
   <%= form_with model: @goal, local: true do |f| %>
     <div class="row mt-5">
-      <div class="col-5 mx-auto">
-        <%= f.text_field :content, size:"40",class:"form-control-lg" %>
+      <div class="col-5 ml-4">
+        <%= f.text_field :content, size:"40",class:"form-control-sm" %>
+      </div>
+      <div class="col-1 ml-5">
+        <%= f.submit '新規登録', class:"btn btn-success btn-sm"%>
       </div>
     </div>
 
-    <div class="row mt-5 mb-5">
-      <div class="col-1 mx-auto"><%= f.submit '新規登録', class:"btn-flat-success"%></div>
-    </div>
   <% end %>
 </div>

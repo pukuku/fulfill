@@ -5,5 +5,4 @@ class TaskWorksControllerTest < ActionDispatch::IntegrationTest
     get task_works_update_url
     assert_response :success
   end
-
 end
