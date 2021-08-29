@@ -58,6 +58,8 @@
 // 見出し
 h4{
   text-decoration: underline dotted;
+  word-break: break-all;
+
   &:before{
   	content:"";
     background-image: image-url("icon.png");
@@ -96,12 +98,15 @@ ul{
   color: #808080;
 }
 
-
 // テキストエリアのサイズ
 .area_form{
   width: 350px;
   height: 150px;
   border-radius: 5px;
+}
+
+.text_wrap{
+  word-break: break-all;
 }
 
 // セレクトボックスの角を丸くする

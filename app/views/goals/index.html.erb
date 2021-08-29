@@ -21,19 +21,19 @@
         <div class="note_area ml-4" id="sortable_goal_0">
           <% @goals.each do |goal| %>
             <div class="draggable-item goal_0 d-flex align-items-center mb-1 point" value=<%= goal.id %>>
-                <%= link_to goal.content, goal_path(goal.id), class:'link' %>
-                  <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="コピーする"　 data-delay="500">
-               　　  <%= link_to "", copy_goal_path(goal.id), class:"ml-2 fas fa-copy",method: :post %>
-                  </span>
-                <% if goal.share %>
-                  <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="シェアの編集"　 data-delay="500">
-                    <%= link_to "", edit_share_path(goal.share.id), class:"ml-2 fas fa-share-alt-square" %>
-                  </span>
-                <% else %>
-                  <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="シェアする"　 data-delay="500">
-                    <%= link_to "", new_goal_share_path(goal.id), class:"ml-2 fas fa-share-alt-square" %>
-                  </span>
-                <% end %>
+              <%= link_to goal.content, goal_path(goal.id), class:'link text_wrap' %>
+              <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="コピーする"　 data-delay="500">
+             　  <%= link_to "", copy_goal_path(goal.id), class:"ml-2 fas fa-copy",method: :post %>
+              </span>
+              <% if goal.share %>
+                <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="シェアの編集"　 data-delay="500">
+                  <%= link_to "", edit_share_path(goal.share.id), class:"ml-2 fas fa-share-alt-square" %>
+                </span>
+              <% else %>
+                <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="シェアする"　 data-delay="500">
+                  <%= link_to "", new_goal_share_path(goal.id), class:"ml-2 fas fa-share-alt-square" %>
+                </span>
+              <% end %>
             </div>
           <% end %>
         </div>
@@ -43,12 +43,18 @@
         <div class="note_area ml-4" id="sortable_goal_1">
           <% @completes.each do |complete| %>
             <div class="draggable-item goal_1 d-flex align-items-center mb-1 point" value=<%= complete.id %>>
-              <%= link_to complete.content, goal_path(complete.id), class:'link' %>
-              <%= link_to "", copy_goal_path(complete.id), class:"ml-2 fas fa-copy",method: :post %>
+              <%= link_to complete.content, goal_path(complete.id), class:'link text_wrap' %>
+              <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="コピーする"　 data-delay="500">
+                <%= link_to "", copy_goal_path(complete.id), class:"ml-2 fas fa-copy",method: :post %>
+              </span>
               <% if complete.share %>
-                <%= link_to "", edit_share_path(complete.share.id), class:"ml-2 fas fa-share-alt-square" %>
+                <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="シェアの編集"　 data-delay="500">
+                  <%= link_to "", edit_share_path(complete.share.id), class:"ml-2 fas fa-share-alt-square" %>
+                </span>
               <% else %>
-                <%= link_to "", new_goal_share_path(complete.id), class:"ml-2 fas fa-share-alt-square" %>
+                <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="シェアする"　 data-delay="500">
+                  <%= link_to "", new_goal_share_path(complete.id), class:"ml-2 fas fa-share-alt-square" %>
+                </span>
               <% end %>
             </div>
           <% end %>
