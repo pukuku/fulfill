@@ -30,8 +30,7 @@ http
 貯金を使用と思ったとき　ダイエットを使用と思ったとき　資格を取りたいとき　など、目標が決まったとき
 
 ## Design documents
-機能一覧：https://docs.google.com/spreadsheets/d/1cgzJke1VzmLdBV6eqiz6AEdrxbZMoLMwAQsx0qWPKr0/edit?usp=sharing  
-画面遷移図：https://drive.google.com/file/d/1KG1Sazbp6WCwNJQkcYJqztTUQs53QEb8/view?usp=sharing  
+機能一覧：https://docs.google.com/spreadsheets/d/1cgzJke1VzmLdBV6eqiz6AEdrxbZMoLMwAQsx0qWPKr0/edit?usp=sharing   
 ワイヤーフレーム：https://drive.google.com/file/d/1faJe52h9bsdoCc-boBXuIzp9XRgMYmME/view?usp=sharing  
 ER図：https://drive.google.com/file/d/1QrRrvn_u6IyCEa2uVghU9YDobM2mQMYe/view?usp=sharing  
 テーブル定義書：https://docs.google.com/spreadsheets/d/11is1dHCLPhLQgMzmNlBEootF2EIbftbw/edit?usp=sharing&ouid=116271808043362304355&rtpof=true&sd=true  
