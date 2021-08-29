@@ -5,11 +5,11 @@
       <div class="wide_note_area">
         <% task_works.each do |task_work| %>
           <% if task_work.status == true %>
-            <%= link_to task_work_path(task_work),class:"fas fa-check-circle d-block link mb-2", method: :patch, remote: true do %>
+            <%= link_to task_work_path(task_work),class:"fas fa-check-circle d-block link mb-2 text_wrap", method: :patch, remote: true do %>
               <%= task_work.task.content %>
             <% end %>
           <% else %>
-            <%= link_to task_work_path(task_work),class:"far fa-circle d-block link mb-2", method: :patch, remote: true do %>
+            <%= link_to task_work_path(task_work),class:"far fa-circle d-block link mb-2 text_wrap", method: :patch, remote: true do %>
               <%= task_work.task.content %>
             <% end %>
           <% end %>
