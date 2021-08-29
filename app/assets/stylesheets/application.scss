@@ -101,6 +101,12 @@ ul{
 .area_form{
   width: 350px;
   height: 150px;
+  border-radius: 5px;
+}
+
+// セレクトボックスの角を丸くする
+select{
+  border-radius: 5px;
 }
 
 // メッセージ
