@@ -8,8 +8,8 @@
 目標とそれを実現するために必要なタスクを管理し、完了度や充実度を評価することでユーザーの目標の実現を支援し、ユーザーの人生を充実させることを目的としております。
 
 ## Usage
-トップ画面より「ゲストログイン」をクリックすることでユーザー登録をすることなくお試しいただけます。  
-使用方法詳細につきましては下記URLをご参照ください。  
+[サイトトップ](https://fulfill-pf.com/)より「ゲストログイン」をクリックすることでユーザー登録をすることなくお試しいただけます。  
+使用方法詳細につきましてはを下記URLご参照ください。  
 http  
 
 ## Theme
@@ -34,9 +34,7 @@ http
 
 ![ER図](https://user-images.githubusercontent.com/82363539/131244949-61a394b1-5d53-43bf-b921-459b0bfc238e.png)
 
-機能一覧：https://docs.google.com/spreadsheets/d/1cgzJke1VzmLdBV6eqiz6AEdrxbZMoLMwAQsx0qWPKr0/edit?usp=sharing   
-ワイヤーフレーム：https://drive.google.com/file/d/1faJe52h9bsdoCc-boBXuIzp9XRgMYmME/view?usp=sharing  
-ER図：https://drive.google.com/file/d/1QrRrvn_u6IyCEa2uVghU9YDobM2mQMYe/view?usp=sharing  
+ワイヤーフレーム：https://drive.google.com/file/d/1faJe52h9bsdoCc-boBXuIzp9XRgMYmME/view?usp=sharing   
 テーブル定義書：https://docs.google.com/spreadsheets/d/11is1dHCLPhLQgMzmNlBEootF2EIbftbw/edit?usp=sharing&ouid=116271808043362304355&rtpof=true&sd=true  
 詳細設計：https://docs.google.com/spreadsheets/d/1zwGEi1PPiEVFZQEBgJR-wkFxijWHSOYxNPNf1Aj4omE/edit?usp=sharing  
 
