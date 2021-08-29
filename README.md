@@ -30,6 +30,10 @@ http
 貯金を使用と思ったとき　ダイエットを使用と思ったとき　資格を取りたいとき　など、目標が決まったとき
 
 ## Design documents
+- ER図
+
+![ER図](https://user-images.githubusercontent.com/82363539/131244949-61a394b1-5d53-43bf-b921-459b0bfc238e.png)
+
 機能一覧：https://docs.google.com/spreadsheets/d/1cgzJke1VzmLdBV6eqiz6AEdrxbZMoLMwAQsx0qWPKr0/edit?usp=sharing   
 ワイヤーフレーム：https://drive.google.com/file/d/1faJe52h9bsdoCc-boBXuIzp9XRgMYmME/view?usp=sharing  
 ER図：https://drive.google.com/file/d/1QrRrvn_u6IyCEa2uVghU9YDobM2mQMYe/view?usp=sharing  
