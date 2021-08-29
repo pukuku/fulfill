@@ -31,6 +31,7 @@ class Users::SessionsController < Devise::SessionsController
       user.password = SecureRandom.urlsafe_base64
     end
     sign_in user
+    flash[:notice] = "ログインしました"
     redirect_to goals_path
   end
 end
