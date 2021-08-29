@@ -1,4 +1,4 @@
-<div align="center"><img src="app/assets/images/logo.jpg" alt="FULFILL!" width="200" height="200" style="text-align: center;  object-fit: cover;"></div>
+<div align="center"><img src="app/assets/images/logo.jpg" alt="FULFILL!" width="200" height="200" ></div>
 
 
 # FULFILL!
