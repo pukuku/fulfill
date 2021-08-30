@@ -10,7 +10,7 @@
   <%= form_with model: @goal,url: init_create_goals_path, local: true do |f| %>
     <div class="row mt-5">
       <div class="col-5 mx-auto">
-        <%= f.text_field :content, size:"40",class:"form-control-lg" %>
+        <%= f.text_field :content, size:"40",class:"form-control-lg", autofocus: true %>
       </div>
     </div>
 

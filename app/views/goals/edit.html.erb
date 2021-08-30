@@ -17,7 +17,7 @@
     </div>
     <div class="col-6 ml-5">
       <%= form_with model: @goal,url: goal_path(@goal),class:"goal_form form-group", remote: true do |f| %>
-        <%= f.text_field :content,class:"form-control",id:"goal_content" %>
+        <%= f.text_field :content,class:"form-control",id:"goal_content", autofocus: true %>
       <% end %>
     </div>
   </div>

@@ -8,7 +8,7 @@
       <h4 class="col-11 ml-2">タスクを登録する</h4>
       <p class="modal_display_error col-10 ml-3"><i class="fas fa-exclamation-circle"></i>タスクを入力してください</p>
       <div class="col-12 mt-4 ml-3">
-        <%= f.text_field :content, class:"content_form form-control-sm",size:"40" %>
+        <%= f.text_field :content, class:"content_form form-control-sm",size:"40", autofocus: true %>
         <%= f.button type: "submit", class:"btn modal_display_btn" do %>
           <i class="fas fa-edit"></i>
         <% end %>
