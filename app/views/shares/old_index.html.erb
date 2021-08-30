@@ -1,0 +1,33 @@
+<!--サブエリア-->
+<div class="sub_area">
+  <%= render 'users/show', user: @user, clips: @clips %>
+</div>
+
+<!--メインエリア-->
+<div class="main_area">
+  <!--ページヘッド部-->
+  <div class="row mt-4">
+    <div class="col-12">
+      <%= form_with(url: shares_path, method: :get, enforce_utf8: false,class:"d-flex align-items-center", local: true) do |f| %>
+        <%= f.collection_select :search_category, Category.all, :id, :name, :include_blank => "カテゴリを選択",:selected => @category,id:"search_category" %>
+        <%= f.check_box :search_status,class:"ml-4 form-check-inline",id:"search_status" %>
+        <%= f.label :達成済みのみ表示, for:"search_status" %>
+        <%= f.check_box :search_sort,class:"ml-4 form-check-inline",id:"search_sort" %>
+        <%= f.label :クリップが多い順, for:"search_sort" %>
+        <%= f.text_field :search_word,class:"ml-4 form-control-sm",value: @word,id:"search_word" %>
+        <%= f.button :type => "submit", class:"btn" do %>
+          <i class="fas fa-search search_form_icon"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="share_area">
+      <div class="share_area_inside">
+        <div class="col-12 d-flex flex-wrap align-content-around built_target">
+          <!--<div class=""></div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
