@@ -7,7 +7,7 @@
     </div>
     <div class="task_area">
       <% tasks.each do |task| %>
-        <div class="mb-2">
+        <div class="mb-2 text_wrap">
           <%= link_to edit_goal_task_path(@goal.id,task),class:"task_modal_open task_week_content d-block link", remote: true do %>
             <%= task.content %>
           <% end %>

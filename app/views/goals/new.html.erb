@@ -16,7 +16,7 @@
   <%= form_with model: @goal, local: true do |f| %>
     <div class="row mt-5">
       <div class="col-5 ml-4">
-        <%= f.text_field :content, size:"40",class:"form-control-sm" %>
+        <%= f.text_field :content, size:"40",class:"form-control-sm", autofocus: true %>
       </div>
       <div class="col-1 ml-5">
         <%= f.submit '新規登録', class:"btn btn-success btn-sm"%>
