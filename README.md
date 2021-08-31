@@ -9,9 +9,8 @@
 
 ## Usage
 [サイトトップ](https://fulfill-pf.com/)より「ゲストログイン」をクリックすることでユーザー登録をすることなくお試しいただけます。  
-<!-- 使用方法詳細につきましてはを下記URLご参照ください。  
-http  
- -->
+使用方法詳細につきましてはを[こちら](https://docs.google.com/presentation/d/16ZTLhkF-w2Ona4xbRLonQldN5kGsZuhGbQuAgXbwSck/edit?usp=sharing)をご参照ください。  
+
 ## Theme
 あらゆる目標がこれ1つで達成まで管理できるアプリ  
 
