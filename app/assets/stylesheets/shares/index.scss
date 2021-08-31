@@ -90,6 +90,33 @@
 
 }
 
+.search_area{
+  display:flex;
+  width: 850px;
+  margin: 15px 0;
+
+  .check_btn_link{
+    display: inline-block;
+    text-decoration: none;
+    margin: auto;
+    margin-right: 3px;
+    color: #808080;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    background: linear-gradient(#ffffe0 0%, #fffacd 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+
+    &:hover{
+      color:#808080;
+      text-decoration: none;
+    }
+  }
+}
 
 
 

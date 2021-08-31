@@ -1,0 +1,3 @@
+
+$(".check_btn").html("<%= j(render partial: "shares/search", locals: {category:@category, status:@status, sort:@sort, word:@word, shares:@shares}) %>")
+$(".sub_area").html("<%= j(render partial: "users/show", locals: {user:@user, clips:@clips}) %>")

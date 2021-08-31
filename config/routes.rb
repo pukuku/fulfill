@@ -10,12 +10,11 @@ Rails.application.routes.draw do
     patch 'sort', on: :member
     resources :shares, only: [:new, :create]
     resources :tasks, only: [:new, :create, :edit, :update, :destroy]
-    resources :reports, only: [:create, :index, :show] do
-      get 'complete', on: :member
-    end
+    resources :reports, only: [:create, :index, :show]
   end
 
   resources :shares, except: [:new, :create] do
+    get 'search', on: :collection
     resource :clips, only: [:create, :destroy]
   end
 

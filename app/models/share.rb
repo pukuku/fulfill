@@ -7,6 +7,7 @@ class Share < ApplicationRecord
   end
 
   has_many :clips, dependent: :destroy
+  has_many :cliped_users, through: :clips, source: :user
   belongs_to :user
   belongs_to :goal
   belongs_to :category

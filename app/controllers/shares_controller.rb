@@ -2,9 +2,15 @@ class SharesController < ApplicationController
   before_action :user_info
 
   def index
+    @shares = Share.all
+  end
+
+  def search
     # 検索条件がある場合は絞り込んでいく
     @category = params[:search_category]
     @word = params[:search_word]
+    @status = params[:search_status]
+    @sort = params[:search_sort]
     @shares = Share.joins(:goal)
     # カテゴリ選択
     if params[:search_category].present?
@@ -20,7 +26,11 @@ class SharesController < ApplicationController
     end
     # クリップ順に並べ替え
     if params[:search_sort].present? && params[:search_sort] == "1"
-      @shares = @shares.left_joins(:clips).group("shares.id").order("count(*) desc")
+    @shares = @shares.includes(:cliped_users).
+      sort {|a,b|
+        b.cliped_users.includes(:clips).size <=>
+        a.cliped_users.includes(:clips).size
+      }
     end
   end
 
