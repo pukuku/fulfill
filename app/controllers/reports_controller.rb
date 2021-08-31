@@ -31,15 +31,6 @@ class ReportsController < ApplicationController
     end
   end
 
-  def complete
-    @report = Report.find(params[:id])
-    # アクセス権
-    @correct_user = User.find(@report.goal.user_id)
-    if @correct_user.id != current_user.id
-      redirect_to goals_path
-    end
-  end
-
   private
 
   def report_params

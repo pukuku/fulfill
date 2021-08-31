@@ -1,0 +1,63 @@
+<div class="check_btn">
+  <div class="search_area">
+    <!--<div class="col-8 d-flex justify-content-between align-items-center">-->
+      <%= form_with(url: search_shares_path, method: :get, enforce_utf8: false,class:"d-flex align-items-center", remote: true) do |f| %>
+        <%= f.collection_select :search_category, Category.all, :id, :name, :include_blank => "カテゴリを選択",:selected => @category %>
+        <%= f.hidden_field :search_status, value:status %>
+        <%= f.hidden_field :search_sort, value:sort %>
+        <%= f.text_field :search_word,class:"ml-4 form-control-sm",value:word %>
+        <%= f.button :type => "submit", class:"btn" do %>
+          <i class="fas fa-search search_form_icon"></i>
+        <% end %>
+      <% end %>
+    <!--</div>-->
+    <!--<div class="col-4 d-flex align-items-center check_btn_area">-->
+      <% if status.present? %>
+        <%= link_to "未達含む",search_shares_path(search_category:category,search_status:"",search_sort:sort,search_word:word),class:"fas fa-medal share_complete check_btn_link",remote:true %>
+      <% else %>
+        <%= link_to "達成のみ",search_shares_path(search_category:category,search_status:"1",search_sort:sort,search_word:word),class:"fas fa-medal share_complete check_btn_link",remote:true %>
+      <% end %>
+      <% if sort.present? %>
+        <%= link_to "新着順",search_shares_path(search_category:category,search_status:status, search_sort:"",search_word:word),class:"fas fa-sort-amount-down check_box_styele check_btn_link ml-2",remote:true %>
+      <% else %>
+        <%= link_to "クリップ順",search_shares_path(search_category:category,search_status:status, search_sort:"1",search_word:word),class:"fas fa-sort-amount-down check_box_styele check_btn_link ml-2",remote:true %>
+      <% end %>
+    <!--</div>-->
+  </div>
+  <div class="row mt-3">
+    <div class="share_area">
+      <div class="share_area_inside">
+        <div class="col-12 d-flex flex-wrap align-content-around">
+          <% shares.each do |share| %>
+            <div class="share_block ml-3 mr-2 mt-2 mb-2">
+              <div class="share_item">
+                <%= link_to "",share_path(share.id),class:"share_link"%>
+                <div>
+                  <% if share.goal.status %>
+                    <i class="fas fa-medal share_complete"></i>
+                  <% end %>
+                </div>
+                <div class="text-center">
+                  <%= attachment_image_tag share.user, :user_image, :fill, 60, 60, format:"jpeg", fallback:"no_image.jpeg",class:"icon_img" %>
+                </div>
+                <div class="text-center share_text">
+                  <%= share.user.name %>
+                </div>
+                <div class="text-center share_text">
+                  <%= share.goal.content %>
+                </div>
+                <div class="text-center">
+                  [<%= share.category.name %>]
+                </div>
+                <div class="text-center">
+                  <p class="fas fa-paperclip"></p>
+                  <%= share.clips.count %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
