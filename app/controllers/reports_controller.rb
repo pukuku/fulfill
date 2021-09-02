@@ -19,7 +19,7 @@ class ReportsController < ApplicationController
     @report.goal_id = params[:goal_id]
     @report.task_all = TaskWork.where(goal_id: @report.goal_id).count
     @report.task_progress = TaskWork.where(goal_id: @report.goal_id, status: true).count
-    @report.fulness = 0
+    @report.fulness = Language.get_data(report_params[:comment])
     @report.post_date = Time.now
     if @report.save
       flash[:notice] = "レポートを記入しました"

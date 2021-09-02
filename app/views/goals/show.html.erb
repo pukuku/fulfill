@@ -28,23 +28,17 @@
     <div class="sticky_score_area ml-5">
       <%= render 'layouts/sticky', hole: 10, sel: "score" %>
       <h5 class="sticky_data_title">今月の満足度</h5>
-      <!--4ヶ月目要件-->
-      <!--<p class="sticky_data_body">%= @goal.sum_fulness %></p>-->
-      <p class="sticky_data_body">0</p>
+      <p class="sticky_data_body"><%= @goal.month_fulness %></p>
     </div>
     <div class="sticky_score_area">
       <%= render 'layouts/sticky', hole: 10, sel: "score" %>
       <h5 class="sticky_data_title">今週の満足度</h5>
-      <!--4ヶ月目要件-->
-      <!--<p class="sticky_data_body">%= @goal.sum_fulness %></p>-->
-      <p class="sticky_data_body">0</p>
+      <p class="sticky_data_body"><%= @goal.week_fulness %></p>
     </div>
     <div class="sticky_score_area">
       <%= render 'layouts/sticky', hole: 10, sel: "score" %>
       <h5 class="sticky_data_title">今月のタスク完了度</h5>
-      <!--4ヶ月目要件-->
-      <!--<p class="sticky_data_body">%= BigDecimal(@goal.sum_progress.to_s).floor(2).to_f %></p>-->
-      <p class="sticky_data_body">0%</p>
+      <p class="sticky_data_body"><%= @goal.sum_progress %>%</p>
     </div>
   </div>
 

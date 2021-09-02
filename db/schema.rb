@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_18_115527) do
+ActiveRecord::Schema.define(version: 2021_09_02_003321) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2021_08_18_115527) do
   create_table "reports", force: :cascade do |t|
     t.integer "goal_id", null: false
     t.string "comment", null: false
-    t.float "fulness", null: false
+    t.decimal "fulness", precision: 5, scale: 3, null: false
     t.integer "task_all", null: false
     t.integer "task_progress", null: false
     t.datetime "created_at", null: false
