@@ -33,10 +33,19 @@ class Goal < ApplicationRecord
     fulness = Report.where(goal_id: self.id).sum(:fulness)
     weekly = fulness / day
     # 1週間の中で月をまたぐ場合は月初から今日までを表示する
-    if monthly > weekly
-      return monthly
+    if monthly > 0
+      if monthly > weekly
+        return monthly
+      else
+        return weekly
+      end
     else
-      return weekly
+    # 月初がマイナスの場合
+      if monthly < weekly
+        return monthly
+      else
+        return weekly
+      end
     end
   end
 
