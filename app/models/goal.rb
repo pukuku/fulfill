@@ -18,26 +18,40 @@ class Goal < ApplicationRecord
   ranks :row_order , with_same: :user_id
 
   # fulness取得
-  def sum_fulness
-    reports = Report.where(goal_id: self.id)
-    sum = 0
-    reports.each do |report|
-      sum += report.fulness
+  def month_fulness
+    day = Time.now.day
+    fulness = Report.where(goal_id: self.id).sum(:fulness)
+    monthly = fulness / day
+    return monthly
+  end
+  def week_fulness
+    day = Time.now.day
+    fulness = Report.where(goal_id: self.id).sum(:fulness)
+    monthly = fulness / day
+
+    day = Time.now.wday
+    fulness = Report.where(goal_id: self.id).sum(:fulness)
+    weekly = fulness / day
+    # 1週間の中で月をまたぐ場合は月初から今日までを表示する
+    if monthly > weekly
+      return monthly
+    else
+      return weekly
     end
-    return sum
   end
 
   # progress取得
   def sum_progress
-    reports = Report.where(goal_id: self.id)
-    progress = 0.0
-    all = 0.0
-    pct = 0.0
-    reports.each do |report|
-      progress += report.task_progress.to_f
-      all += report.task_all.to_f
+    # レポート全件取得
+    all = Report.where(goal_id: self.id).sum(:task_all)
+    progress = Report.where(goal_id: self.id).sum(:task_progress)
+  # ZeroDivisionError の例外処理
+    begin
+      pct = (progress.to_f / all) * 100
+    rescue
+      pct=0
     end
-    pct = (progress / all) * 100
+    pct = pct.to_s(:rounded, precision: 1)
     return pct
   end
 
