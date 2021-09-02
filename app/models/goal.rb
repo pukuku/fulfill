@@ -24,19 +24,16 @@ class Goal < ApplicationRecord
     monthly = fulness / day
     return monthly
   end
-  def week_fulness
-    day = Time.now.day
-    fulness = Report.where(goal_id: self.id).sum(:fulness)
-    monthly = fulness / day
 
-    day = Time.now.wday
+  def week_fulness
     fulness = Report.where(goal_id: self.id).sum(:fulness)
-    weekly = fulness / day
+    day = Time.now.day
+    wday = Time.now.wday
     # 1週間の中で月をまたぐ場合は月初から今日までを表示する
-    if monthly > weekly
-      return monthly
+    if wday > day
+      return monthly = fulness / day
     else
-      return weekly
+      return weekly = fulness / wday
     end
   end
 
