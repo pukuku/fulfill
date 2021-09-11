@@ -1,21 +1,23 @@
 class Batch::Daily
   def self.daily
     # 締まっていないレポートのみ空レポート作成
-    goals = Goal.left_joins(:reports).select("goals.*").where("reports.id is null")
+    goals = Goal.where(status: false)
     success = 0
     error = 0
     goals.each do |goal|
-      report = Report.new
-      report.goal_id = goal.id
-      report.comment = "コメント未送信のためデータなし"
-      report.fulness = 0
-      report.task_all = TaskWork.where(goal_id: goal.id).count
-      report.task_progress = TaskWork.where(goal_id: goal.id, status: true).count
-      report.post_date = Time.now - (60)
-      if report.save
-        success += 1
-      else
-        error += 1
+      unless Report.find_by(goal_id: goal.id, post_date: Time.zone.yesterday.all_day)
+        report = Report.new
+        report.goal_id = goal.id
+        report.comment = "コメント未送信のためデータなし"
+        report.fulness = 0
+        report.task_all = TaskWork.where(goal_id: goal.id).count
+        report.task_progress = TaskWork.where(goal_id: goal.id, status: true).count
+        report.post_date = Time.now - (60)
+        if report.save
+          success += 1
+        else
+          error += 1
+        end
       end
     end
     p "#{success}件のレポートを作成しました"

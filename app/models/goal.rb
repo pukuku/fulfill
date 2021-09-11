@@ -22,7 +22,7 @@ class Goal < ApplicationRecord
     day = Time.now.day
     fulness = Report.where(goal_id: self.id).sum(:fulness)
     monthly = fulness / day
-    return monthly
+    return monthly.to_s(:rounded, precision: 2)
   end
 
   def week_fulness
@@ -31,9 +31,9 @@ class Goal < ApplicationRecord
     wday = Time.now.wday
     # 1週間の中で月をまたぐ場合は月初から今日までを表示する
     if wday > day
-      return monthly = fulness / day
+      return monthly = (fulness / day).to_s(:rounded, precision: 2)
     else
-      return weekly = fulness / wday
+      return weekly = (fulness / wday).to_s(:rounded, precision: 2)
     end
   end
 
@@ -45,6 +45,9 @@ class Goal < ApplicationRecord
   # ZeroDivisionError の例外処理
     begin
       pct = (progress.to_f / all) * 100
+      if pct.nan?
+        pct = 0
+      end
     rescue
       pct=0
     end

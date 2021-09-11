@@ -10,7 +10,6 @@ class GoalsController < ApplicationController
   def sort
     goal = Goal.find(params[:id])
     goal.update(rank_params)
-    render body: nil
   end
 
   def show
