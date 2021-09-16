@@ -63,8 +63,8 @@
   &.is-active {
     width: 300px;
     height: 370px;
-    display: block;/*表示*/
-    animation-name: displayAnime;/*ふわっと表示させるためのアニメーション*/
+    display: block;
+    animation-name: displayAnime;
     animation-duration: 1s;
     animation-fill-mode: forwards;
   }

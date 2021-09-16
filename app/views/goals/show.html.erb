@@ -1,6 +1,6 @@
 <!--サブエリア-->
 <div class="sub_area">
-  <%= render 'users/show', user: @user, clips: @clips %>
+  <%= render "users/show", user: @user, clips: @clips %>
 </div>
 
 <!--メインエリア-->
@@ -26,17 +26,17 @@
   <!--達成度・充実度評価-->
   <div class="row mt-2">
     <div class="sticky_score_area ml-5">
-      <%= render 'layouts/sticky', hole: 10, sel: "score" %>
+      <%= render "layouts/sticky", hole: 10, sel: "score" %>
       <h5 class="sticky_data_title">今月の満足度</h5>
       <p class="sticky_data_body"><%= @goal.month_fulness %></p>
     </div>
     <div class="sticky_score_area">
-      <%= render 'layouts/sticky', hole: 10, sel: "score" %>
+      <%= render "layouts/sticky", hole: 10, sel: "score" %>
       <h5 class="sticky_data_title">今週の満足度</h5>
       <p class="sticky_data_body"><%= @goal.week_fulness %></p>
     </div>
     <div class="sticky_score_area">
-      <%= render 'layouts/sticky', hole: 10, sel: "score" %>
+      <%= render "layouts/sticky", hole: 10, sel: "score" %>
       <h5 class="sticky_data_title">今月のタスク完了度</h5>
       <p class="sticky_data_body"><%= @goal.sum_progress %>%</p>
     </div>
@@ -45,7 +45,7 @@
   <!--今日のタスク・レポート送信-->
   <div class="row mt-1">
     <div class="col-6">
-      <%= render 'goals/task_works', task_works: @task_works %>
+      <%= render "goals/task_works", task_works: @task_works %>
     </div>
     <div class="col-6">
       <div>

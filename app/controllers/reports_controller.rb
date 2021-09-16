@@ -27,7 +27,7 @@ class ReportsController < ApplicationController
     else
       @goal = Goal.find(@report.goal_id)
       @task_works = TaskWork.where(goal_id: @report.goal_id)
-      render 'goals/show'
+      render "goals/show"
     end
   end
 
