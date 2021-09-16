@@ -1,6 +1,6 @@
 <!--サブエリア-->
 <div class="sub_area">
-  <%= render 'users/show', user: @user, clips: @clips %>
+  <%= render "users/show", user: @user, clips: @clips %>
 </div>
 
 <!--メインエリア-->
@@ -17,11 +17,11 @@
   <div class="row mt-5">
     <div class="note_block d-flex ml-5">
       <div class="note_box ml-1">
-        <h5 class="goal ml-3">目標 <%= link_to "", new_goal_path, class: 'fas fa-plus-circle' %></h5>
+        <h5 class="goal ml-3">目標 <%= link_to "", new_goal_path, class: "fas fa-plus-circle" %></h5>
         <div class="note_area ml-4" id="sortable_goal_0">
           <% @goals.each do |goal| %>
             <div class="draggable-item goal_0 d-flex align-items-center mb-1 point" value=<%= goal.id %>>
-              <%= link_to goal.content, goal_path(goal.id), class:'link text_wrap' %>
+              <%= link_to goal.content, goal_path(goal.id), class:"link text_wrap" %>
               <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="コピーする"　 data-delay="500">
              　  <%= link_to "", copy_goal_path(goal.id), class:"ml-2 fas fa-copy",method: :post %>
               </span>
@@ -43,7 +43,7 @@
         <div class="note_area ml-4" id="sortable_goal_1">
           <% @completes.each do |complete| %>
             <div class="draggable-item goal_1 d-flex align-items-center mb-1 point" value=<%= complete.id %>>
-              <%= link_to complete.content, goal_path(complete.id), class:'link text_wrap' %>
+              <%= link_to complete.content, goal_path(complete.id), class:"link text_wrap" %>
               <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="コピーする"　 data-delay="500">
                 <%= link_to "", copy_goal_path(complete.id), class:"ml-2 fas fa-copy",method: :post %>
               </span>

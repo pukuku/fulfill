@@ -4,10 +4,10 @@
     <title>FULFILL!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= favicon_link_tag('favicon.ico') %>
+    <%= favicon_link_tag("favicon.ico") %>
     <script src="https://kit.fontawesome.com/3d20b9dd2f.js " crossorigin="anonymous"></script>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
   </head>
 
   <body>
@@ -18,26 +18,26 @@
         <ul class="main_menu">
           <% if user_signed_in? %>
             <li class="nav_item">
-              <%= link_to current_user.name, edit_user_registration_path,class: 'nav_link' %>
+              <%= link_to current_user.name, edit_user_registration_path,class: "nav_link" %>
             </li>
             <li class="nav_item">
-              <%= link_to "マイページ", goals_path, class: 'nav_link' %>
+              <%= link_to "マイページ", goals_path, class: "nav_link" %>
             </li>
             <li class="nav_item">
-              <%= link_to "Share", shares_path, class: 'nav_link' %>
+              <%= link_to "Share", shares_path, class: "nav_link" %>
             </li>
             <li class="nav_item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav_link' %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav_link" %>
             </li>
           <% else %>
             <li class="nav_item">
-              <%= link_to "FULFILL!って？", about_path, class: 'nav_link' %>
+              <%= link_to "FULFILL!って？", about_path, class: "nav_link" %>
             </li>
             <li class="nav_item">
-              <%= link_to "新規登録", new_user_registration_path, class: 'nav_link' %>
+              <%= link_to "新規登録", new_user_registration_path, class: "nav_link" %>
             </li>
             <li class="nav_item">
-              <%= link_to "ログイン", new_user_session_path, class: 'nav_link' %>
+              <%= link_to "ログイン", new_user_session_path, class: "nav_link" %>
             </li>
           <% end %>
         </ul>

@@ -32,7 +32,7 @@ class GoalsController < ApplicationController
     if @goal.save
       redirect_to goal_path(@goal.id)
     else
-      render 'new'
+      render "new"
     end
   end
 
@@ -88,7 +88,7 @@ class GoalsController < ApplicationController
     if @goal.save
       redirect_to goals_path
     else
-      render 'init'
+      render "init"
     end
   end
 

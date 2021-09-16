@@ -1,6 +1,6 @@
 <!--サブエリア-->
 <div class="sub_area">
-  <%= render 'users/show', user: @user, clips: @clips %>
+  <%= render "users/show", user: @user, clips: @clips %>
 </div>
 
 <!--メインエリア-->
@@ -19,7 +19,7 @@
             <%= link_to "", share_path(@share.id),class:"fas fa-trash-alt ml-2",method: :delete %>
           </span>
         <% else %>
-          <%= render 'clips/clip', share: @share %>
+          <%= render "clips/clip", share: @share %>
           <span class="user_tooltip" data-toggle="tooltip" data-placement="top" title="コピーする"　 data-delay="500">
             <%= link_to "", copy_goal_path(@share.goal_id), class:"fas fa-copy ml-2",method: :post %>
           </span>
@@ -33,14 +33,14 @@
     <!--Memoエリア-->
     <div class="col-5 mr-5">
       <div class="sticky_memo_area ml-3">
-        <%= render 'layouts/sticky', hole: 17, sel: "memo" %>
+        <%= render "layouts/sticky", hole: 17, sel: "memo" %>
         <p class="sticky_memo_category"><%= @share.category.name %></p>
         <pre class="sticky_memo_body"><%= @share.content %></pre>
       </div>
     </div>
 
     <!--週ごとタスク一覧-->
-    <%= render 'layouts/tasks_week', tasks_week: @tasks_week %>
+    <%= render "layouts/tasks_week", tasks_week: @tasks_week %>
 
   </div>
 </div>

@@ -78,7 +78,7 @@ class SharesController < ApplicationController
         @tasks_fri = Task.where(goal_id: @goal.id, fri: "1"),
         @tasks_sat = Task.where(goal_id: @goal.id, sat: "1")
       ]
-      render 'new'
+      render "new"
     end
   end
 
@@ -120,7 +120,7 @@ class SharesController < ApplicationController
       flash[:notice] = "更新しました"
       redirect_to share_path(@share.id)
     else
-      render 'edit'
+      render "edit"
     end
   end
 

@@ -1,9 +1,9 @@
 <!--サブエリア-->
 <div class="sub_area">
-  <%= render 'users/show', user: @user, clips: @clips %>
+  <%= render "users/show", user: @user, clips: @clips %>
 </div>
 
 <!--メインエリア-->
 <div class="main_area">
-  <%= render 'shares/search', category: @category, status: @status, sort: @sort, word: @word, shares: @shares %>
+  <%= render "shares/search", category: @category, status: @status, sort: @sort, word: @word, shares: @shares %>
 </div>
