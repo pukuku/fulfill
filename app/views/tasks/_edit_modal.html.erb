@@ -15,34 +15,14 @@
         <%= link_to "", goal_task_path(goal.id,task.id),class:"fas fa-trash-alt",method: :delete %>
       </div>
       <div class="col-12 d-flex justify-content-around">
-        <div>
-          <%= f.check_box :sun, id:"check_sun"%>
-          <%= f.label :日, for:"check_sun"%>
-        </div>
-        <div>
-          <%= f.check_box :mon, id:"check_mon" %>
-          <%= f.label :月, for:"check_mon" %>
-        </div>
-        <div>
-          <%= f.check_box :tue, id:"check_tue" %>
-          <%= f.label :火, for:"check_tue" %>
-        </div>
-        <div>
-          <%= f.check_box :wed, id:"check_wed" %>
-          <%= f.label :水, for:"check_wed" %>
-        </div>
-        <div>
-          <%= f.check_box :thu, id:"check_thu" %>
-          <%= f.label :木, for:"check_thu" %>
-        </div>
-        <div>
-          <%= f.check_box :fri, id:"check_fri" %>
-          <%= f.label :金, for:"check_fri" %>
-        </div>
-        <div>
-          <%= f.check_box :sat, id:"check_sat" %>
-          <%= f.label :土, for:"check_sat" %>
-        </div>
+        <% weeks=["sun", "mon", "tue", "wed", "thu", "fri", "stu"] %>
+        <% weeks_jp=["日", "月", "火", "水", "木", "金", "土"] %>
+        <% weeks.each_with_index do |week, i| %>
+          <div>
+            <%= f.check_box :"#{week}", id:"check_#{week}"%>
+            <%= f.label :"#{weeks_jp[i]}", for:"check_#{week}"%>
+          </div>
+        <% end %>
       </div>
     </div>
   <% end %>
