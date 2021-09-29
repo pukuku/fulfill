@@ -13,19 +13,19 @@ class SharesController < ApplicationController
     @sort = params[:search_sort]
     @shares = Share.joins(:goal)
     # カテゴリ選択
-    if params[:search_category].present?
-      @shares = @shares.where(category_id: params[:search_category])
+    if @category.present?
+      @shares = @shares.where(category_id: @category)
     end
     # 達成済みのみ
-    if params[:search_status].present? && params[:search_status] == "1"
+    if @status.present? && @status == "complete"
       @shares = @shares.merge(Goal.share_status)
     end
     # 文字の部分一致
-    if params[:search_word].present?
-      @shares = @shares.merge(Goal.share_word(params[:search_word]))
+    if @word.present?
+      @shares = @shares.merge(Goal.share_word(@word))
     end
     # クリップ順に並べ替え
-    if params[:search_sort].present? && params[:search_sort] == "1"
+    if @sort.present? && @sort == "popular"
     @shares = @shares.includes(:cliped_users).
       sort {|a,b|
         b.cliped_users.includes(:clips).size <=>
@@ -36,29 +36,13 @@ class SharesController < ApplicationController
 
   def show
     @share = Share.find(params[:id])
-    @tasks_week = [
-      @tasks_sun = Task.where(goal_id: @share.goal_id, sun: "1"),
-      @tasks_mon = Task.where(goal_id: @share.goal_id, mon: "1"),
-      @tasks_tue = Task.where(goal_id: @share.goal_id, tue: "1"),
-      @tasks_wed = Task.where(goal_id: @share.goal_id, wed: "1"),
-      @tasks_thu = Task.where(goal_id: @share.goal_id, thu: "1"),
-      @tasks_fri = Task.where(goal_id: @share.goal_id, fri: "1"),
-      @tasks_sat = Task.where(goal_id: @share.goal_id, sat: "1")
-    ]
+    @tasks_week = Task.tasks_week(@share.goal_id)
   end
 
   def new
     @share = Share.new
     @goal = Goal.find(params[:goal_id])
-    @tasks_week = [
-      @tasks_sun = Task.where(goal_id: @goal.id, sun: "1"),
-      @tasks_mon = Task.where(goal_id: @goal.id, mon: "1"),
-      @tasks_tue = Task.where(goal_id: @goal.id, tue: "1"),
-      @tasks_wed = Task.where(goal_id: @goal.id, wed: "1"),
-      @tasks_thu = Task.where(goal_id: @goal.id, thu: "1"),
-      @tasks_fri = Task.where(goal_id: @goal.id, fri: "1"),
-      @tasks_sat = Task.where(goal_id: @goal.id, sat: "1")
-    ]
+    @tasks_week = Task.tasks_week(@goal.id)
   end
 
   def create
@@ -69,53 +53,21 @@ class SharesController < ApplicationController
       redirect_to share_path(@share.id)
     else
       @goal = Goal.find(params[:goal_id])
-      @tasks_week = [
-        @tasks_sun = Task.where(goal_id: @goal.id, sun: "1"),
-        @tasks_mon = Task.where(goal_id: @goal.id, mon: "1"),
-        @tasks_tue = Task.where(goal_id: @goal.id, tue: "1"),
-        @tasks_wed = Task.where(goal_id: @goal.id, wed: "1"),
-        @tasks_thu = Task.where(goal_id: @goal.id, thu: "1"),
-        @tasks_fri = Task.where(goal_id: @goal.id, fri: "1"),
-        @tasks_sat = Task.where(goal_id: @goal.id, sat: "1")
-      ]
+      @tasks_week = Task.tasks_week(@goal.id)
       render "new"
     end
   end
 
   def edit
     @share = Share.find(params[:id])
-    # アクセス権
-    @correct_user = User.find(@share.goal.user_id)
-    if @correct_user.id != current_user.id
-      redirect_to goals_path
-    end
-    @tasks_week = [
-      @tasks_sun = Task.where(goal_id: @share.goal_id, sun: "1"),
-      @tasks_mon = Task.where(goal_id: @share.goal_id, mon: "1"),
-      @tasks_tue = Task.where(goal_id: @share.goal_id, tue: "1"),
-      @tasks_wed = Task.where(goal_id: @share.goal_id, wed: "1"),
-      @tasks_thu = Task.where(goal_id: @share.goal_id, thu: "1"),
-      @tasks_fri = Task.where(goal_id: @share.goal_id, fri: "1"),
-      @tasks_sat = Task.where(goal_id: @share.goal_id, sat: "1")
-    ]
+    user_check(@share.goal.user_id)
+    @tasks_week = Task.tasks_week(@share.goal_id)
   end
 
   def update
     @share = Share.find(params[:id])
-    # アクセス権
-    @correct_user = User.find(@share.goal.user_id)
-    if @correct_user.id != current_user.id
-      redirect_to goals_path
-    end
-    @tasks_week = [
-      @tasks_sun = Task.where(goal_id: @share.goal_id, sun: "1"),
-      @tasks_mon = Task.where(goal_id: @share.goal_id, mon: "1"),
-      @tasks_tue = Task.where(goal_id: @share.goal_id, tue: "1"),
-      @tasks_wed = Task.where(goal_id: @share.goal_id, wed: "1"),
-      @tasks_thu = Task.where(goal_id: @share.goal_id, thu: "1"),
-      @tasks_fri = Task.where(goal_id: @share.goal_id, fri: "1"),
-      @tasks_sat = Task.where(goal_id: @share.goal_id, sat: "1")
-    ]
+    user_check(@share.goal.user_id)
+    @tasks_week = Task.tasks_week(@share.goal_id)
     if @share.update(share_params)
       flash[:notice] = "更新しました"
       redirect_to share_path(@share.id)
@@ -125,13 +77,9 @@ class SharesController < ApplicationController
   end
 
   def destroy
-    @share = Share.find(params[:id])
-    # アクセス権
-    @correct_user = User.find(@share.goal.user_id)
-    if @correct_user.id != current_user.id
-      redirect_to goals_path
-    end
-    @share.destroy
+    share = Share.find(params[:id])
+    user_check(share.goal.user_id)
+    share.destroy
     flash[:notice] = "削除しました"
     redirect_to shares_path
   end

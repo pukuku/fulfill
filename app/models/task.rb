@@ -38,4 +38,14 @@ class Task < ApplicationRecord
     end
   end
 
+  # 1週間のタスクを取得
+  def self.tasks_week(goal_id)
+    tasks_week = []
+    weeks = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"]
+    weeks.each do |week|
+      tasks_week.push(Task.where(goal_id: goal_id, "#{week}": "1"))
+    end
+    tasks_week
+  end
+
 end

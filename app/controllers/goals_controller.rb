@@ -14,11 +14,7 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find(params[:id])
-    # アクセス権
-    @correct_user = User.find(@goal.user_id)
-    if @correct_user != current_user
-      redirect_to goals_path
-    end
+    user_check(@goal.user_id)
     @task_works = TaskWork.where(goal_id: @goal.id)
     @report = Report.new
   end
@@ -40,41 +36,21 @@ class GoalsController < ApplicationController
     @user = User.find(current_user.id)
     @clips = Clip.where(user_id: current_user.id).page(params[:page]).per(10)
     @goal = Goal.find(params[:id])
-    # アクセス権
-    @correct_user = User.find(@goal.user_id)
-    if @correct_user != current_user
-      redirect_to goals_path
-    end
+    user_check(@goal.user_id)
     @tasks = Task.where(goal_id: @goal.id)
-    @tasks_week = [
-      @tasks_sun = Task.where(goal_id: @goal.id, sun: "1"),
-      @tasks_mon = Task.where(goal_id: @goal.id, mon: "1"),
-      @tasks_tue = Task.where(goal_id: @goal.id, tue: "1"),
-      @tasks_wed = Task.where(goal_id: @goal.id, wed: "1"),
-      @tasks_thu = Task.where(goal_id: @goal.id, thu: "1"),
-      @tasks_fri = Task.where(goal_id: @goal.id, fri: "1"),
-      @tasks_sat = Task.where(goal_id: @goal.id, sat: "1")
-    ]
+    @tasks_week = Task.tasks_week(@goal.id)
   end
 
   def update
     @goal = Goal.find(params[:id])
-    # アクセス権
-    @correct_user = User.find(@goal.user_id)
-    if @correct_user != current_user
-      redirect_to goals_path
-    end
+    user_check(@goal.user_id)
     @goal.update(goal_params)
   end
 
   def destroy
-    @goal = Goal.find(params[:id])
-    # アクセス権
-    @correct_user = User.find(@goal.user_id)
-    if @correct_user != current_user
-      redirect_to goals_path
-    end
-    @goal.destroy
+    goal = Goal.find(params[:id])
+    user_check(goal.user_id)
+    goal.destroy
     flash[:notice] = "削除しました"
     redirect_to goals_path
   end
@@ -111,14 +87,14 @@ class GoalsController < ApplicationController
   end
 
   def reset_row_order
-    @goals = current_user.goals.rank(:row_order).where(status: false)
-    @goals.each_with_index do |goal, i|
+    goals = current_user.goals.rank(:row_order).where(status: false)
+    goals.each_with_index do |goal, i|
       goal.update_attribute :row_order, i + 1
     end
-    @count = @goals.count
-    @completes = current_user.goals.rank(:row_order).where(status: true)
-    @completes.each_with_index do |goal, i|
-      goal.update_attribute :row_order, @count + i + 1
+    count = goals.count
+    completes = current_user.goals.rank(:row_order).where(status: true)
+    completes.each_with_index do |goal, i|
+      goal.update_attribute :row_order, count + i + 1
     end
   end
 

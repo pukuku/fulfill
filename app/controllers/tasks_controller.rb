@@ -38,11 +38,11 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task = Task.find(params[:id])
-    if @task.destroy
+    task = Task.find(params[:id])
+    if task.destroy
       # 今日の曜日ならタスクワークを更新
-      @task.task_work_destroy
-      redirect_to edit_goal_path(@task.goal_id)
+      task.task_work_destroy
+      redirect_to edit_goal_path(task.goal_id)
     end
   end
 

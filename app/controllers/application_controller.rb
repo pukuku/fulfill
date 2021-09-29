@@ -8,9 +8,17 @@ class ApplicationController < ActionController::Base
     goals_path
   end
 
+  # サイドバーのユーザー情報
   def user_info
     @user = User.find(current_user.id)
     @clips = Clip.where(user_id: current_user.id).page(params[:page]).per(10)
+  end
+
+  # アクセス権
+  def user_check(goal_user)
+    if current_user.id != goal_user
+      redirect_to goals_path
+    end
   end
 
   protected
