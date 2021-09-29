@@ -55,13 +55,6 @@ class Goal < ApplicationRecord
     return pct
   end
 
-  # アクセス権
-  # def user_check(current_user)
-  #   if current_user.id != self.user_id
-  #     redirect_to goals_path
-  #   end
-  # end
-
   # シェア一覧検索用スコープ
   # コンテントにキーワードが入ったものを抽出
   scope :share_word, -> (word) { where(["goals.content like?","%#{word}%"])}
