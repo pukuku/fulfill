@@ -27,7 +27,7 @@ class Goal < ApplicationRecord
 
   def week_fulness
     day = Time.now.day
-    wday = Time.now.wday
+    wday = Time.now.wday + 1
     fulness = (Report.where(goal_id: self.id).sum(:fulness)).to_f
     # 1週間の中で月をまたぐ場合は月初から今日までを表示する
     if wday > day
