@@ -9,14 +9,12 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.goal_id = params[:goal_id]
-    if @task.save
-      # 今日の曜日ならタスクワークを更新
-      @task.task_work_create
-      @goal = Goal.new
-      @tasks = Task.where(goal_id: params[:goal_id])
+    @goal = Goal.find(params[:goal_id])
+    @tasks = Task.where(goal_id: params[:goal_id])
+    if @task.task_record_add
       redirect_to edit_goal_path(@task.goal_id)
     else
-      @goal = Goal.find(params[:goal_id])
+      flash[:notice] = "作成できませんでした"
     end
   end
 
@@ -27,22 +25,21 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    if @task.update(task_params)
-      # 今日の曜日ならタスクワークを更新
-      @task.task_work_create
-      @task.task_work_destroy
-      @goal = Goal.find(@task.goal_id)
-      @tasks = Task.where(goal_id: @task.goal_id)
+    @goal = Goal.find(@task.goal_id)
+    @tasks = Task.where(goal_id: @task.goal_id)
+    if @task.task_record_update(task_params)
       redirect_to edit_goal_path(@task.goal_id)
+    else
+      flash[:notice] = "変更できませんでした"
     end
   end
 
   def destroy
     task = Task.find(params[:id])
-    if task.destroy
-      # 今日の曜日ならタスクワークを更新
-      task.task_work_destroy
+    if task.task_record_destroy
       redirect_to edit_goal_path(task.goal_id)
+    else
+      flash[:notice] = "削除できませんでした"
     end
   end
 

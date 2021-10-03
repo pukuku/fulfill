@@ -12,6 +12,7 @@ class Share < ApplicationRecord
   belongs_to :goal
   belongs_to :category
 
+  # 追加メソッド
   # クリップ済みチェック
   def cliped_by?(user)
     clips.where(user_id: user.id).exists?

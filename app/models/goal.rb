@@ -17,23 +17,23 @@ class Goal < ApplicationRecord
   include RankedModel
   ranks :row_order , with_same: :user_id
 
+  # 追加メソッド
   # fulness取得
   def month_fulness
     day = Time.now.day
-    fulness = Report.where(goal_id: self.id).sum(:fulness)
-    monthly = fulness / day
-    return monthly.to_s(:rounded, precision: 2)
+    fulness = (Report.where(goal_id: self.id).sum(:fulness)).to_f
+    adjust(fulness,day)
   end
 
   def week_fulness
-    fulness = Report.where(goal_id: self.id).sum(:fulness)
     day = Time.now.day
     wday = Time.now.wday
+    fulness = (Report.where(goal_id: self.id).sum(:fulness)).to_f
     # 1週間の中で月をまたぐ場合は月初から今日までを表示する
     if wday > day
-      return monthly = (fulness / day).to_s(:rounded, precision: 2)
+      adjust(fulness,day)
     else
-      return weekly = (fulness / wday).to_s(:rounded, precision: 2)
+      adjust(fulness,wday)
     end
   end
 
@@ -42,17 +42,65 @@ class Goal < ApplicationRecord
     # レポート全件取得
     all = Report.where(goal_id: self.id).sum(:task_all)
     progress = Report.where(goal_id: self.id).sum(:task_progress)
-  # ZeroDivisionError の例外処理
+    (adjust(progress,all) *100).round(0)
+  end
+
+  # ZeroDivisionError,NaN,Infinity の例外処理
+  def adjust(base,div)
     begin
-      pct = (progress.to_f / all) * 100
-      if pct.nan?
-        pct = 0
-      end
+      result = base.to_f / div
+      # int型変換でエラーを起こす
+      result.to_i
     rescue
-      pct=0
+      result = 0
     end
-    pct = pct.to_s(:rounded, precision: 1)
-    return pct
+    result.ceil(2)
+  end
+
+  # ドロップアンドドロップで並べ替え
+  def goal_record_sort(rank_params, current_user)
+    is_true = true
+    Goal.transaction(joinable: false, requires_new: true) do
+      is_true &= self.update(rank_params)
+      reset_row_order(current_user)
+      unless is_true
+        raise ActiveRecord::Rollback
+      end
+    end
+    is_true
+  end
+
+  # 目標追加
+  def goal_record_add(current_user)
+    is_true = true
+    Goal.transaction(joinable: false, requires_new: true) do
+      is_true &= self.save
+      reset_row_order(current_user)
+      unless is_true
+        raise ActiveRecord::Rollback
+      end
+    end
+    is_true
+  end
+
+  # ranked_modelの番号を整列する
+  def reset_row_order(current_user)
+    is_true = true
+    Goal.transaction(joinable: false, requires_new: true) do
+     goals = current_user.goals.rank(:row_order).where(status: false)
+      goals.each_with_index do |goal, i|
+        is_true &= goal.update_attribute :row_order, i + 1
+      end
+      count = goals.count
+      completes = current_user.goals.rank(:row_order).where(status: true)
+      completes.each_with_index do |goal, i|
+        is_true &= goal.update_attribute :row_order, count + i + 1
+      end
+      unless is_true
+        raise ActiveRecord::Rollback
+      end
+    end
+    is_true
   end
 
   # シェア一覧検索用スコープ

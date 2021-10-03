@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def quit
     user = current_user
     user.destroy
-    reset_session # ログアウト
+    reset_session
     flash[:notice] = "退会しました"
     redirect_to root_path
   end
