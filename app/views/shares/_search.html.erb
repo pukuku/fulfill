@@ -9,12 +9,12 @@
           <i class="fas fa-search search_form_icon"></i>
         <% end %>
       <% end %>
-      <% if status.present? %>
+      <% if status=="complete" %>
         <%= link_to "未達含む",search_shares_path(search_category:category,search_status:"all",search_sort:sort,search_word:word),class:"fas fa-medal share_complete check_btn_link",remote:true %>
       <% else %>
         <%= link_to "達成のみ",search_shares_path(search_category:category,search_status:"complete",search_sort:sort,search_word:word),class:"fas fa-medal share_complete check_btn_link",remote:true %>
       <% end %>
-      <% if sort.present? %>
+      <% if sort=="popular" %>
         <%= link_to "新着順",search_shares_path(search_category:category,search_status:status, search_sort:"new",search_word:word),class:"fas fa-sort-amount-down check_box_styele check_btn_link ml-2",remote:true %>
       <% else %>
         <%= link_to "クリップ順",search_shares_path(search_category:category,search_status:status, search_sort:"popular",search_word:word),class:"fas fa-sort-amount-down check_box_styele check_btn_link ml-2",remote:true %>
