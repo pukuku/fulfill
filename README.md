@@ -4,7 +4,7 @@
 # FULFILL!
 
 ## Overview
-【FULFILL!】は目標達成アプリです。  
+【FULFILL!】は目標達成支援アプリです。  
 目標とそれを実現するために必要なタスクを管理し、完了度や充実度を評価することでユーザーの目標の実現を支援し、ユーザーの人生を充実させることを目的としております。
 
 ## Usage
@@ -39,6 +39,10 @@
 
 ## List of challenges
 https://docs.google.com/spreadsheets/d/1GlrxuI0WsPtIopD3BBLAWCb-jklrHXlxBCpdsykUFWM/edit?usp=sharing
+
+- ドラッグアンドドロップ使用場面  
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/82363539/136560550-373213e9-e860-4d68-ba04-afc80376f1f8.gif)
+
 
 ## Development environment
 - OS：Linux(CentOS)
