@@ -46,7 +46,7 @@ https://docs.google.com/spreadsheets/d/1GlrxuI0WsPtIopD3BBLAWCb-jklrHXlxBCpdsykU
 
 ## Development environment
 - OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- 言語：HTML,CSS,JavaScript,Ruby
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
